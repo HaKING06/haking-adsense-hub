@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#reading-count').textContent = `${visible} yazı`;
     document.querySelector('#reading-empty').hidden = visible !== 0;
   };
+  update();
   search.addEventListener('input', update);
   category.addEventListener('change', update);
   search.closest('form').addEventListener('submit', event => event.preventDefault());
