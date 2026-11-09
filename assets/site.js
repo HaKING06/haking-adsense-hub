@@ -14,3 +14,25 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const search = document.querySelector('#reading-search');
+  const category = document.querySelector('#reading-category');
+  if (!search || !category) return;
+  const cards = [...document.querySelectorAll('[data-reading-card]')];
+  const update = () => {
+    const query = search.value.trim().toLocaleLowerCase('tr-TR');
+    let visible = 0;
+    for (const card of cards) {
+      const matches = (!category.value || card.dataset.category === category.value)
+        && card.textContent.toLocaleLowerCase('tr-TR').includes(query);
+      card.hidden = !matches;
+      if (matches) visible += 1;
+    }
+    document.querySelector('#reading-count').textContent = `${visible} yazı`;
+    document.querySelector('#reading-empty').hidden = visible !== 0;
+  };
+  search.addEventListener('input', update);
+  category.addEventListener('change', update);
+  search.closest('form').addEventListener('submit', event => event.preventDefault());
+});
