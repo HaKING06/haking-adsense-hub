@@ -363,3 +363,5 @@ button, input, textarea { font: inherit; }
 @media(max-width:1000px){.project-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:800px){.project-detail-card>.project-detail-content:only-child{display:block;padding:24px}.project-detail-card>.project-detail-content:only-child>.project-banner{position:static;margin-bottom:24px;max-height:none}}
 @media(max-width:560px){.project-catalog{grid-template-columns:minmax(0,1fr)}.catalog-content{padding:22px}}
+
+.project-reading{grid-column:1/-1;padding:20px 28px;border-top:1px solid var(--line);line-height:1.7}
