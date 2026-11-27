@@ -114,10 +114,10 @@ export function renderLayout({
   <link rel="alternate" type="application/rss+xml" title="HaKING — Haberler ve Mühendislik Yazıları" href="${SITE.domain}/rss.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="HaKING Arama" href="${SITE.domain}/opensearch.xml">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="assets/images/brand/logo-64.png" sizes="64x64">
-  <link rel="icon" type="image/png" href="assets/images/brand/logo-192.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico?v=${SITE.assetVersion}" sizes="any">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-64.png?v=${SITE.assetVersion}" sizes="64x64">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-192.png?v=${SITE.assetVersion}" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png?v=${SITE.assetVersion}">
   <meta property="og:site_name" content="${esc(SITE.name)}">
   <meta property="og:locale" content="${SITE.locale}">
   <meta property="og:type" content="${esc(ogType)}">
@@ -146,7 +146,7 @@ export function renderLayout({
   <header class="site-header">
     <nav class="nav wrap" aria-label="Ana gezinme">
       <a class="brand" href="index.html" aria-label="HaKING ana sayfa">
-        <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING amblemi" width="38" height="38">
+        <img class="brand-mark" src="assets/images/brand/logo-64.png?v=${SITE.assetVersion}" alt="HaKING HK taç amblemi" width="40" height="40">
         <span class="brand-text">
           <span class="brand-name">HaKING</span>
           <span class="brand-sub">Yazılım Stüdyosu &amp; Yayın</span>
@@ -182,7 +182,7 @@ ${bodyHtml}
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html">
-            <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING amblemi" width="38" height="38" loading="lazy">
+            <img class="brand-mark" src="assets/images/brand/logo-64.png?v=${SITE.assetVersion}" alt="HaKING HK taç amblemi" width="40" height="40" loading="lazy">
             <span class="brand-text">
               <span class="brand-name">HaKING</span>
               <span class="brand-sub">Halit Güneş · haking.tr</span>
@@ -208,13 +208,13 @@ ${bodyHtml}
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Haberler &amp; Rehberler</h4>
+          <h4>Araçlar &amp; Haberler</h4>
           <ul>
+            <li><a href="araclar.html">Online Araçlar (5 Araç)</a></li>
+            <li><a href="durum.html">Canlı Ekosistem Durumu</a></li>
             <li><a href="haberler.html">Teknoloji Haberleri</a></li>
             <li><a href="blog.html">Mühendislik Yazıları</a></li>
             <li><a href="haking-ai-prompt-modu.html">HaKING Prompt Modu</a></li>
-            <li><a href="haber-cs2-ekonomi-doppler-likidite-analizi.html">CS2 Valve Cent Aracı</a></li>
-            <li><a href="rehber-not-hesaplama.html">Not Hesaplama Aracı</a></li>
           </ul>
         </div>
         <div class="footer-col">

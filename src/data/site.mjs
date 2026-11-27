@@ -9,7 +9,7 @@ export const SITE = {
   adsTxtLine: 'google.com, pub-2827419116684137, DIRECT, f08c47fec0942fa0',
   buildDate: '2026-11-27',
   buildDateDisplay: '27 Kasım 2026',
-  assetVersion: '20261127-3',
+  assetVersion: '20261127-4',
   author: {
     name: 'Halit Güneş',
     handle: 'HaKING06',
@@ -34,6 +34,7 @@ export const SITE = {
   nav: [
     { href: 'index.html', label: 'Ana Sayfa', id: 'home' },
     { href: 'projects.html', label: 'Projeler', id: 'projects' },
+    { href: 'araclar.html', label: 'Araçlar', id: 'tools' },
     { href: 'haberler.html', label: 'Haberler', id: 'news' },
     { href: 'blog.html', label: 'Yazılar', id: 'blog' },
     { href: 'hakkimda.html', label: 'Hakkımda', id: 'about' },

@@ -16,6 +16,20 @@
     <image:image><image:loc>https://haking.tr/assets/images/brand/og-haking.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://haking.tr/araclar.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/brand/og-haking.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/durum.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/brand/og-haking.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://haking.tr/haking-ai-prompt-modu.html</loc>
     <lastmod>2026-11-27</lastmod>
     <changefreq>weekly</changefreq>

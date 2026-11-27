@@ -1,5 +1,33 @@
 [
   {
+    "title": "Online Mühendislik Araçları Stüdyosu (5 Araç)",
+    "desc": "AI Prompt Kurucu, CS2 Valve Cent & Başa Baş, OKLCH/WCAG Kontrast, Not Hesaplayıcı ve Google SERP Testi.",
+    "url": "araclar.html",
+    "type": "Online Araç",
+    "tags": [
+      "araçlar",
+      "wcag",
+      "oklch",
+      "valve cent",
+      "serp",
+      "prompt kurucu",
+      "not hesaplama"
+    ]
+  },
+  {
+    "title": "Canlı Ekosistem Durumu & Mimari Harita (15 Servis)",
+    "desc": "Tüm aktif *.haking.tr web servislerinin sürüm, altyapı ve tarayıcı içi canlı erişim (RTT) panosu.",
+    "url": "durum.html",
+    "type": "Durum",
+    "tags": [
+      "durum",
+      "status",
+      "canlı servis",
+      "ping",
+      "cloudflare"
+    ]
+  },
+  {
     "title": "HaKING AI Prompt Modu (v1.19.2)",
     "desc": "AI agentları için görev kartlı Türkçe prompt atölyesi, 7 görev türü ve canlı karşılaştırıcı.",
     "url": "haking-ai-prompt-modu.html",

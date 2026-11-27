@@ -12,6 +12,8 @@ import { renderProjectsCatalog, renderProjectDetail } from '../src/templates/pro
 import { renderPromptModePage } from '../src/templates/prompt-mode-page.mjs';
 import { renderBlogArchive, renderNewsHub, renderArticlePage } from '../src/templates/articles-pages.mjs';
 import { renderAboutPage, renderGitHubPage, renderHirePage, renderContactPage } from '../src/templates/studio-pages.mjs';
+import { renderToolsStudioPage } from '../src/templates/tools-studio-page.mjs';
+import { renderStatusPage } from '../src/templates/status-page.mjs';
 import {
   renderEditorialPolicy,
   renderPrivacyPolicy,
@@ -40,6 +42,8 @@ function xmlEsc(s = '') {
 const pages = [
   { file: 'index.html', urlPath: '', html: renderHomePage(ALL_ARTICLES, NEWS_ARTICLES), lastmod: SITE.buildDate, priority: '1.0', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
   { file: 'projects.html', urlPath: 'projects.html', html: renderProjectsCatalog(), lastmod: SITE.buildDate, priority: '0.95', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
+  { file: 'araclar.html', urlPath: 'araclar.html', html: renderToolsStudioPage(), lastmod: SITE.buildDate, priority: '0.95', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
+  { file: 'durum.html', urlPath: 'durum.html', html: renderStatusPage(), lastmod: SITE.buildDate, priority: '0.85', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
   { file: 'haking-ai-prompt-modu.html', urlPath: 'haking-ai-prompt-modu.html', html: renderPromptModePage(), lastmod: SITE.buildDate, priority: '0.95', changefreq: 'weekly', image: 'assets/images/projects/prompt-mode.webp' },
   { file: 'blog.html', urlPath: 'blog.html', html: renderBlogArchive(ALL_ARTICLES), lastmod: SITE.buildDate, priority: '0.90', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
   { file: 'haberler.html', urlPath: 'haberler.html', html: renderNewsHub(ALL_ARTICLES, NEWS_ARTICLES), lastmod: SITE.buildDate, priority: '0.90', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
@@ -158,6 +162,8 @@ ${rssItems
 
 // 4. Generate search-index.json (powers instant Ctrl+K command palette)
 const searchIndex = [
+  { title: 'Online Mühendislik Araçları Stüdyosu (5 Araç)', desc: 'AI Prompt Kurucu, CS2 Valve Cent & Başa Baş, OKLCH/WCAG Kontrast, Not Hesaplayıcı ve Google SERP Testi.', url: 'araclar.html', type: 'Online Araç', tags: ['araçlar', 'wcag', 'oklch', 'valve cent', 'serp', 'prompt kurucu', 'not hesaplama'] },
+  { title: 'Canlı Ekosistem Durumu & Mimari Harita (15 Servis)', desc: 'Tüm aktif *.haking.tr web servislerinin sürüm, altyapı ve tarayıcı içi canlı erişim (RTT) panosu.', url: 'durum.html', type: 'Durum', tags: ['durum', 'status', 'canlı servis', 'ping', 'cloudflare'] },
   { title: 'HaKING AI Prompt Modu (v1.19.2)', desc: 'AI agentları için görev kartlı Türkçe prompt atölyesi, 7 görev türü ve canlı karşılaştırıcı.', url: 'haking-ai-prompt-modu.html', type: 'Yeni Özellik', tags: ['prompt modu', 'codex', 'agent', 'haking ai'] },
   { title: 'Proje Yaptır & Brief Oluşturucu', desc: 'Web uygulaması, AI arayüzü, tarayıcı eklentisi ve teknik SEO için interaktif teklif hazırlayıcı.', url: 'proje-yaptir.html', type: 'Stüdyo', tags: ['proje yaptır', 'teklif', 'iş birliği', 'freelance'] },
   { title: 'Hakkımda — Halit Güneş (Ben Kimim?)', desc: 'İstanbul Kültür Üniversitesi Bilgisayar Programcılığı, yetkinlik haritası ve üretim kronolojisi.', url: 'hakkimda.html', type: 'Profil', tags: ['halit güneş', 'hakkımda', 'yazar', 'kimim'] },
@@ -224,6 +230,8 @@ const llmsTxt = `# HaKING (haking.tr)
 
 ## Öne Çıkan Sayfalar
 - [Ana Sayfa](${SITE.domain}/): Stüdyo özeti, seçili ürünler ve mühendislik yazıları.
+- [Online Mühendislik Araçları (5 Araç)](${SITE.domain}/araclar.html): Prompt Kurucu, CS2 Valve Cent & Başa Baş, OKLCH/WCAG Kontrast, Not Hesaplayıcı ve Google SERP Önizleyici.
+- [Canlı Ekosistem Durumu](${SITE.domain}/durum.html): Tüm aktif *.haking.tr servislerinin mimari haritası ve tarayıcı erişim testi.
 - [HaKING AI Prompt Modu (v1.19.2)](${SITE.domain}/haking-ai-prompt-modu.html): Codex ve AI agentları için görev kartlı Türkçe prompt atölyesi.
 - [Açık Kaynak Projeler (15 Ürün)](${SITE.domain}/projects.html): Tüm büyük public GitHub projeleri ve canlı adresleri.
 - [Mühendislik Yazıları](${SITE.domain}/blog.html): Vaka analizleri ve teknik rehberler.

@@ -646,6 +646,15 @@
       const color = profit >= 0 ? 'var(--forest)' : 'var(--accent)';
 
       outEl.innerHTML = `Adet başı Valve kesintisi: <strong>$${feePerUnit.toFixed(2)}</strong> (%${effFeePct.toFixed(2)}) · Steam cüzdanına geçen net: <strong>$${netPerUnit.toFixed(2)}</strong> (${qty} adet toplam <strong>$${totalNet.toFixed(2)}</strong>)<br>Net sonuç: <strong style="color:${color};font-size:1.12em;">${profit >= 0 ? '+' : ''}$${profit.toFixed(2)} (${roi >= 0 ? '+' : ''}%${roi.toFixed(2)})</strong> · Çarpan: <strong>${(totalNet / totalCost).toFixed(4)}x</strong>`;
+
+      const beEl = $('#vc-breakeven', box);
+      if (beEl) {
+        const targetNetCents = Math.round(buy * 100);
+        const sf = Math.max(1, Math.floor(targetNetCents * 0.05));
+        const gf = Math.max(1, Math.floor(targetNetCents * 0.10));
+        const breakEvenBuyer = (targetNetCents + sf + gf) / 100;
+        beEl.innerHTML = `Başa baş (0% zarar) minimum Steam alıcı satış fiyatı: <strong>$${breakEvenBuyer.toFixed(2)}</strong> (bu fiyatın üstü net kâra geçer).`;
+      }
     };
 
     [buyEl, sellEl, qtyEl].forEach((el) => el?.addEventListener('input', calc));
@@ -707,6 +716,301 @@
     }
   }
 
+  /* -----------------------------------------------------------------------
+     15. Online Tools Studio Engines (araclar.html) + Status Ping (durum.html) + Project Finder
+     ----------------------------------------------------------------------- */
+  function initPromptBuilder() {
+    const root = $('[data-prompt-builder]');
+    if (!root) return;
+    const agentEl = $('#pb-agent', root);
+    const typeEl = $('#pb-type', root);
+    const goalEl = $('#pb-goal', root);
+    const outEl = $('#pb-output', root);
+    const copyBtn = $('#pb-copy-btn', root);
+
+    const build = () => {
+      const agent = agentEl?.value || 'AI Agent';
+      const type = typeEl?.value || 'Özellik';
+      const goal = (goalEl?.value || '').trim() || 'Görev tanımı girilmedi.';
+      const rules = $$('input[name="pb-rule"]:checked', root).map((c) => `- ${c.value}`);
+      const text = [
+        `HEDEF AGENT: ${agent}`,
+        `GÖREV TÜRÜ: ${type}`,
+        ``,
+        `1. AMAÇ`,
+        goal,
+        ``,
+        `2. ZORUNLU KORUMA VE SINIRLAR`,
+        ...(rules.length ? rules : ['- Mevcut çalışan kodu bozmadan ilerle.']),
+        ``,
+        `3. ÇIKTI VE KABUL ÖLÇÜTÜ`,
+        `- Çözümü parça parça değil, uçtan uca doğrulanmış biçimde tamamla.`,
+        `- Bilinmeyen veya doğrulanmamış varsayımları uydurma; net belirt.`
+      ].join('\n');
+      if (outEl) outEl.textContent = text;
+      if (copyBtn) copyBtn.dataset.copyText = text;
+    };
+
+    root.addEventListener('input', build);
+    root.addEventListener('change', build);
+    build();
+  }
+
+  function initColorStudio() {
+    const root = $('[data-color-studio]');
+    if (!root) return;
+    const fgPick = $('#cs-fg-pick', root);
+    const fgHex = $('#cs-fg-hex', root);
+    const bgPick = $('#cs-bg-pick', root);
+    const bgHex = $('#cs-bg-hex', root);
+    const preview = $('#cs-preview', root);
+    const ratioEl = $('#cs-ratio', root);
+    const badgesEl = $('#cs-badges', root);
+    const copyBtn = $('#cs-copy-css', root);
+
+    const normalizeHex = (v) => {
+      const m = String(v || '').trim().match(/^#?([0-9a-f]{6})$/i);
+      return m ? `#${m[1].toUpperCase()}` : null;
+    };
+    const hexToRgb = (hex) => [
+      parseInt(hex.slice(1, 3), 16),
+      parseInt(hex.slice(3, 5), 16),
+      parseInt(hex.slice(5, 7), 16)
+    ];
+    const srgbToLin = (c) => {
+      const v = c / 255;
+      return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    };
+    const relLum = ([r, g, b]) => 0.2126 * srgbToLin(r) + 0.7152 * srgbToLin(g) + 0.0722 * srgbToLin(b);
+    const rgbToHsl = ([r, g, b]) => {
+      const rn = r / 255, gn = g / 255, bn = b / 255;
+      const max = Math.max(rn, gn, bn), min = Math.min(rn, gn, bn);
+      const l = (max + min) / 2;
+      let h = 0, s = 0;
+      if (max !== min) {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        if (max === rn) h = ((gn - bn) / d + (gn < bn ? 6 : 0)) * 60;
+        else if (max === gn) h = ((bn - rn) / d + 2) * 60;
+        else h = ((rn - gn) / d + 4) * 60;
+      }
+      return `hsl(${Math.round(h)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%)`;
+    };
+    // Exact Björn Ottosson sRGB -> OKLab -> OKLCH conversion
+    const rgbToOklch = ([r, g, b]) => {
+      const lr = srgbToLin(r), lg = srgbToLin(g), lb = srgbToLin(b);
+      const l_ = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
+      const m_ = Math.cbrt(0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb);
+      const s_ = Math.cbrt(0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb);
+      const L = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_;
+      const A = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_;
+      const B = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_;
+      const C = Math.hypot(A, B);
+      let H = (Math.atan2(B, A) * 180) / Math.PI;
+      if (H < 0) H += 360;
+      return `oklch(${(L * 100).toFixed(1)}% ${C.toFixed(3)} ${C < 0.002 ? 0 : Math.round(H)})`;
+    };
+
+    const render = (fg, bg) => {
+      const fRgb = hexToRgb(fg), bRgb = hexToRgb(bg);
+      const l1 = relLum(fRgb), l2 = relLum(bRgb);
+      const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+
+      if (preview) {
+        preview.style.color = fg;
+        preview.style.backgroundColor = bg;
+      }
+      if (ratioEl) ratioEl.textContent = `${ratio.toFixed(2)} : 1`;
+      if (badgesEl) {
+        const badge = (lbl, ok) => `<span class="tag ${ok ? 'tag-forest' : 'tag-accent'}">${lbl}: ${ok ? 'GEÇTİ ✓' : 'KALDI ✕'}</span>`;
+        badgesEl.innerHTML = badge('AA Normal (4.5)', ratio >= 4.5) + badge('AAA (7.0)', ratio >= 7) + badge('AA Büyük (3.0)', ratio >= 3);
+      }
+      const fOklch = rgbToOklch(fRgb), bOklch = rgbToOklch(bRgb);
+      const set = (id, v) => { const el = $(id, root); if (el) el.textContent = v; };
+      set('#cs-fg-rgb', `rgb(${fRgb.join(', ')})`);
+      set('#cs-bg-rgb', `rgb(${bRgb.join(', ')})`);
+      set('#cs-fg-hsl', rgbToHsl(fRgb));
+      set('#cs-bg-hsl', rgbToHsl(bRgb));
+      set('#cs-fg-oklch', fOklch);
+      set('#cs-bg-oklch', bOklch);
+      if (copyBtn) {
+        copyBtn.dataset.copyText = `:root {\n  --ink: ${fg}; /* ${fOklch} */\n  --surface: ${bg}; /* ${bOklch} */\n  /* WCAG 2.1 Contrast: ${ratio.toFixed(2)}:1 */\n}`;
+      }
+    };
+
+    const syncFromPickers = () => {
+      const fg = fgPick.value.toUpperCase();
+      const bg = bgPick.value.toUpperCase();
+      fgHex.value = fg;
+      bgHex.value = bg;
+      render(fg, bg);
+    };
+    const syncFromHex = () => {
+      const fg = normalizeHex(fgHex.value);
+      const bg = normalizeHex(bgHex.value);
+      if (fg) fgPick.value = fg;
+      if (bg) bgPick.value = bg;
+      if (fg && bg) render(fg, bg);
+    };
+
+    fgPick?.addEventListener('input', syncFromPickers);
+    bgPick?.addEventListener('input', syncFromPickers);
+    fgHex?.addEventListener('input', syncFromHex);
+    bgHex?.addEventListener('input', syncFromHex);
+    $$('[data-cs-preset]', root).forEach((b) => {
+      b.addEventListener('click', () => {
+        const [fg, bg] = b.dataset.csPreset.split('|');
+        fgPick.value = fg; bgPick.value = bg;
+        syncFromPickers();
+      });
+    });
+    $('#cs-swap', root)?.addEventListener('click', () => {
+      const tmp = fgPick.value;
+      fgPick.value = bgPick.value;
+      bgPick.value = tmp;
+      syncFromPickers();
+    });
+    syncFromPickers();
+  }
+
+  function initSerpTool() {
+    const root = $('[data-serp-tool]');
+    if (!root) return;
+    const tIn = $('#serp-title', root);
+    const uIn = $('#serp-url', root);
+    const dIn = $('#serp-desc', root);
+    const bIn = $('#serp-body', root);
+    const tStat = $('#serp-title-stat', root);
+    const dStat = $('#serp-desc-stat', root);
+    const tOut = $('#serp-out-title', root);
+    const uOut = $('#serp-out-url', root);
+    const dOut = $('#serp-out-desc', root);
+    const metOut = $('#serp-metrics', root);
+
+    const update = () => {
+      const title = tIn.value.trim();
+      const desc = dIn.value.trim();
+      const url = uIn.value.trim() || 'https://haking.tr/';
+      const words = (bIn.value.trim().match(/\S+/g) || []).length;
+      const readMin = Math.max(1, Math.ceil(words / 210));
+      const tOk = title.length >= 30 && title.length <= 60;
+      const dOk = desc.length >= 110 && desc.length <= 160;
+
+      if (tStat) {
+        tStat.textContent = `${title.length} / 60 ${tOk ? '✓' : title.length > 60 ? '(kesilebilir)' : '(kısa)'}`;
+        tStat.style.color = tOk ? 'var(--forest)' : 'var(--accent)';
+      }
+      if (dStat) {
+        dStat.textContent = `${desc.length} / 155 ${dOk ? '✓' : desc.length > 160 ? '(kesilebilir)' : '(kısa)'}`;
+        dStat.style.color = dOk ? 'var(--forest)' : 'var(--accent)';
+      }
+      if (tOut) tOut.textContent = title.length > 62 ? `${title.slice(0, 60)}…` : title || 'Sayfa Başlığı';
+      if (uOut) uOut.textContent = url;
+      if (dOut) dOut.textContent = desc.length > 160 ? `${desc.slice(0, 158)}…` : desc || 'Meta açıklama önizlemesi...';
+      if (metOut) {
+        metOut.innerHTML = `<span class="callout-title">İçerik &amp; SEO Özeti</span><p style="margin:0;font-size:0.9rem;">Kelime sayısı: <strong>${words}</strong> · Karakter: <strong>${bIn.value.length}</strong> · Tahmini okuma süresi: <strong>${readMin} dk</strong> · Başlık durumu: <strong>${tOk ? 'İdeal' : 'İyileştirilebilir'}</strong> · Meta açıklama: <strong>${dOk ? 'İdeal' : 'İyileştirilebilir'}</strong>.</p>`;
+      }
+    };
+    [tIn, uIn, dIn, bIn].forEach((el) => el?.addEventListener('input', update));
+    update();
+  }
+
+  function initStatusPing() {
+    const btn = $('#status-ping-all');
+    if (!btn) return;
+    const summary = $('#status-ping-summary');
+    const rows = $$('[data-ping-row]');
+
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      let okCount = 0;
+      if (summary) summary.textContent = `${rows.length} servis tarayıcınızdan paralel olarak test ediliyor…`;
+
+      await Promise.all(
+        rows.map(async (row) => {
+          const url = row.dataset.pingUrl;
+          const cell = $('[data-ping-cell]', row);
+          if (cell) {
+            cell.textContent = 'Ölçülüyor…';
+            cell.style.color = 'var(--ochre)';
+          }
+          const t0 = performance.now();
+          const ctrl = new AbortController();
+          const timer = setTimeout(() => ctrl.abort(), 7000);
+          try {
+            await fetch(url, { mode: 'no-cors', cache: 'no-store', signal: ctrl.signal });
+            const ms = Math.max(1, Math.round(performance.now() - t0));
+            okCount += 1;
+            if (cell) {
+              cell.textContent = `● Erişilebilir · ${ms} ms`;
+              cell.style.color = 'var(--forest)';
+            }
+          } catch {
+            if (cell) {
+              cell.textContent = '✕ Zaman aşımı / Engel';
+              cell.style.color = 'var(--accent)';
+            }
+          } finally {
+            clearTimeout(timer);
+          }
+        })
+      );
+
+      if (summary) {
+        summary.textContent = `Test tamamlandı: ${okCount}/${rows.length} servis tarayıcınızdan erişilebilir yanıt verdi.`;
+      }
+      btn.disabled = false;
+    });
+  }
+
+  function initProjectFinder() {
+    const root = $('[data-project-finder]');
+    if (!root) return;
+    const pills = $$('[data-finder]', root);
+    const out = $('[data-finder-out]', root);
+
+    const RECS = {
+      ai: [
+        { name: 'HaKING AI (v1.19.2)', desc: 'Türkçe çoklu model AI asistanı, SSE akışı ve 7 görev türlü yeni Prompt Modu.', live: 'https://ai.haking.tr/', page: 'proje-haking-ai.html' },
+        { name: 'HaKING AI Prompt Modu', desc: 'Ham fikri görev kartı ve bağımsız çelişki denetimiyle agent promptuna çevirir.', live: 'https://ai.haking.tr/?mode=prompt', page: 'haking-ai-prompt-modu.html' },
+        { name: 'HaKING AI Desktop', desc: 'Python/FastAPI tabanlı yerelde çalışan BM25 + TF-IDF hibrit akıllı arama uygulaması.', live: 'https://github.com/HaKING06/haking-ai-desktop', page: 'proje-ai-desktop.html', liveLabel: 'GitHub ↗' }
+      ],
+      cs2: [
+        { name: 'SPREAD V11.1', desc: '6.000+ skin, 354+ Doppler fazı ve Monte Carlo CVaR ile çift yönlü CS2 arbitraj terminali.', live: 'https://spread.haking.tr/', page: 'proje-spread.html' },
+        { name: 'CS2 Studio', desc: '670+ pro crosshair önizleyici, 3D sticker simülatörü ve bind/config stüdyosu.', live: 'https://cs2studio.haking.tr/', page: 'proje-cs2studio.html' },
+        { name: 'CSELL & TradeCalc', desc: 'Steam kuruş hassasiyetli net satış geliri ve çoklu eşya takas karşılaştırma araçları.', live: 'https://csell.haking.tr/', page: 'proje-csell.html' }
+      ],
+      oyun: [
+        { name: 'COSMIC v12.0', desc: 'Sıfır kurulumla tarayıcıda anında oynanan 60 özgün uzay temalı arcade oyun portalı.', live: 'https://cosmic.haking.tr/', page: 'proje-cosmic.html' },
+        { name: 'Haking Chat v2.0.2', desc: 'Socket.IO gerçek zamanlı sohbet, sesli oda ve sunucu doğrulamalı 3D Okey/Tavla/Satranç.', live: 'https://chat.haking.tr/', page: 'proje-haking-chat.html' },
+        { name: 'UTRZONE & 3D Vault', desc: 'Türkçe oyun yamaları topluluk platformu ve 20 dilli 3D Steam Müzesi + HP Victus 16 sahnesi.', live: 'https://utrzone.haking.tr/', page: 'proje-utrzone.html' }
+      ],
+      arac: [
+        { name: 'CopyHex v2.0', desc: 'OKLCH renk tokenları, 60+ hazır palet, kontrast denetimi ve Tailwind/CSS dışa aktarımı.', live: 'https://copyhex.haking.tr/', page: 'proje-copyhex.html' },
+        { name: 'NotMatik v3.0', desc: 'Üniversite öğrencileri için çevrimdışı PWA ağırlıklı ortalama ve hedef final hesaplayıcı.', live: 'https://notmatik.haking.tr/', page: 'proje-notmatik.html' },
+        { name: 'QR Scanner & ÇevirmenX', desc: 'Chrome, Edge ve Firefox için minimum izinli cihaz içi QR okuyucu ve çeviri eklentileri.', live: 'https://qr.haking.tr/', page: 'proje-qr-scanner.html' }
+      ]
+    };
+
+    const show = (key) => {
+      pills.forEach((p) => p.classList.toggle('is-active', p.dataset.finder === key));
+      const items = RECS[key] || RECS.ai;
+      out.innerHTML = items.map((it) => `
+        <div class="finder-card">
+          <strong>${it.name}</strong>
+          <p>${it.desc}</p>
+          <div class="finder-card-foot">
+            <a class="btn btn-accent btn-sm" href="${it.live}" target="_blank" rel="noopener noreferrer">${it.liveLabel || 'Canlı Siteye Git ↗'}</a>
+            <a class="text-link" href="${it.page}" style="font-size:0.82rem;">İncele →</a>
+          </div>
+        </div>
+      `).join('');
+    };
+
+    pills.forEach((p) => p.addEventListener('click', () => show(p.dataset.finder)));
+    show('ai');
+  }
+
   /* Boot */
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
@@ -716,6 +1020,11 @@
     initReadingUX();
     initHeroStage();
     initValveCalc();
+    initPromptBuilder();
+    initColorStudio();
+    initSerpTool();
+    initStatusPing();
+    initProjectFinder();
     initReadingScaleAndScrollUI();
     initFilterableGrid({
       cardSelector: '[data-project-card]',

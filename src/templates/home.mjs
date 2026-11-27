@@ -50,14 +50,14 @@ export function renderHomePage(allArticles, newsArticles) {
           <p class="lead">Yapay zekâ asistanları, CS2 nicel arbitraj terminalleri, 3D WebGL deneyimleri ve çoklu tarayıcı eklentileri. <strong>15 açık kaynak GitHub projesini</strong>, aktif <code>*.haking.tr</code> servislerini ve derin mühendislik haberlerini tek çatı altında keşfedin.</p>
           <div class="actions">
             <a class="btn btn-accent" href="projects.html">15 Açık Kaynak Projeyi Keşfet →</a>
-            <a class="btn btn-secondary" href="haberler.html">Teknoloji Haberleri (${newsArticles.length + 1})</a>
-            <a class="text-link" href="proje-yaptir.html" style="padding-left:6px;">Proje yaptır ↗</a>
+            <a class="btn btn-secondary" href="araclar.html">5 Ücretsiz Online Araç</a>
+            <a class="text-link" href="durum.html" style="padding-left:6px;">Canlı Durum ↗</a>
           </div>
           <div class="hero-meta-strip" aria-label="Stüdyo özeti">
             <div class="metric-box"><span class="metric-val">15</span><span class="metric-lbl">Public GitHub ürünü</span></div>
             <div class="metric-box"><span class="metric-val">14</span><span class="metric-lbl">Canlı *.haking.tr servisi</span></div>
             <div class="metric-box"><span class="metric-val">${allArticles.length + 1}</span><span class="metric-lbl">Özgün haber &amp; rehber</span></div>
-            <div class="metric-box"><span class="metric-val">4</span><span class="metric-lbl">Yerleşik interaktif araç</span></div>
+            <div class="metric-box"><span class="metric-val">5</span><span class="metric-lbl">Ücretsiz online araç</span></div>
           </div>
         </div>
 
@@ -65,39 +65,39 @@ export function renderHomePage(allArticles, newsArticles) {
         <div class="hero-stage" data-hero-stage>
           <div class="stage-chrome">
             <div class="stage-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-            <span class="stage-url mono" data-stage-url>haking.tr · stüdyo vitrini</span>
-            <span class="live-pill" style="font-size:0.72rem;" data-stage-status>14 Servis Aktif</span>
+            <span class="stage-url mono" data-stage-url>haking.tr · HP Victus 16 stüdyo masası</span>
+            <a class="live-pill" href="durum.html" style="font-size:0.72rem;text-decoration:none;" data-stage-status>14 Servis Aktif</a>
           </div>
           <div class="stage-viewport">
-            <img src="assets/images/brand/hero-studio.webp" alt="HaKING bağımsız yazılım stüdyosu, 3D WebGL ve modern veri mimarisi vitrini" width="1280" height="720" fetchpriority="high" data-stage-img>
+            <img src="assets/images/brand/hero-studio.webp?v=${SITE.assetVersion}" alt="Halit Güneş'in HP Victus 16 dizüstü bilgisayarı ekranında açık olan haking.tr yazılım stüdyosu ve canlı projeleri" width="1280" height="720" fetchpriority="high" data-stage-img>
             <div class="stage-overlay-card">
               <div>
                 <div class="stage-badge-row">
-                  <span class="tag tag-accent" data-stage-cat>BAĞIMSIZ STÜDYO</span>
-                  <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);" data-stage-ver>v2026</span>
+                  <span class="tag tag-accent" data-stage-cat>HP VICTUS 16 · STÜDYO</span>
+                  <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);" data-stage-ver>v4.0</span>
                 </div>
                 <strong class="stage-title" data-stage-title>HaKING Açık Kaynak Ekosistemi</strong>
-                <p class="stage-desc" data-stage-desc>Aşağıdaki ürün sekmelerinden birini seçerek canlı çalışan servisleri anında önizleyin veya doğrudan açın.</p>
+                <p class="stage-desc" data-stage-desc>Sekmelerden bir ürün seçerek canlı servisi önizleyin veya tek tıkla yeni sekmede açın.</p>
               </div>
               <div class="stage-actions">
                 <a class="btn btn-accent btn-sm" href="projects.html" data-stage-live>Tüm Ürünler →</a>
-                <a class="btn btn-secondary btn-sm" href="github.html" data-stage-detail>GitHub</a>
+                <a class="btn btn-secondary btn-sm" href="durum.html" data-stage-detail>Canlı Durum</a>
               </div>
             </div>
           </div>
           <div class="stage-switcher" role="tablist" aria-label="Canlı proje önizleme sekmeleri">
             <button type="button" class="stage-tab is-active" data-stage-tab="studio"
-              data-img="assets/images/brand/hero-studio.webp"
-              data-url="haking.tr · stüdyo vitrini"
+              data-img="assets/images/brand/hero-studio.webp?v=${SITE.assetVersion}"
+              data-url="haking.tr · HP Victus 16 stüdyo masası"
               data-status="14 Servis Aktif"
-              data-cat="BAĞIMSIZ STÜDYO"
-              data-ver="2026"
+              data-cat="HP VICTUS 16 · STÜDYO"
+              data-ver="v4.0"
               data-title="HaKING Açık Kaynak Ekosistemi"
-              data-desc="15 büyük public GitHub projesi, 14 canlı web servisi ve derin Türkçe mühendislik yazıları."
+              data-desc="Sekmelerden bir ürün seçerek canlı servisi önizleyin veya tek tıkla yeni sekmede açın."
               data-live="projects.html"
               data-live-label="Tüm Ürünler →"
-              data-detail="github.html"
-              data-detail-label="GitHub"
+              data-detail="durum.html"
+              data-detail-label="Canlı Durum"
               data-ext="false">Stüdyo</button>
             ${showcaseProjects
               .map(
@@ -156,31 +156,39 @@ export function renderHomePage(allArticles, newsArticles) {
       <div class="tools-strip">
         <div class="tools-strip-head">
           <div>
-            <div class="eyebrow" style="margin-bottom:4px;">TARAYICI İÇİ ETKİLEŞİMLİ ARAÇLAR</div>
-            <h2 style="font-size:1.45rem;">Sadece okumayın — doğrudan sayfada hesaplayın ve test edin.</h2>
+            <div class="eyebrow" style="margin-bottom:4px;">TARAYICI İÇİ 5 ÜCRETSİZ ARAÇ STÜDYOSU</div>
+            <h2 style="font-size:1.45rem;">Sadece okumayın — doğrudan tarayıcıda hesaplayın ve test edin.</h2>
           </div>
-          <span class="tag tag-forest">Hesapsız · %100 Cihaz İçi</span>
+          <div class="actions">
+            <a class="btn btn-accent btn-sm" href="araclar.html">Tüm 5 Aracı Aç →</a>
+            <a class="btn btn-secondary btn-sm" href="durum.html">Canlı Servis Durumu</a>
+          </div>
         </div>
-        <div class="grid-4" style="margin-top:18px;">
-          <a class="mini-tool-card" href="haking-ai-prompt-modu.html#canli-karsilastirici">
+        <div class="grid-5-tools" style="margin-top:18px;">
+          <a class="mini-tool-card" href="araclar.html#arac-prompt">
             <span class="tag tag-accent">AI · PROMPT</span>
-            <strong>Prompt Modu Karşılaştırıcı</strong>
-            <small>Ham istek → denetlenmiş agent promptu canlı karşılaştırması</small>
+            <strong>Prompt Kurucu</strong>
+            <small>Codex ve AI agentları için denetlenmiş Türkçe görev promptu oluştur</small>
           </a>
-          <a class="mini-tool-card" href="haber-cs2-ekonomi-doppler-likidite-analizi.html#canli-valve-calc">
+          <a class="mini-tool-card" href="araclar.html#arac-valve">
             <span class="tag tag-forest">CS2 · QUANT</span>
-            <strong>Valve Cent Komisyon Aracı</strong>
-            <small>Kuruş hassasiyetli Steam kesintisi &amp; net kâr hesaplayıcı</small>
+            <strong>Valve Cent &amp; Başa Baş</strong>
+            <small>Kuruş hassasiyetli Steam kesintisi, net kâr ve başa baş satış fiyatı</small>
           </a>
-          <a class="mini-tool-card" href="rehber-not-hesaplama.html#canli-simulator">
-            <span class="tag tag-ochre">EĞİTİM</span>
-            <strong>Hedef Final Simülatörü</strong>
-            <small>Vize + ödev ağırlıklarıyla gereken final notunu anlık hesapla</small>
+          <a class="mini-tool-card" href="araclar.html#arac-renk">
+            <span class="tag tag-ochre">UI · WCAG</span>
+            <strong>OKLCH &amp; Kontrast</strong>
+            <small>HEX/RGB/HSL/OKLCH dönüşümü ve anlık WCAG 2.1 AA/AAA testi</small>
           </a>
-          <a class="mini-tool-card" href="proje-yaptir.html#brief-olustur">
-            <span class="tag">STÜDYO</span>
-            <strong>Proje Brief Oluşturucu</strong>
-            <small>2 dakikada yapılandırılmış yazılım kapsamı ve teklif taslağı</small>
+          <a class="mini-tool-card" href="araclar.html#arac-not">
+            <span class="tag">EĞİTİM</span>
+            <strong>Hedef Final Aracı</strong>
+            <small>Vize ve ödev ağırlıklarıyla gereken minimum final notunu hesapla</small>
+          </a>
+          <a class="mini-tool-card" href="araclar.html#arac-serp">
+            <span class="tag tag-forest">SEO · SERP</span>
+            <strong>Google SERP Testi</strong>
+            <small>Başlık/meta uzunluk sayacı, arama sonucu önizleme ve okuma süresi</small>
           </a>
         </div>
       </div>
@@ -246,6 +254,20 @@ export function renderHomePage(allArticles, newsArticles) {
           <p>Küçük denemeler değil; canlı alt alan adlarıyla yayında olan, belgelenmiş ve aktif geliştirilen büyük public GitHub projelerim.</p>
         </div>
         <a class="btn btn-secondary" href="projects.html">Tüm 15 Projeyi Gör →</a>
+      </div>
+
+      <!-- Interactive 1-Click Project Finder -->
+      <div class="finder-strip" data-project-finder>
+        <div class="finder-head">
+          <span class="eyebrow" style="margin:0;">HIZLI ÖNERİCİ · İHTİYACINA GÖRE BUL</span>
+          <div class="finder-pills" role="group" aria-label="Kullanım amacına göre proje önerisi">
+            <button type="button" class="finder-pill is-active" data-finder="ai">Yapay Zekâ &amp; Prompt</button>
+            <button type="button" class="finder-pill" data-finder="cs2">CS2 Skin &amp; Ekonomi</button>
+            <button type="button" class="finder-pill" data-finder="oyun">3D Oyun &amp; Topluluk</button>
+            <button type="button" class="finder-pill" data-finder="arac">Tasarım, Ders &amp; Eklenti</button>
+          </div>
+        </div>
+        <div class="finder-results" data-finder-out></div>
       </div>
 
       <div class="filter-bar">

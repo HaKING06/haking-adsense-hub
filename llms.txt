@@ -10,6 +10,8 @@
 
 ## Öne Çıkan Sayfalar
 - [Ana Sayfa](https://haking.tr/): Stüdyo özeti, seçili ürünler ve mühendislik yazıları.
+- [Online Mühendislik Araçları (5 Araç)](https://haking.tr/araclar.html): Prompt Kurucu, CS2 Valve Cent & Başa Baş, OKLCH/WCAG Kontrast, Not Hesaplayıcı ve Google SERP Önizleyici.
+- [Canlı Ekosistem Durumu](https://haking.tr/durum.html): Tüm aktif *.haking.tr servislerinin mimari haritası ve tarayıcı erişim testi.
 - [HaKING AI Prompt Modu (v1.19.2)](https://haking.tr/haking-ai-prompt-modu.html): Codex ve AI agentları için görev kartlı Türkçe prompt atölyesi.
 - [Açık Kaynak Projeler (15 Ürün)](https://haking.tr/projects.html): Tüm büyük public GitHub projeleri ve canlı adresleri.
 - [Mühendislik Yazıları](https://haking.tr/blog.html): Vaka analizleri ve teknik rehberler.

@@ -201,6 +201,8 @@ export function renderHtmlSitemap(allArticles) {
       <ul>
         <li><a href="index.html">Ana Sayfa — HaKING Yazılım Stüdyosu &amp; Teknoloji Yayını</a></li>
         <li><a href="projects.html">Açık Kaynak Projeler Kataloğu (15 Public Ürün)</a></li>
+        <li><a href="araclar.html">Ücretsiz Online Mühendislik Araçları Stüdyosu (5 Araç)</a></li>
+        <li><a href="durum.html">Canlı Ekosistem Durumu &amp; Mimari Harita (15 Servis)</a></li>
         <li><a href="haking-ai-prompt-modu.html">HaKING AI Prompt Modu (v1.19.2) Özel Tanıtım &amp; Karşılaştırıcı</a></li>
         <li><a href="blog.html">Mühendislik Yazıları ve Teknik Rehberler</a></li>
         <li><a href="haberler.html">Okuma Merkezi &amp; Sürüm Günlüğü</a></li>
