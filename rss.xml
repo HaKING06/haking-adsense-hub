@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HaKING — Halit Güneş | Bağımsız Yazılım Stüdyosu &amp; Teknoloji Yayını</title>
+    <link>https://haking.tr/</link>
+    <description>Açık kaynak web ürünleri, yazılım mühendisliği vaka analizleri ve teknik rehberler.</description>
+    <language>tr-tr</language>
+    <lastBuildDate>Fri, 27 Nov 2026 11:00:00 GMT</lastBuildDate>
+    <atom:link href="https://haking.tr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>HaKING AI Prompt Modu (v1.19.2): Fikrinden Denetlenmiş AI Agent Promptuna</title>
+      <link>https://haking.tr/haking-ai-prompt-modu.html</link>
+      <guid isPermaLink="true">https://haking.tr/haking-ai-prompt-modu.html</guid>
+      <pubDate>Fri, 27 Nov 2026 10:00:00 +0300</pubDate>
+      <category>Yapay Zekâ</category>
+      <description>Görev kartı (prompt_state), ücretsiz keşif soruları, 7 görev türü ve canlı öncesi/sonrası prompt karşılaştırıcısı.</description>
+    </item>
+    <item>
+      <title>HaKING AI v1.19.2 Mimarisi: FastAPI, SSE Akışı, Prompt Karar Belleği ve Neon Kredi Katmanı</title>
+      <link>https://haking.tr/makale-1.html</link>
+      <guid isPermaLink="true">https://haking.tr/makale-1.html</guid>
+      <pubDate>Fri, 27 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Yapay Zekâ</category>
+      <description>Tarayıcı ön yüzü ile model sağlayıcıları arasında nasıl güvenli bir servis sınırı kurdum? SSE akış gecikmesi, Groq/Gemini yönlendirme, ortak kredi muhasebesi ve Prompt Modu mimarisi.</description>
+    </item>
+    <item>
+      <title>SPREAD V11.1 Mimarisi: Valve Cent Komisyonu, Gerçek Steam Hacmi ve 500 Senaryolu Monte Carlo CVaR</title>
+      <link>https://haking.tr/makale-spread-arbitraj-mimarisi.html</link>
+      <guid isPermaLink="true">https://haking.tr/makale-spread-arbitraj-mimarisi.html</guid>
+      <pubDate>Thu, 26 Nov 2026 09:00:00 GMT</pubDate>
+      <category>CS2 Ekonomi &amp; Oyun</category>
+      <description>CS2 arbitraj hesaplayıcıları neden sıkça hayali kâr gösterir? Valve’ın cent tabanlı kesinti formülü, 7g/30g satış geçmişi ve Tekli vs. Sepet Meta-Hakem algoritmasının arkasındaki matematik.</description>
+    </item>
+    <item>
+      <title>Socket.IO ve Three.js ile Sunucu Doğrulamalı Çok Oyunculu Masa Oyunları: Haking Chat Mimarisi</title>
+      <link>https://haking.tr/makale-gercek-zamanli-oyun-sunucusu.html</link>
+      <guid isPermaLink="true">https://haking.tr/makale-gercek-zamanli-oyun-sunucusu.html</guid>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Eğitim &amp; Topluluk</category>
+      <description>Klasik Okey 3D, 101 Okey 3D, Tavla, Satranç ve sesli oda özelliklerini barındıran Haking Chat’te gizli el güvenliği, sıra senkronizasyonu ve oda yaşam döngüsü nasıl tasarlandı?</description>
+    </item>
+    <item>
+      <title>Uzun AI Kod Yanıtları Kesildiğinde Güvenli Devam ve Parça Birleştirme Rehberi</title>
+      <link>https://haking.tr/yazi-haking-ai-kesilen-yanit.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-haking-ai-kesilen-yanit.html</guid>
+      <pubDate>Mon, 23 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Yapay Zekâ</category>
+      <description>Dil modellerinin maksimum çıkış token sınırına veya ağ kesintisine takılan kod yanıtlarını bozmadan, tekrar üretmeden ve sözdizimi hatası doğurmadan nasıl tamamlarsınız?</description>
+    </item>
+    <item>
+      <title>Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri</title>
+      <link>https://haking.tr/makale-3.html</link>
+      <guid isPermaLink="true">https://haking.tr/makale-3.html</guid>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tarayıcı Eklentileri</category>
+      <description>Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.</description>
+    </item>
+    <item>
+      <title>Üniversite Ağırlıklı Not Hesaplama: Doğru Formül, Tam Sayı Katkısı ve Hedef Final Stratejisi</title>
+      <link>https://haking.tr/rehber-not-hesaplama.html</link>
+      <guid isPermaLink="true">https://haking.tr/rehber-not-hesaplama.html</guid>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Eğitim &amp; Topluluk</category>
+      <description>Vize, ödev, proje ve final ağırlıklarıyla gerçek dönem sonu ortalaması nasıl hesaplanır? Sık yapılan 5 hesaplama hatası ve canlı hedef final simülatörü.</description>
+    </item>
+    <item>
+      <title>Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi</title>
+      <link>https://haking.tr/rehber-ai-gecikmesi.html</link>
+      <guid isPermaLink="true">https://haking.tr/rehber-ai-gecikmesi.html</guid>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Yapay Zekâ</category>
+      <description>Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.</description>
+    </item>
+    <item>
+      <title>Tarayıcıda Etkileşimli 3D Deneyimler: Three.js, WebGL Performansı ve DOM Uyumu</title>
+      <link>https://haking.tr/makale-2.html</link>
+      <guid isPermaLink="true">https://haking.tr/makale-2.html</guid>
+      <pubDate>Fri, 20 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tasarım &amp; Web</category>
+      <description>HaKING 3D Vault, CS2 Studio Dust2 Spray Arenası ve Haking Chat 3D masa oyunlarını geliştirirken edindiğim WebGL render bütçesi, ışıklandırma ve mobil uyumluluk dersleri.</description>
+    </item>
+    <item>
+      <title>Çok Bileşenli Derslerde Vize, Ödev, Lab ve Proje Ağırlıklarını Hatasız Hesaplama</title>
+      <link>https://haking.tr/yazi-notmatik-cok-bilesenli.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-notmatik-cok-bilesenli.html</guid>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Eğitim &amp; Topluluk</category>
+      <description>Yıl içi %40 içinde birden fazla ödev, kısa sınav ve proje bulunan üniversite derslerinde efektif ağırlık dönüşümü ve dönem boyu takip stratejisi.</description>
+    </item>
+    <item>
+      <title>CS2 Autoexec, Viewmodel, Spray Kontrolü ve Pro Crosshair Yapılandırma Rehberi</title>
+      <link>https://haking.tr/rehber-cs2-autoexec-crosshair.html</link>
+      <guid isPermaLink="true">https://haking.tr/rehber-cs2-autoexec-crosshair.html</guid>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 GMT</pubDate>
+      <category>CS2 Ekonomi &amp; Oyun</category>
+      <description>Counter-Strike 2’de kalıcı autoexec.cfg nasıl hazırlanır, nişangâh kontrastı harita ışığına göre nasıl seçilir ve CS2 Studio ile tüm ayarlar tek dosyada nasıl dışa aktarılır?</description>
+    </item>
+    <item>
+      <title>CS2 Pazar Yeri Komisyonları ve Net Kâr Takibi: Brüt Satış ile Gerçekleşen Gelir Farkı</title>
+      <link>https://haking.tr/yazi-csell-net-satis.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-csell-net-satis.html</guid>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 GMT</pubDate>
+      <category>CS2 Ekonomi &amp; Oyun</category>
+      <description>CS2 alım-satım işlemlerinde yüzdelik ve sabit komisyonlar, takas koruma kilidi ve gerçekleşmiş vs. tahmini kâr takibi neden ayrı kayıt altına alınmalıdır?</description>
+    </item>
+    <item>
+      <title>OKLCH Renk Uzayı ile Tasarım Sistemleri: Paletten Anlamsal CSS Tokenlarına</title>
+      <link>https://haking.tr/yazi-copyhex-tema-tokenlari.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-copyhex-tema-tokenlari.html</guid>
+      <pubDate>Mon, 16 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tasarım &amp; Web</category>
+      <description>Neden sabit HEX kodları büyüyen arayüzlerde bakım kâbusuna dönüşür? CopyHex ile OKLCH 50–950 skalaları, anlamsal roller ve WCAG kontrast güvencesi kurma rehberi.</description>
+    </item>
+    <item>
+      <title>CS2 Takas Planlamada Maliyet, Bakiye İskontosu ve Marj Senaryoları</title>
+      <link>https://haking.tr/yazi-tradecalc-senaryolar.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-tradecalc-senaryolar.html</guid>
+      <pubDate>Mon, 16 Nov 2026 09:00:00 GMT</pubDate>
+      <category>CS2 Ekonomi &amp; Oyun</category>
+      <description>Bir takas sitesine yatırılan nakit, hedef eşyanın piyasa değeri ve sitede kalan bakiyenin gerçek nakit karşılığı arasındaki farkı TradeCalc ile doğru modellemek.</description>
+    </item>
+    <item>
+      <title>60 Tarayıcı Oyununu Tek Portalda Yönetmek: COSMIC v12.0 Modüler Motor ve Performans Mimarisi</title>
+      <link>https://haking.tr/makale-cosmic-tarayici-oyun-motoru.html</link>
+      <guid isPermaLink="true">https://haking.tr/makale-cosmic-tarayici-oyun-motoru.html</guid>
+      <pubDate>Sun, 15 Nov 2026 09:00:00 GMT</pubDate>
+      <category>CS2 Ekonomi &amp; Oyun</category>
+      <description>Tek bir statik web portalında 60 farklı uzay oyununu, 24 bölümlük hikâye modunu ve ortak cephaneliği sayfa hızını bozmadan nasıl bir araya getirdim?</description>
+    </item>
+    <item>
+      <title>Yazım Hatalarına Dayanıklı Arama Motoru Tasarımı: BM25, Karakter N-Gram TF-IDF ve Hibrit Sıralama</title>
+      <link>https://haking.tr/yazi-ai-desktop-arama.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-ai-desktop-arama.html</guid>
+      <pubDate>Sun, 15 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Yapay Zekâ</category>
+      <description>Kullanıcı &quot;samsng galxy&quot; yazdığında klasik kelime araması neden sıfır sonuç döndürür? HaKING AI Desktop’taki hibrit skorlama, Recall@K ve MRR değerlendirme yaklaşımı.</description>
+    </item>
+    <item>
+      <title>Baskı ve Dijital Ortam İçin Yüksek Çözünürlüklü QR Kod Hazırlama: SVG, Hata Düzeltme ve Sessiz Bölge</title>
+      <link>https://haking.tr/yazi-qr-paylasim-baski.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-qr-paylasim-baski.html</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tarayıcı Eklentileri</category>
+      <description>Kartvizit, afiş ve ürün ambalajına basılan QR kodlar neden bazen telefon kamerasıyla okunmaz? SVG vektör çıktısı, ECC seviyesi (L/M/Q/H) ve kontrast kuralları.</description>
+    </item>
+    <item>
+      <title>Teknik Dokümanlarda ve Oyun Terimlerinde Kişisel Sözlükle Çeviri Tutarlılığı</title>
+      <link>https://haking.tr/yazi-cevirmenx-sozluk.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-cevirmenx-sozluk.html</guid>
+      <pubDate>Fri, 13 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tarayıcı Eklentileri</category>
+      <description>Otomatik çeviri araçlarının &quot;branch&quot;, &quot;commit&quot;, &quot;shader&quot; veya &quot;crosshair&quot; gibi terimleri her paragrafta farklı çevirmesini ÇevirmenX çift yönlü kişisel sözlükle önlemek.</description>
+    </item>
+    <item>
+      <title>QR Kod Güvenliği, Tarayıcı İzinleri ve Cihaz İçi İşleme Rehberi</title>
+      <link>https://haking.tr/rehber-qr-guvenligi.html</link>
+      <guid isPermaLink="true">https://haking.tr/rehber-qr-guvenligi.html</guid>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tarayıcı Eklentileri</category>
+      <description>Quishing (QR oltalama) saldırılarından nasıl korunursunuz? Kamera izni, URL önizleme, kısaltılmış bağlantılar ve cihaz içi QR taramanın önemi.</description>
+    </item>
+    <item>
+      <title>ÇevirmenX 1.4.0 Kurulum ve Verimli Sayfa İçi Çeviri Rehberi</title>
+      <link>https://haking.tr/rehber-cevirmenx.html</link>
+      <guid isPermaLink="true">https://haking.tr/rehber-cevirmenx.html</guid>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tarayıcı Eklentileri</category>
+      <description>Sekme değiştirmeden Alt+T kısayoluyla teknik doküman okuma, çift yönlü kişisel sözlük kurma, seslendirme ve Chrome/Edge/Firefox kurulum adımları.</description>
+    </item>
+    <item>
+      <title>WebGL Ürün Sahnelerinde Işık, Kamera ve Mobil Okunabilirlik Dengesi</title>
+      <link>https://haking.tr/yazi-plant-showroom-sahne.html</link>
+      <guid isPermaLink="true">https://haking.tr/yazi-plant-showroom-sahne.html</guid>
+      <pubDate>Tue, 10 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Tasarım &amp; Web</category>
+      <description>Tarayıcı içinde 3D bir nesne sergilerken sahnenin ziyaretçiyi yormaması, ürün formunun net okunması ve sayfa kaydırmasıyla çakışmaması için pratik mühendislik kuralları.</description>
+    </item>
+  </channel>
+</rss>

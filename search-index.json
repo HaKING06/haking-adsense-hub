@@ -1,0 +1,559 @@
+[
+  {
+    "title": "HaKING AI Prompt Modu (v1.19.2)",
+    "desc": "AI agentları için görev kartlı Türkçe prompt atölyesi, 7 görev türü ve canlı karşılaştırıcı.",
+    "url": "haking-ai-prompt-modu.html",
+    "type": "Yeni Özellik",
+    "tags": [
+      "prompt modu",
+      "codex",
+      "agent",
+      "haking ai"
+    ]
+  },
+  {
+    "title": "Proje Yaptır & Brief Oluşturucu",
+    "desc": "Web uygulaması, AI arayüzü, tarayıcı eklentisi ve teknik SEO için interaktif teklif hazırlayıcı.",
+    "url": "proje-yaptir.html",
+    "type": "Stüdyo",
+    "tags": [
+      "proje yaptır",
+      "teklif",
+      "iş birliği",
+      "freelance"
+    ]
+  },
+  {
+    "title": "Hakkımda — Halit Güneş (Ben Kimim?)",
+    "desc": "İstanbul Kültür Üniversitesi Bilgisayar Programcılığı, yetkinlik haritası ve üretim kronolojisi.",
+    "url": "hakkimda.html",
+    "type": "Profil",
+    "tags": [
+      "halit güneş",
+      "hakkımda",
+      "yazar",
+      "kimim"
+    ]
+  },
+  {
+    "title": "GitHub Sayfam (github.com/HaKING06)",
+    "desc": "15 büyük public açık kaynak GitHub deposu, sürümleri ve canlı doğrulama.",
+    "url": "github.html",
+    "type": "Açık Kaynak",
+    "tags": [
+      "github",
+      "açık kaynak",
+      "mit",
+      "repolar"
+    ]
+  },
+  {
+    "title": "İletişim — merhaba@haking.tr",
+    "desc": "Doğrudan e-posta, sosyal bağlantılar ve hızlı mesaj taslağı hazırlayıcı.",
+    "url": "iletisim.html",
+    "type": "İletişim",
+    "tags": [
+      "iletişim",
+      "eposta",
+      "destek"
+    ]
+  },
+  {
+    "title": "HaKING AI (v1.19.2)",
+    "desc": "SSE akışlı Türkçe yazılım asistanı, yapılandırılmış Prompt Modu ve Tavily araştırmalı Çılgın Mod.",
+    "url": "proje-haking-ai.html",
+    "type": "Proje",
+    "tags": [
+      "Yapay Zekâ",
+      "JavaScript / Python",
+      "FastAPI",
+      "SSE Akışı",
+      "Cloudflare Workers",
+      "Neon PostgreSQL",
+      "Groq / Gemini",
+      "Prompt Modu"
+    ]
+  },
+  {
+    "title": "SPREAD (V11.1)",
+    "desc": "6.000+ skin ve 354+ Doppler fazıyla sıfır kayıtlı, açık kaynak CS2 çift yönlü arbitraj ve risk terminali.",
+    "url": "proje-spread.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "JavaScript / Node.js",
+      "Cloudflare Workers",
+      "Monte Carlo CVaR",
+      "Steam 7g/30g Veri",
+      "Valve Cent Matematiği",
+      "Doppler Fazları"
+    ]
+  },
+  {
+    "title": "COSMIC Universe (v12.0)",
+    "desc": "60 oynanabilir uzay temalı tarayıcı oyunu ve 24 bölümlük Captain Nova Vex hikâye modunu sunan arcade portalı.",
+    "url": "proje-cosmic.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "JavaScript / Canvas",
+      "HTML5 Canvas",
+      "WebGL",
+      "Modüler Oyun Motoru",
+      "60 Oyun",
+      "Çok Dilli Arayüz"
+    ]
+  },
+  {
+    "title": "CS2 Studio (v0.1.0)",
+    "desc": "3D Dust2 Spray Arenası, 670+ pro e-spor crosshair veritabanı, canlı Viewmodel ve Autoexec yapılandırma paketi.",
+    "url": "proje-cs2studio.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "Astro / JavaScript",
+      "Astro",
+      "Three.js",
+      "670+ Pro Crosshair",
+      "Autoexec Üretici",
+      "%100 İstemci Tarafı"
+    ]
+  },
+  {
+    "title": "Haking Chat (v2.0.2)",
+    "desc": "Gerçek zamanlı geliştirici sohbeti, sesli oda ve sunucu doğrulamalı 3D Okey, Tavla, Satranç & masa oyunları.",
+    "url": "proje-haking-chat.html",
+    "type": "Proje",
+    "tags": [
+      "Eğitim & Topluluk",
+      "JavaScript / Node.js",
+      "Socket.IO",
+      "Three.js",
+      "WebRTC Ses",
+      "Node.js 22",
+      "Sunucu Doğrulamalı Oyunlar"
+    ]
+  },
+  {
+    "title": "UTRZONE (UnlockTR) (v0.11.5)",
+    "desc": "Türkçe oyun yamaları, çeviri projeleri ve topluluk modları için modern React/Vite + Express/Neon platformu.",
+    "url": "proje-utrzone.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "TypeScript / React",
+      "React",
+      "Vite",
+      "Express",
+      "Neon PostgreSQL",
+      "Resend E-posta"
+    ]
+  },
+  {
+    "title": "HaKING 3D Vault (v2.5.3)",
+    "desc": "Canlı Steam kütüphane telemetrisi, etkileşimli Three.js 3D HP Victus 16 modeli ve 20 dilli 3D Müze vitrini.",
+    "url": "proje-haking-vault.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "JavaScript / Three.js",
+      "Three.js",
+      "WebGL 3D Müze",
+      "20 Dil (RTL dahil)",
+      "GitHub Actions Steam Sync",
+      "GSAP"
+    ]
+  },
+  {
+    "title": "CopyHex (v1.0.6)",
+    "desc": "6.000+ HEX renk araması, OKLCH 50–950 tema üretici, WCAG kontrast denetimi ve DTCG/CSS token dışa aktarımı.",
+    "url": "proje-copyhex.html",
+    "type": "Proje",
+    "tags": [
+      "Tasarım & Web",
+      "HTML / JavaScript",
+      "OKLCH",
+      "WCAG Kontrast",
+      "DTCG & CSS Token",
+      "12 Dil",
+      "PWA",
+      "Sıfır Bağımlılık"
+    ]
+  },
+  {
+    "title": "QR Scanner (v1.1.4)",
+    "desc": "7 QR veri türü, 2048px PNG/SVG çıktısı ve cihaz içi kamera/görsel taraması sunan gizlilik odaklı web + eklenti paketi.",
+    "url": "proje-qr-scanner.html",
+    "type": "Proje",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "JavaScript / Manifest V3",
+      "Manifest V3",
+      "Chrome & Edge Mağaza",
+      "PNG / SVG 2048px",
+      "Cihaz İçi Tarama",
+      "8 Dil"
+    ]
+  },
+  {
+    "title": "ÇevirmenX (v1.4.0)",
+    "desc": "API anahtarı gerektirmeyen, Alt+T ve sağ tıkla sayfa içi çeviri, çift yönlü kişisel sözlük ve seslendirme eklentisi.",
+    "url": "proje-cevirmenx.html",
+    "type": "Proje",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "JavaScript / Manifest V3",
+      "Manifest V3",
+      "Alt+T Kısayolu",
+      "Kişisel Sözlük",
+      "18 Dil",
+      "Seslendirme",
+      "Chrome / Edge / Firefox"
+    ]
+  },
+  {
+    "title": "NotMatik (v3.0)",
+    "desc": "Üniversite öğrencileri için tam sayı katkılı vize-final-proje ortalama, gerekli final notu ve çevrimdışı hedef takip platformu.",
+    "url": "proje-notmatik.html",
+    "type": "Proje",
+    "tags": [
+      "Eğitim & Topluluk",
+      "JavaScript / PWA",
+      "JavaScript",
+      "PWA Çevrimdışı",
+      "Hedef Defterim",
+      "Tam Sayı Katkısı",
+      "Koyu/Açık Tema"
+    ]
+  },
+  {
+    "title": "CSELL (v1.0.1)",
+    "desc": "CS2 eşya alım-satım işlemlerini, pazar komisyonlarını, takas kilidi bitişini ve gerçek net kârı izleyen Türkçe günlük.",
+    "url": "proje-csell.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "JavaScript / PWA",
+      "Yerel Öncelikli",
+      "CS2 Katalog",
+      "Komisyon Analizi",
+      "Takas Koruması",
+      "CSV / JSON Yedek"
+    ]
+  },
+  {
+    "title": "HaKING TradeCalc (v1.0)",
+    "desc": "CS2 takas öncesi yatırım maliyeti, kalan bakiye nakit eşdeğeri, komisyon ve net marj senaryo planlayıcısı.",
+    "url": "proje-tradecalc.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "HTML / JavaScript",
+      "JavaScript",
+      "Cloudflare Pages",
+      "CSP Güvenlik Başlıkları",
+      "JSON Yedek",
+      "Yerel Geçmiş"
+    ]
+  },
+  {
+    "title": "CSNAME (v1.0)",
+    "desc": "Türkçe CS2 envanter ve skin adlarını CSFloat / Steam İngilizce pazar isimleriyle anında eşleştiren görselli sözlük.",
+    "url": "proje-csname.html",
+    "type": "Proje",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "JavaScript / Workers",
+      "Cloudflare Workers",
+      "TR ↔ EN Eşleştirme",
+      "Otomatik Katalog",
+      "Anlık Filtreleme"
+    ]
+  },
+  {
+    "title": "HaKING AI Desktop (v0.1.2)",
+    "desc": "Yazım hatalarına dayanıklı çevrimdışı hibrit ürün arama motoru (BM25 + TF-IDF) ve yazılım hata imzası sınıflandırıcısı.",
+    "url": "proje-ai-desktop.html",
+    "type": "Proje",
+    "tags": [
+      "Yapay Zekâ",
+      "Python",
+      "Python",
+      "BM25",
+      "Karakter N-Gram TF-IDF",
+      "Hibrit Sıralama",
+      "Recall / MRR",
+      "Çevrimdışı"
+    ]
+  },
+  {
+    "title": "HaKING AI v1.19.2 Mimarisi: FastAPI, SSE Akışı, Prompt Karar Belleği ve Neon Kredi Katmanı",
+    "desc": "Tarayıcı ön yüzü ile model sağlayıcıları arasında nasıl güvenli bir servis sınırı kurdum? SSE akış gecikmesi, Groq/Gemini yönlendirme, ortak kredi muhasebesi ve Prompt Modu mimarisi.",
+    "url": "makale-1.html",
+    "type": "Vaka Analizi",
+    "tags": [
+      "Yapay Zekâ",
+      "FastAPI",
+      "SSE",
+      "Cloudflare Workers",
+      "Neon PostgreSQL",
+      "Prompt Modu"
+    ]
+  },
+  {
+    "title": "SPREAD V11.1 Mimarisi: Valve Cent Komisyonu, Gerçek Steam Hacmi ve 500 Senaryolu Monte Carlo CVaR",
+    "desc": "CS2 arbitraj hesaplayıcıları neden sıkça hayali kâr gösterir? Valve’ın cent tabanlı kesinti formülü, 7g/30g satış geçmişi ve Tekli vs. Sepet Meta-Hakem algoritmasının arkasındaki matematik.",
+    "url": "makale-spread-arbitraj-mimarisi.html",
+    "type": "Vaka Analizi",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "SPREAD",
+      "CS2 Ekonomi",
+      "Monte Carlo CVaR",
+      "Valve Cent",
+      "Cloudflare Workers"
+    ]
+  },
+  {
+    "title": "Socket.IO ve Three.js ile Sunucu Doğrulamalı Çok Oyunculu Masa Oyunları: Haking Chat Mimarisi",
+    "desc": "Klasik Okey 3D, 101 Okey 3D, Tavla, Satranç ve sesli oda özelliklerini barındıran Haking Chat’te gizli el güvenliği, sıra senkronizasyonu ve oda yaşam döngüsü nasıl tasarlandı?",
+    "url": "makale-gercek-zamanli-oyun-sunucusu.html",
+    "type": "Vaka Analizi",
+    "tags": [
+      "Eğitim & Topluluk",
+      "Socket.IO",
+      "Node.js",
+      "Three.js",
+      "Multiplayer",
+      "Haking Chat"
+    ]
+  },
+  {
+    "title": "Uzun AI Kod Yanıtları Kesildiğinde Güvenli Devam ve Parça Birleştirme Rehberi",
+    "desc": "Dil modellerinin maksimum çıkış token sınırına veya ağ kesintisine takılan kod yanıtlarını bozmadan, tekrar üretmeden ve sözdizimi hatası doğurmadan nasıl tamamlarsınız?",
+    "url": "yazi-haking-ai-kesilen-yanit.html",
+    "type": "Mühendislik Notu",
+    "tags": [
+      "Yapay Zekâ",
+      "HaKING AI",
+      "Kod Üretimi",
+      "SSE",
+      "Hata Ayıklama"
+    ]
+  },
+  {
+    "title": "Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri",
+    "desc": "Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.",
+    "url": "makale-3.html",
+    "type": "Vaka Analizi",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "Manifest V3",
+      "Chrome Extension",
+      "PWA",
+      "Gizlilik",
+      "JavaScript"
+    ]
+  },
+  {
+    "title": "Üniversite Ağırlıklı Not Hesaplama: Doğru Formül, Tam Sayı Katkısı ve Hedef Final Stratejisi",
+    "desc": "Vize, ödev, proje ve final ağırlıklarıyla gerçek dönem sonu ortalaması nasıl hesaplanır? Sık yapılan 5 hesaplama hatası ve canlı hedef final simülatörü.",
+    "url": "rehber-not-hesaplama.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Eğitim & Topluluk",
+      "NotMatik",
+      "Ağırlıklı Ortalama",
+      "Hedef Final",
+      "Eğitim"
+    ]
+  },
+  {
+    "title": "Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi",
+    "desc": "Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.",
+    "url": "rehber-ai-gecikmesi.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Yapay Zekâ",
+      "TTFT",
+      "SSE",
+      "FastAPI",
+      "Gecikme Analizi",
+      "Yapay Zekâ"
+    ]
+  },
+  {
+    "title": "Tarayıcıda Etkileşimli 3D Deneyimler: Three.js, WebGL Performansı ve DOM Uyumu",
+    "desc": "HaKING 3D Vault, CS2 Studio Dust2 Spray Arenası ve Haking Chat 3D masa oyunlarını geliştirirken edindiğim WebGL render bütçesi, ışıklandırma ve mobil uyumluluk dersleri.",
+    "url": "makale-2.html",
+    "type": "Vaka Analizi",
+    "tags": [
+      "Tasarım & Web",
+      "Three.js",
+      "WebGL",
+      "GLTF",
+      "Performans",
+      "Erişilebilirlik"
+    ]
+  },
+  {
+    "title": "Çok Bileşenli Derslerde Vize, Ödev, Lab ve Proje Ağırlıklarını Hatasız Hesaplama",
+    "desc": "Yıl içi %40 içinde birden fazla ödev, kısa sınav ve proje bulunan üniversite derslerinde efektif ağırlık dönüşümü ve dönem boyu takip stratejisi.",
+    "url": "yazi-notmatik-cok-bilesenli.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Eğitim & Topluluk",
+      "NotMatik",
+      "Proje Ağırlığı",
+      "Üniversite",
+      "Planlama"
+    ]
+  },
+  {
+    "title": "CS2 Autoexec, Viewmodel, Spray Kontrolü ve Pro Crosshair Yapılandırma Rehberi",
+    "desc": "Counter-Strike 2’de kalıcı autoexec.cfg nasıl hazırlanır, nişangâh kontrastı harita ışığına göre nasıl seçilir ve CS2 Studio ile tüm ayarlar tek dosyada nasıl dışa aktarılır?",
+    "url": "rehber-cs2-autoexec-crosshair.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "CS2",
+      "Autoexec",
+      "Crosshair",
+      "Viewmodel",
+      "CS2 Studio"
+    ]
+  },
+  {
+    "title": "CS2 Pazar Yeri Komisyonları ve Net Kâr Takibi: Brüt Satış ile Gerçekleşen Gelir Farkı",
+    "desc": "CS2 alım-satım işlemlerinde yüzdelik ve sabit komisyonlar, takas koruma kilidi ve gerçekleşmiş vs. tahmini kâr takibi neden ayrı kayıt altına alınmalıdır?",
+    "url": "yazi-csell-net-satis.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "CSELL",
+      "CS2 Komisyon",
+      "İşlem Günlüğü",
+      "Net Kâr"
+    ]
+  },
+  {
+    "title": "OKLCH Renk Uzayı ile Tasarım Sistemleri: Paletten Anlamsal CSS Tokenlarına",
+    "desc": "Neden sabit HEX kodları büyüyen arayüzlerde bakım kâbusuna dönüşür? CopyHex ile OKLCH 50–950 skalaları, anlamsal roller ve WCAG kontrast güvencesi kurma rehberi.",
+    "url": "yazi-copyhex-tema-tokenlari.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Tasarım & Web",
+      "OKLCH",
+      "CSS Değişkenleri",
+      "Design Tokens",
+      "WCAG",
+      "CopyHex"
+    ]
+  },
+  {
+    "title": "CS2 Takas Planlamada Maliyet, Bakiye İskontosu ve Marj Senaryoları",
+    "desc": "Bir takas sitesine yatırılan nakit, hedef eşyanın piyasa değeri ve sitede kalan bakiyenin gerçek nakit karşılığı arasındaki farkı TradeCalc ile doğru modellemek.",
+    "url": "yazi-tradecalc-senaryolar.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "TradeCalc",
+      "Takas Planlama",
+      "Marj Analizi",
+      "CS2"
+    ]
+  },
+  {
+    "title": "60 Tarayıcı Oyununu Tek Portalda Yönetmek: COSMIC v12.0 Modüler Motor ve Performans Mimarisi",
+    "desc": "Tek bir statik web portalında 60 farklı uzay oyununu, 24 bölümlük hikâye modunu ve ortak cephaneliği sayfa hızını bozmadan nasıl bir araya getirdim?",
+    "url": "makale-cosmic-tarayici-oyun-motoru.html",
+    "type": "Vaka Analizi",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "COSMIC",
+      "HTML5 Canvas",
+      "Oyun Mimarisi",
+      "Performans",
+      "JavaScript"
+    ]
+  },
+  {
+    "title": "Yazım Hatalarına Dayanıklı Arama Motoru Tasarımı: BM25, Karakter N-Gram TF-IDF ve Hibrit Sıralama",
+    "desc": "Kullanıcı \"samsng galxy\" yazdığında klasik kelime araması neden sıfır sonuç döndürür? HaKING AI Desktop’taki hibrit skorlama, Recall@K ve MRR değerlendirme yaklaşımı.",
+    "url": "yazi-ai-desktop-arama.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Yapay Zekâ",
+      "BM25",
+      "TF-IDF",
+      "Bilgi Erişimi",
+      "Python",
+      "HaKING AI Desktop"
+    ]
+  },
+  {
+    "title": "Baskı ve Dijital Ortam İçin Yüksek Çözünürlüklü QR Kod Hazırlama: SVG, Hata Düzeltme ve Sessiz Bölge",
+    "desc": "Kartvizit, afiş ve ürün ambalajına basılan QR kodlar neden bazen telefon kamerasıyla okunmaz? SVG vektör çıktısı, ECC seviyesi (L/M/Q/H) ve kontrast kuralları.",
+    "url": "yazi-qr-paylasim-baski.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "QR Baskı",
+      "SVG",
+      "Hata Düzeltme",
+      "QR Scanner"
+    ]
+  },
+  {
+    "title": "Teknik Dokümanlarda ve Oyun Terimlerinde Kişisel Sözlükle Çeviri Tutarlılığı",
+    "desc": "Otomatik çeviri araçlarının \"branch\", \"commit\", \"shader\" veya \"crosshair\" gibi terimleri her paragrafta farklı çevirmesini ÇevirmenX çift yönlü kişisel sözlükle önlemek.",
+    "url": "yazi-cevirmenx-sozluk.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "ÇevirmenX",
+      "Kişisel Sözlük",
+      "Teknik Çeviri",
+      "Terminoloji"
+    ]
+  },
+  {
+    "title": "QR Kod Güvenliği, Tarayıcı İzinleri ve Cihaz İçi İşleme Rehberi",
+    "desc": "Quishing (QR oltalama) saldırılarından nasıl korunursunuz? Kamera izni, URL önizleme, kısaltılmış bağlantılar ve cihaz içi QR taramanın önemi.",
+    "url": "rehber-qr-guvenligi.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "QR Güvenliği",
+      "Quishing",
+      "Gizlilik",
+      "QR Scanner"
+    ]
+  },
+  {
+    "title": "ÇevirmenX 1.4.0 Kurulum ve Verimli Sayfa İçi Çeviri Rehberi",
+    "desc": "Sekme değiştirmeden Alt+T kısayoluyla teknik doküman okuma, çift yönlü kişisel sözlük kurma, seslendirme ve Chrome/Edge/Firefox kurulum adımları.",
+    "url": "rehber-cevirmenx.html",
+    "type": "Teknik Rehber",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "ÇevirmenX",
+      "Tarayıcı Eklentisi",
+      "Çeviri",
+      "Verimlilik"
+    ]
+  },
+  {
+    "title": "WebGL Ürün Sahnelerinde Işık, Kamera ve Mobil Okunabilirlik Dengesi",
+    "desc": "Tarayıcı içinde 3D bir nesne sergilerken sahnenin ziyaretçiyi yormaması, ürün formunun net okunması ve sayfa kaydırmasıyla çakışmaması için pratik mühendislik kuralları.",
+    "url": "yazi-plant-showroom-sahne.html",
+    "type": "Mühendislik Notu",
+    "tags": [
+      "Tasarım & Web",
+      "WebGL",
+      "Three.js",
+      "3D UX",
+      "Mobil Performans"
+    ]
+  }
+]

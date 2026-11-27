@@ -1,0 +1,12 @@
+{
+  "name": "haking-adsense-hub",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "HaKING (haking.tr) — Halit Güneş bağımsız yazılım stüdyosu, 15 açık kaynak GitHub projesi ve teknoloji yayını.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "verify": "node scripts/verify.mjs",
+    "check": "node scripts/build.mjs && node scripts/verify.mjs"
+  }
+}

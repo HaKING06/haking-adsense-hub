@@ -1,23 +1,340 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Sunucu uyanması, model bekleme süresi ve akışlı yanıt arasındaki farkları ölçerek darboğazı bulmak."><title>Yapay zekâ sohbetinde ilk yanıt neden gecikir? | HaKING</title><link rel="canonical" href="https://haking.tr/rehber-ai-gecikmesi.html"><link rel="stylesheet" href="assets/style.css?v=20261109-2"><script defer src="assets/site.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2827419116684137" crossorigin="anonymous"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Yapay zekâ sohbetinde ilk yanıt neden gecikir?", "name": "Yapay zekâ sohbetinde ilk yanıt neden gecikir?", "description": "Sunucu uyanması, model bekleme süresi ve akışlı yanıt arasındaki farkları ölçerek darboğazı bulmak.", "url": "https://haking.tr/rehber-ai-gecikmesi.html", "inLanguage": "tr-TR", "author": {"@type": "Person", "name": "Halit Güneş", "url": "https://haking.tr/hakkimda.html"}}</script><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="assets/images/haking-icon-512.png" sizes="512x512"><link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"><meta property="og:image" content="https://haking.tr/assets/images/haking-social.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://haking.tr/assets/images/haking-social.png"></head><body><a class="skip-link" href="#icerik">İçeriğe geç</a><header class="site-header">
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi | HaKING</title>
+  <meta name="description" content="Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.">
+  <meta name="author" content="Halit Güneş">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#f6f3ec">
+  <link rel="canonical" href="https://haking.tr/rehber-ai-gecikmesi.html">
+  <link rel="alternate" hreflang="tr-TR" href="https://haking.tr/rehber-ai-gecikmesi.html">
+  <link rel="alternate" hreflang="x-default" href="https://haking.tr/rehber-ai-gecikmesi.html">
+  <link rel="alternate" type="application/rss+xml" title="HaKING — Yazılar ve Sürüm Notları (RSS)" href="https://haking.tr/rss.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="HaKING Arama" href="https://haking.tr/opensearch.xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-64.png" sizes="64x64">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
+  <meta property="og:site_name" content="HaKING">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://haking.tr/rehber-ai-gecikmesi.html">
+  <meta property="og:title" content="Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi | HaKING">
+  <meta property="og:description" content="Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.">
+  <meta property="og:image" content="https://haking.tr/assets/images/projects/haking-ai.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi | HaKING">
+  <meta name="twitter:description" content="Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.">
+  <meta name="twitter:image" content="https://haking.tr/assets/images/projects/haking-ai.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..600&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap&subset=latin,latin-ext" rel="stylesheet">
+  <script>(function(){try{var t=localStorage.getItem('haking_theme_v2');if(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+  <link rel="stylesheet" href="assets/style.css?v=20261127-1">
+  <script defer src="assets/site.js?v=20261127-1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2827419116684137" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://haking.tr/#website","name":"HaKING","alternateName":"HaKING — Halit Güneş","url":"https://haking.tr/","inLanguage":"tr-TR","description":"Açık kaynak web ürünleri, yazılım mühendisliği vaka analizleri ve teknik rehberler.","publisher":{"@id":"https://haking.tr/#person"},"potentialAction":{"@type":"SearchAction","target":"https://haking.tr/haberler.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://haking.tr/#person","name":"Halit Güneş","alternateName":"HaKING06","url":"https://haking.tr/hakkimda.html","image":"https://haking.tr/assets/images/brand/logo-512.png","jobTitle":"Bağımsız Yazılım Geliştirici & Yayın Sorumlusu","email":"mailto:merhaba@haking.tr","address":{"@type":"PostalAddress","addressLocality":"İstanbul","addressCountry":"TR"},"alumniOf":{"@type":"CollegeOrUniversity","name":"İstanbul Kültür Üniversitesi"},"sameAs":["https://github.com/HaKING06","https://www.youtube.com/@gunshalit","https://steamcommunity.com/profiles/76561199760755154/","https://buymeacoffee.com/haking"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://haking.tr/index.html"},{"@type":"ListItem","position":2,"name":"Mühendislik Yazıları","item":"https://haking.tr/blog.html"},{"@type":"ListItem","position":3,"name":"Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi","item":"https://haking.tr/rehber-ai-gecikmesi.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi","description":"Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.","image":"https://haking.tr/assets/images/projects/haking-ai.webp","datePublished":"2026-11-21","dateModified":"2026-11-21","inLanguage":"tr-TR","keywords":"TTFT, SSE, FastAPI, Gecikme Analizi, Yapay Zekâ","author":{"@id":"https://haking.tr/#person"},"publisher":{"@id":"https://haking.tr/#person"},"mainEntityOfPage":"https://haking.tr/rehber-ai-gecikmesi.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"SSE başlıklarında tamponlama nasıl engellenir?","acceptedAnswer":{"@type":"Answer","text":"Sunucu yanıtında Content-Type: text/event-stream, Cache-Control: no-cache, no-transform ve ters proxy arkasındaysanız X-Accel-Buffering: no başlıklarını göndermelisiniz."}}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#icerik">İçeriğe geç</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
     <nav class="nav wrap" aria-label="Ana gezinme">
-      <a class="brand" href="index.html" aria-label="HaKING ana sayfa"><img class="brand-mark brand-image" src="assets/images/haking-icon-512.png" alt="" width="36" height="36"><span>HaKING<span class="brand-dot">.</span></span></a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menü</button>
+      <a class="brand" href="index.html" aria-label="HaKING ana sayfa">
+        <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38">
+        <span class="brand-text">
+          <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+          <span class="brand-sub">Yazılım Stüdyosu &amp; Yayın</span>
+        </span>
+      </a>
       <div class="nav-links" id="nav-links">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="projects.html">Projeler</a>
-        <a href="blog.html">Mühendislik Yazıları</a>
-        <a class="nav-contact" href="iletisim.html">İletişim <span aria-hidden="true">↗</span></a>
+        <a href="index.html">Ana Sayfa</a><a href="projects.html">Projeler</a><a href="haking-ai-prompt-modu.html">Prompt Modu</a><a href="blog.html" aria-current="page">Yazılar</a><a href="hakkimda.html">Hakkımda</a><a href="github.html">GitHub</a><a href="proje-yaptir.html" class="nav-cta">Proje Yaptır</a>
+      </div>
+      <div class="nav-tools">
+        <button type="button" class="icon-btn" data-open-search aria-label="Site içinde ara (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="search-btn-label">Ara</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+        <button type="button" class="icon-btn" data-open-bookmarks aria-label="Okuma listem">
+          <span aria-hidden="true">★</span>
+          <span class="bookmark-count" data-bookmark-count hidden>0</span>
+        </button>
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Temayı değiştir" aria-pressed="false">
+          <span data-theme-icon aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menü</button>
       </div>
     </nav>
-  </header><main id="icerik"><header class="page-intro"><a class="back-link" href="haberler.html">← Teknoloji ve rehberler</a><div class="eyebrow">Yapay zekâ</div><h1>Yapay zekâ sohbetinde ilk yanıt neden gecikir?</h1><p>Sunucu uyanması, model bekleme süresi ve akışlı yanıt arasındaki farkları ölçerek darboğazı bulmak.</p><div class="article-meta"><a href="hakkimda.html">Halit Güneş</a> · <time datetime="2026-11-09">9 Kasım 2026</time> · Rehber</div></header><div class="article-shell"><nav class="article-toc" aria-label="İçindekiler"><strong>BU YAZIDA</strong><a href="#bolum-0">İlk mesaj ile devam mesajını ayrı ölçmek</a><a href="#bolum-1">Ölçülebilir üç zaman noktası</a><a href="#bolum-2">Hafif uyandırma isteği ne sağlar?</a><a href="#bolum-3">SSE bekleme süresini nasıl değiştirir?</a><a href="#bolum-4">Uygulanabilir teşhis sırası</a></nav><article class="article"><section><h2 id="bolum-0">İlk mesaj ile devam mesajını ayrı ölçmek</h2><p>Bir sohbet uygulamasında ilk yanıtın geç gelmesi, sonraki mesajların hızlı olması tek başına modelin yavaş olduğunu göstermez. İlk ziyaret sırasında DNS çözümleme, TLS bağlantısı, uygulama başlatma ve veritabanı bağlantısı gibi adımlar devreye girebilir. İkinci istekte bu kaynakların bir kısmı hazırdır. Sorunu çözmeye başlamadan önce hangi aşamanın beklediğini kaydetmek gerekir. HaKING AI gibi istemci ve servis katmanı ayrılmış ürünlerde tarayıcı isteğinin gönderilmesi, sunucunun isteği kabul etmesi ve ilk metin parçasının gelmesi farklı zamanlardır.</p></section><section><h2 id="bolum-1">Ölçülebilir üç zaman noktası</h2><p>Tarayıcı geliştirici araçlarının Network bölümünde sohbet isteğini bulun. İsteğin başlaması ile yanıt başlıklarının gelmesi arasındaki süreyi, ardından ilk içerik parçasını karşılaştırın. Sunucu tarafında aynı istek kimliğiyle başlangıç, sağlayıcı çağrısı ve ilk parça zamanını kaydetmek daha iyi bir ayrım sağlar. Kayıtlara kullanıcının mesajını, erişim belirtecini veya API anahtarını yazmak gerekli değildir. Süre ve durum bilgisi, gecikmenin bağlantıda mı yoksa model üretiminde mi olduğunu anlamaya çoğu zaman yeter.</p></section><section><h2 id="bolum-2">Hafif uyandırma isteği ne sağlar?</h2><p>Sayfa açılırken uygulamanın hafif bir uç noktasına istek göndermek, uyuyan servisin kullanıcı yazmaya başlamadan açılmasını sağlayabilir. Bu uç nokta veritabanını sorguluyorsa yeni bir bekleme noktası oluşabilir. Bu nedenle canlılık kontrolüyle bağımlılıkların hazır olmasını ölçen kontrolü ayırmak faydalıdır. Aynı anda açılan bileşenlerin ayrı ayrı istek başlatmasını önlemek için devam eden kontrol paylaşılabilir. Zaman aşımı ve sınırlı tekrar deneme konulmalı, her sekmenin sınırsız bir döngü oluşturması önlenmelidir.</p></section><section><h2 id="bolum-3">SSE bekleme süresini nasıl değiştirir?</h2><p>Server-Sent Events, sunucunun ürettiği parçaları bağlantı üzerinden sırayla iletir. Kullanıcı tamamlanmış yanıtı beklemek yerine ilk parçayı okuyabilir. Bununla birlikte model ilk parçayı üretmeden önce uzun süre bekliyorsa SSE bu süreyi ortadan kaldırmaz. Ters vekilin tamponlaması da parçaların istemciye geç ulaşmasına neden olabilir. Akışın gerçekten parça parça geldiği Network kaydıyla gözlenmelidir. Bağlantı koptuğunda kısmi yanıt korunmalı ve tamamlandı işareti gelmeden arayüz başarılı sonuç göstermemelidir.</p></section><section><h2 id="bolum-4">Uygulanabilir teşhis sırası</h2><p>Önce aynı kısa soruyu servis soğukken ve sıcakken deneyin. Ardından canlılık isteğiyle sohbet isteğini karşılaştırın. Sağlayıcının ilk parça süresini ayrı ölçün. Modeli veya barındırmayı değiştirmeden önce bu kayıtları yorumlayın. Her değişiklikten sonra aynı test koşullarını kullanmak, rastlantısal hız farkını iyileştirme sanmayı önler. Sonuçları tek bir ölçüm yerine birkaç deneme ve yaklaşık aralıkla paylaşmak daha açıklayıcıdır. Kullanıcıya bekleme durumu gösterin ve yeniden denemenin çift ücretlendirme ya da tekrarlı istek üretmediğini kontrol edin.</p></section><h2>Kaynak ve devam okuması</h2><p>Teknik ayrıntılar için <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events" rel="noopener">ilgili birincil kaynağı</a> inceleyin. <a href="projects.html">HaKING projeleri</a> bu konuların ürün bağlamını anlatır. Düzeltme önerileri için <a href="iletisim.html">iletişime geçebilirsiniz</a>.</p><aside class="notice">Bu içerik kavramları açıklayan bir rehberdir. Yayın tarihi ve kaynak bağlantısı, anlatımın hangi bağlamda hazırlandığını gösterir.</aside></article></div></main><footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-main">
-        <div class="footer-brand"><a class="brand" href="index.html"><img class="brand-mark brand-image" src="assets/images/haking-icon-512.png" alt="" width="36" height="36"><span>HaKING<span class="brand-dot">.</span></span></a><p>Projeler, ürün kararları<br>ve öğrenme notları.</p></div>
-        <div class="footer-column"><span class="footer-title">KEŞFET</span><a href="projects.html">Projeler</a><a href="blog.html">Mühendislik yazıları</a><a href="#makaleler">Vaka analizleri</a></div>
-        <div class="footer-column"><span class="footer-title">BİLGİ</span><a href="gizlilik-politikasi.html">Gizlilik Politikası</a><a href="terms.html">Kullanım Koşulları</a><a href="iletisim.html">İletişim</a></div>
-        <div class="footer-contact"><span class="footer-title">BAĞLANTIDA KAL</span><a href="mailto:merhaba@haking.tr">merhaba@haking.tr <span>↗</span></a><small>İstanbul, Türkiye</small></div>
+  </header>
+
+  <main id="icerik">
+
+    <header class="page-intro">
+      <div class="wrap">
+        <nav class="breadcrumbs" aria-label="Sayfa yolu">
+    <a href="index.html">Ana Sayfa</a><span aria-hidden="true">/</span><a href="blog.html">Mühendislik Yazıları</a><span aria-hidden="true">/</span><span aria-current="page">Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi</span>
+  </nav>
+        <div class="eyebrow"><span class="tag tag-accent">Yapay Zekâ</span> <span class="tag">Teknik Rehber</span></div>
+        <h1>Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi</h1>
+        <p class="lead">Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.</p>
+        <div class="article-meta-bar">
+          <a class="author-inline" href="hakkimda.html"><img class="author-avatar-sm" src="assets/images/brand/logo-64.png" alt="" width="28" height="28">Halit Güneş</a>
+          <span>Yayın / Güncelleme: <time datetime="2026-11-21">21 Kasım 2026</time></span>
+          <span>8 dk okuma</span>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin-left:auto;" data-bookmark-toggle data-url="rehber-ai-gecikmesi.html" data-title="Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi" data-type="Teknik Rehber">☆ Okuma listesine ekle</button>
+        </div>
       </div>
-      <div class="footer-bottom"><span>© <span data-year>2026</span> HaKING · Halit Güneş</span><span>Merakla tasarlandı, özenle geliştirildi.</span><a href="sitemap.xml">Site haritası</a></div>
+    </header>
+
+    <div class="wrap article-shell">
+      <aside class="article-aside">
+        <nav class="toc-card" aria-label="Makale içindekiler">
+          <div class="toc-title">Bu Yazıda</div>
+          <ul class="toc-list">
+            <li><a href="#ttft-nedir">Toplam süre ile İlk Token Süresi (TTFT) neden ayrı ölçülmelidir?</a></li><li><a href="#dort-katman">Gecikmenin saklandığı 4 ayrı katman</a></li><li><a href="#olcum-disiplini">Kendi uygulamanızda gecikmeyi nasıl ölçersiniz?</a></li><li><a href="#sss">Sıkça Sorulan Sorular</a></li>
+          </ul>
+        </nav>
+        <div class="toc-card">
+                <div class="toc-title">İlgili Açık Kaynak Proje</div>
+                <strong style="display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:6px;">HaKING AI (v1.19.2)</strong>
+                <p style="font-size:0.83rem;margin-bottom:12px;">SSE akışlı Türkçe yazılım asistanı, yapılandırılmış Prompt Modu ve Tavily araştırmalı Çılgın Mod.</p>
+                <div style="display:flex;flex-direction:column;gap:7px;">
+                  <a class="btn btn-accent btn-sm" href="https://ai.haking.tr/" target="_blank" rel="noopener noreferrer">Canlı Siteyi Aç ↗</a>
+                  <a class="btn btn-secondary btn-sm" href="proje-haking-ai.html">Proje Sayfası →</a>
+                </div>
+              </div>
+      </aside>
+
+      <article class="prose">
+        <details class="mobile-toc">
+          <summary>İçindekiler</summary>
+          <ul class="toc-list"><li><a href="#ttft-nedir">Toplam süre ile İlk Token Süresi (TTFT) neden ayrı ölçülmelidir?</a></li><li><a href="#dort-katman">Gecikmenin saklandığı 4 ayrı katman</a></li><li><a href="#olcum-disiplini">Kendi uygulamanızda gecikmeyi nasıl ölçersiniz?</a></li><li><a href="#sss">Sıkça Sorulan Sorular</a></li></ul>
+        </details>
+
+        <section aria-labelledby="ttft-nedir">
+              <h2 id="ttft-nedir">Toplam süre ile İlk Token Süresi (TTFT) neden ayrı ölçülmelidir?</h2>
+              
+          <p>Bir yapay zekâ sohbet uygulamasında kullanıcı “sistem yavaş” dediğinde sorun her zaman modelin saniyede ürettiği kelime sayısı (throughput) değildir. Çoğu vakada kullanıcıyı yoran şey, Gönder tuşuna bastıktan sonra ekranda ilk anlamlı kelimenin belirmesine kadar geçen <strong>Time To First Token (TTFT)</strong> süresidir. Toplam 14 saniye süren bir yanıt ilk 0,9 saniyede akmaya başlarsa akıcı hissedilir; oysa toplam 8 saniye sürüp ilk 7 saniye boş ekran gösteren bir sistem bozuk algısı yaratır.</p>
+        
+            </section><section aria-labelledby="dort-katman">
+              <h2 id="dort-katman">Gecikmenin saklandığı 4 ayrı katman</h2>
+              
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Katman</th><th>Tipik Belirti</th><th>Doğrulama Yöntemi</th><th>Çözüm Yaklaşımı</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>1. Sunucusuz Soğuk Başlangıç</strong></td><td>Günün ilk isteği 3–8 sn sürer, ikinci istek hızlıdır</td><td>Sunucu başlama zamanı ve TTFB farkı</td><td>Hafif bağımlılıklar, ayrı sağlık uç noktası, sıcak tutma politikası</td></tr>
+                <tr><td><strong>2. Ağ &amp; Proxy Tamponlama</strong></td><td>Backend parça üretir ama tarayıcı hepsini sonda alır</td><td>DevTools EventStream zaman damgaları</td><td><code>Cache-Control: no-cache</code> ve <code>X-Accel-Buffering: no</code> başlıkları</td></tr>
+                <tr><td><strong>3. Model Prefill &amp; Kuyruk</strong></td><td>Çok uzun sohbet geçmişinde bekleme katlanır</td><td>Sağlayıcı yanıt başlıkları ve token sayısı</td><td>Gereksiz eski mesajları budama, özetlenmiş görev kartı (<code>prompt_state</code>)</td></tr>
+                <tr><td><strong>4. İstemci DOM Çizimi</strong></td><td>Metin gelir ama tarayıcı takılarak kayar</td><td>Chrome Performance flamegraph</td><td><code>requestAnimationFrame</code> toplu güncelleme, kod bloklarını tekrar derlememe</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><a href="proje-haking-ai.html">HaKING AI</a> üzerinde Prompt Modu geliştirilirken yaşanan en büyük kazanımlardan biri, tüm eski sohbet metnini tekrar tekrar modele göndermek yerine yalnızca güncel görev kartını taşımak oldu. Bu hem girdi token yükünü hem de prefill bekleme süresini kontrol altında tutar.</p>
+        
+            </section><section aria-labelledby="olcum-disiplini">
+              <h2 id="olcum-disiplini">Kendi uygulamanızda gecikmeyi nasıl ölçersiniz?</h2>
+              
+          <p>Tahmine dayalı optimizasyon çoğu zaman yanlış katmana zaman harcatır. İstemci tarafında üç basit zaman damgası kaydetmek darboğazı dakikalar içinde görünür kılar:</p>
+          <div class="code-block">
+            <div class="code-head"><span>İstemci TTFT ve toplam akış ölçümü</span><button type="button" class="copy-code-btn" data-copy-code>Kopyala</button></div>
+            <pre><code>const t0 = performance.now();
+let tFirstToken = null;
+const res = await fetch('/api/chat/stream', { method: 'POST', body });
+const tHeaders = performance.now() - t0; // Sunucu uyanma + doğrulama
+// İlk token olayında:
+if (tFirstToken === null) tFirstToken = performance.now() - t0;</code></pre>
+          </div>
+          <p>Eğer <code>tHeaders</code> yüksekse odaklanmanız gereken yer soğuk başlangıç, veritabanı bağlantısı veya Turnstile doğrulamasıdır. <code>tHeaders</code> düşük ama <code>tFirstToken</code> yüksekse gecikme model sağlayıcısının prefill veya kuyruk aşamasındadır.</p>
+        
+            </section>
+
+        <section aria-labelledby="sss">
+                <h2 id="sss">Sıkça Sorulan Sorular</h2>
+                <div class="faq-list">
+                  <details class="faq-item"><summary>SSE başlıklarında tamponlama nasıl engellenir?</summary><p>Sunucu yanıtında Content-Type: text/event-stream, Cache-Control: no-cache, no-transform ve ters proxy arkasındaysanız X-Accel-Buffering: no başlıklarını göndermelisiniz.</p></details>
+                </div>
+              </section>
+
+        <div class="chips" style="margin-top:26px;">
+          <span class="chip">#TTFT</span><span class="chip">#SSE</span><span class="chip">#FastAPI</span><span class="chip">#Gecikme Analizi</span><span class="chip">#Yapay Zekâ</span>
+        </div>
+
+        <div class="panel" style="margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+                <div>
+                  <div class="eyebrow" style="margin-bottom:4px;">UYGULAMALI PROJE BAĞLAMI</div>
+                  <h3 style="margin-bottom:4px;">HaKING AI (v1.19.2)</h3>
+                  <p style="font-size:0.9rem;margin:0;max-width:48ch;">Bu rehberdeki mühendislik yaklaşımını çalışan üründe ve açık kaynak kodunda inceleyin.</p>
+                </div>
+                <div class="actions">
+                  <a class="btn btn-accent btn-sm" href="https://ai.haking.tr/" target="_blank" rel="noopener noreferrer">Canlı Site ↗</a>
+                  <a class="btn btn-secondary btn-sm" href="proje-haking-ai.html">Proje İncelemesi →</a>
+                </div>
+              </div>
+
+        <section class="author-card" aria-label="Yazar hakkında">
+    <img src="assets/images/brand/logo-192.png" alt="Halit Güneş — HaKING" width="72" height="72" loading="lazy">
+    <div>
+      <div class="eyebrow" style="margin-bottom:4px;">YAZAR &amp; GELİŞTİRİCİ</div>
+      <h3>Halit Güneş (HaKING06)</h3>
+      <p>İstanbul Kültür Üniversitesi Bilgisayar Programcılığı öğrencisi ve bağımsız yazılım geliştirici. Yapay zekâ arayüzleri, CS2 ekonomi analiz araçları, tarayıcı uzantıları ve WebGL tabanlı 3D web ürünleri geliştiriyor; arkasındaki mimari kararları haking.tr'de belgeliyor.</p>
+      <div class="actions" style="gap:14px;">
+        <a class="text-link" href="hakkimda.html">Hakkımda →</a>
+        <a class="text-link" href="github.html">GitHub Projeleri →</a>
+        <a class="text-link" href="proje-yaptir.html">Proje Yaptır →</a>
+      </div>
     </div>
-  <nav class="wrap publication-links" aria-label="Yayın bilgileri"><a href="haberler.html">Teknoloji ve rehberler</a><a href="hakkimda.html">Hakkımda</a><a href="yayin-ilkeleri.html">Yayın ilkeleri</a></nav></footer></body></html>
+  </section>
+
+        <section style="margin-top:38px;">
+                <h2 style="margin-top:0;">Okumaya Devam Et</h2>
+                <div class="grid-3" style="margin-top:16px;">
+                  <article class="article-card" style="padding:18px;">
+                        <span class="tag">Vaka Analizi</span>
+                        <h3 style="font-size:1.02rem;"><a href="makale-1.html">HaKING AI v1.19.2 Mimarisi: FastAPI, SSE Akışı, Prompt Karar Belleği ve Neon Kredi Katmanı</a></h3>
+                        <a class="text-link" href="makale-1.html" style="margin-top:auto;">Yazıyı oku →</a>
+                      </article><article class="article-card" style="padding:18px;">
+                        <span class="tag">Mühendislik Notu</span>
+                        <h3 style="font-size:1.02rem;"><a href="yazi-haking-ai-kesilen-yanit.html">Uzun AI Kod Yanıtları Kesildiğinde Güvenli Devam ve Parça Birleştirme Rehberi</a></h3>
+                        <a class="text-link" href="yazi-haking-ai-kesilen-yanit.html" style="margin-top:auto;">Yazıyı oku →</a>
+                      </article><article class="article-card" style="padding:18px;">
+                        <span class="tag">Teknik Rehber</span>
+                        <h3 style="font-size:1.02rem;"><a href="yazi-ai-desktop-arama.html">Yazım Hatalarına Dayanıklı Arama Motoru Tasarımı: BM25, Karakter N-Gram TF-IDF ve Hibrit Sıralama</a></h3>
+                        <a class="text-link" href="yazi-ai-desktop-arama.html" style="margin-top:auto;">Yazıyı oku →</a>
+                      </article>
+                </div>
+              </section>
+      </article>
+    </div>
+  
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38" loading="lazy">
+            <span class="brand-text">
+              <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+              <span class="brand-sub">Halit Güneş · haking.tr</span>
+            </span>
+          </a>
+          <p>Bağımsız yazılım stüdyosu ve Türkçe mühendislik yayını. 15 açık kaynak GitHub projesi, derin vaka analizleri ve pratik geliştirici rehberleri.</p>
+          <div class="chips" style="margin-top:14px;">
+            <a class="chip" href="https://github.com/HaKING06" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="chip" href="https://www.youtube.com/@gunshalit" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+            <a class="chip" href="https://steamcommunity.com/profiles/76561199760755154/" target="_blank" rel="noopener noreferrer">Steam ↗</a>
+            <a class="chip" href="https://buymeacoffee.com/haking" target="_blank" rel="noopener noreferrer">Destek ↗</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Öne Çıkan Ürünler</h4>
+          <ul>
+            <li><a href="proje-haking-ai.html">HaKING AI (v1.19.2)</a></li>
+            <li><a href="haking-ai-prompt-modu.html">HaKING Prompt Modu</a></li>
+            <li><a href="proje-spread.html">SPREAD V11.1</a></li>
+            <li><a href="proje-cosmic.html">COSMIC v12.0</a></li>
+            <li><a href="proje-cs2studio.html">CS2 Studio</a></li>
+            <li><a href="projects.html">Tüm 15 Proje →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Yayın &amp; Rehberler</h4>
+          <ul>
+            <li><a href="blog.html">Mühendislik Yazıları</a></li>
+            <li><a href="haberler.html">Okuma Merkezi &amp; Sürümler</a></li>
+            <li><a href="makale-1.html">HaKING AI Mimarisi</a></li>
+            <li><a href="makale-spread-arbitraj-mimarisi.html">SPREAD Quant Mimarisi</a></li>
+            <li><a href="rehber-not-hesaplama.html">Not Hesaplama Rehberi</a></li>
+            <li><a href="rss.xml">RSS Akışı (XML)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stüdyo</h4>
+          <ul>
+            <li><a href="hakkimda.html">Hakkımda (Ben Kimim?)</a></li>
+            <li><a href="github.html">GitHub Sayfam</a></li>
+            <li><a href="proje-yaptir.html">Proje Yaptır &amp; Teklif</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="yayin-ilkeleri.html">Yayın İlkeleri</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Yasal &amp; İletişim</h4>
+          <ul>
+            <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+            <li><a href="cerez-politikasi.html">Çerez Politikası</a></li>
+            <li><a href="terms.html">Kullanım Koşulları</a></li>
+            <li><a href="site-haritasi.html">HTML Site Haritası</a></li>
+            <li><a href="mailto:merhaba@haking.tr">merhaba@haking.tr</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> HaKING · Halit Güneş · İstanbul, Türkiye</span>
+        <div class="footer-bottom-links">
+          <a href="sitemap.xml">sitemap.xml</a>
+          <a href="rss.xml">rss.xml</a>
+          <a href="llms.txt">llms.txt</a>
+          <button type="button" data-open-cookie-settings style="background:none;border:0;padding:0;color:inherit;text-decoration:underline;font-size:inherit;">Çerez Tercihleri</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Search Command Modal -->
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" hidden>
+    <div class="modal-box">
+      <div class="modal-search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <label for="global-search-input" id="search-modal-title" class="sr-only">Site içinde ara</label>
+        <input id="global-search-input" type="search" placeholder="Proje, rehber veya konu ara (ör. Prompt Modu, SPREAD, OKLCH, QR)..." autocomplete="off">
+        <button type="button" class="btn btn-secondary btn-sm" data-close-search>Kapat</button>
+      </div>
+      <div class="modal-results" id="global-search-results"></div>
+      <div class="modal-foot">
+        <span id="global-search-count">Hazır</span>
+        <span>↑↓ Gezin · Enter Aç · Esc Kapat</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reading List / Bookmarks Modal -->
+  <div class="modal-backdrop" id="bookmarks-modal" role="dialog" aria-modal="true" aria-labelledby="bookmarks-modal-title" hidden>
+    <div class="modal-box">
+      <div class="modal-search-bar">
+        <strong id="bookmarks-modal-title" style="flex:1;">Okuma Listem (Yerel Kayıt)</strong>
+        <button type="button" class="btn btn-secondary btn-sm" data-close-bookmarks>Kapat</button>
+      </div>
+      <div class="modal-results" id="bookmarks-list"></div>
+      <div class="modal-foot">
+        <span>Kayıtlar yalnızca bu tarayıcıda saklanır.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie & Storage Notice -->
+  <aside class="cookie-bar" id="cookie-bar" aria-label="Çerez ve depolama bildirimi" hidden>
+    <h4>Çerezler ve Yerel Depolama</h4>
+    <p>haking.tr tema ve okuma listesi için tarayıcı depolamasını kullanır. Google AdSense reklamları etkin olduğunda üçüncü taraf reklam çerezleri kullanılabilir. Ayrıntılar için <a href="cerez-politikasi.html">Çerez Politikası</a> ve <a href="gizlilik-politikasi.html">Gizlilik Politikası</a> sayfalarını inceleyebilirsiniz.</p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-sm" data-cookie-choice="accepted">Anladım</button>
+      <button type="button" class="btn btn-secondary btn-sm" data-cookie-choice="essential">Yalnızca Temel</button>
+      <a class="text-link" href="cerez-politikasi.html" style="font-size:0.83rem;margin-left:auto;">Ayrıntılar →</a>
+    </div>
+  </aside>
+</body>
+</html>

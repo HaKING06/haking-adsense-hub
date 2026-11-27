@@ -3,53 +3,487 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b14">
-  <meta name="description" content="Halit Güneş'in HaKING AI, 3D Plant Showroom, QR Scanner ve NotMatik projeleri üzerine mühendislik yazıları ve vaka analizleri.">
-  <title>Mühendislik Yazıları ve Vaka Analizleri | HaKING</title>
+  <title>Mühendislik Yazıları ve Teknik Rehberler | HaKING — Halit Güneş</title>
+  <meta name="description" content="Yapay zekâ, FastAPI SSE akışı, SPREAD Monte Carlo CVaR, Three.js 3D WebGL, Manifest V3 eklentiler, OKLCH tasarım sistemleri ve eğitim araçları üzerine özgün Türkçe mühendislik yazıları.">
+  <meta name="author" content="Halit Güneş">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#f6f3ec">
   <link rel="canonical" href="https://haking.tr/blog.html">
-  <link rel="stylesheet" href="assets/style.css?v=20261109-2">
-  <script defer src="assets/site.js"></script>
+  <link rel="alternate" hreflang="tr-TR" href="https://haking.tr/blog.html">
+  <link rel="alternate" hreflang="x-default" href="https://haking.tr/blog.html">
+  <link rel="alternate" type="application/rss+xml" title="HaKING — Yazılar ve Sürüm Notları (RSS)" href="https://haking.tr/rss.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="HaKING Arama" href="https://haking.tr/opensearch.xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-64.png" sizes="64x64">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
+  <meta property="og:site_name" content="HaKING">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haking.tr/blog.html">
+  <meta property="og:title" content="Mühendislik Yazıları ve Teknik Rehberler | HaKING — Halit Güneş">
+  <meta property="og:description" content="Yapay zekâ, FastAPI SSE akışı, SPREAD Monte Carlo CVaR, Three.js 3D WebGL, Manifest V3 eklentiler, OKLCH tasarım sistemleri ve eğitim araçları üzerine özgün Türkçe mühendislik yazıları.">
+  <meta property="og:image" content="https://haking.tr/assets/images/brand/og-haking.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mühendislik Yazıları ve Teknik Rehberler | HaKING — Halit Güneş">
+  <meta name="twitter:description" content="Yapay zekâ, FastAPI SSE akışı, SPREAD Monte Carlo CVaR, Three.js 3D WebGL, Manifest V3 eklentiler, OKLCH tasarım sistemleri ve eğitim araçları üzerine özgün Türkçe mühendislik yazıları.">
+  <meta name="twitter:image" content="https://haking.tr/assets/images/brand/og-haking.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..600&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap&subset=latin,latin-ext" rel="stylesheet">
+  <script>(function(){try{var t=localStorage.getItem('haking_theme_v2');if(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+  <link rel="stylesheet" href="assets/style.css?v=20261127-1">
+  <script defer src="assets/site.js?v=20261127-1"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2827419116684137" crossorigin="anonymous"></script>
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="assets/images/haking-icon-512.png" sizes="512x512"><link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"><meta property="og:image" content="https://haking.tr/assets/images/haking-social.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://haking.tr/assets/images/haking-social.png"></head>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://haking.tr/#website","name":"HaKING","alternateName":"HaKING — Halit Güneş","url":"https://haking.tr/","inLanguage":"tr-TR","description":"Açık kaynak web ürünleri, yazılım mühendisliği vaka analizleri ve teknik rehberler.","publisher":{"@id":"https://haking.tr/#person"},"potentialAction":{"@type":"SearchAction","target":"https://haking.tr/haberler.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://haking.tr/#person","name":"Halit Güneş","alternateName":"HaKING06","url":"https://haking.tr/hakkimda.html","image":"https://haking.tr/assets/images/brand/logo-512.png","jobTitle":"Bağımsız Yazılım Geliştirici & Yayın Sorumlusu","email":"mailto:merhaba@haking.tr","address":{"@type":"PostalAddress","addressLocality":"İstanbul","addressCountry":"TR"},"alumniOf":{"@type":"CollegeOrUniversity","name":"İstanbul Kültür Üniversitesi"},"sameAs":["https://github.com/HaKING06","https://www.youtube.com/@gunshalit","https://steamcommunity.com/profiles/76561199760755154/","https://buymeacoffee.com/haking"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://haking.tr/index.html"},{"@type":"ListItem","position":2,"name":"Mühendislik Yazıları","item":"https://haking.tr/blog.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"HaKING Mühendislik Yazıları","url":"https://haking.tr/blog.html","inLanguage":"tr-TR","author":{"@id":"https://haking.tr/#person"}}</script>
+</head>
 <body>
   <a class="skip-link" href="#icerik">İçeriğe geç</a>
-  <header class="site-header"><nav class="nav wrap" aria-label="Ana gezinme">
-    <a class="brand" href="index.html"><img class="brand-mark brand-image" src="assets/images/haking-icon-512.png" alt="" width="36" height="36"><span>HaKING<span class="brand-dot">.</span></span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menü</button>
-    <div class="nav-links" id="nav-links"><a href="index.html">Ana Sayfa</a><a href="projects.html">Projeler</a><a href="blog.html" aria-current="page">Mühendislik Yazıları</a><a class="nav-contact" href="iletisim.html">İletişim <span>↗</span></a></div>
-  </nav></header>
+  
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Ana gezinme">
+      <a class="brand" href="index.html" aria-label="HaKING ana sayfa">
+        <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38">
+        <span class="brand-text">
+          <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+          <span class="brand-sub">Yazılım Stüdyosu &amp; Yayın</span>
+        </span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Ana Sayfa</a><a href="projects.html">Projeler</a><a href="haking-ai-prompt-modu.html">Prompt Modu</a><a href="blog.html" aria-current="page">Yazılar</a><a href="hakkimda.html">Hakkımda</a><a href="github.html">GitHub</a><a href="proje-yaptir.html" class="nav-cta">Proje Yaptır</a>
+      </div>
+      <div class="nav-tools">
+        <button type="button" class="icon-btn" data-open-search aria-label="Site içinde ara (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="search-btn-label">Ara</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+        <button type="button" class="icon-btn" data-open-bookmarks aria-label="Okuma listem">
+          <span aria-hidden="true">★</span>
+          <span class="bookmark-count" data-bookmark-count hidden>0</span>
+        </button>
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Temayı değiştir" aria-pressed="false">
+          <span data-theme-icon aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menü</button>
+      </div>
+    </nav>
+  </header>
+
   <main id="icerik">
-    <header class="page-intro article-intro">
-      <div class="eyebrow">HAKING / ENGINEERING JOURNAL</div>
-      <h1>Mühendislik yazıları<br><span class="gradient-text">&amp; vaka analizleri.</span></h1>
-      <p>Her yazı geliştirdiğim bir üründeki gerçek probleme, teknik karara ve kullanıcı akışına odaklanır. Proje bağlamını, kullanılan yaklaşımı ve bilinen sınırları birlikte okuyun.</p>
-      <div class="article-meta"><span>Halit Güneş</span><span class="meta-dot">·</span><span>3 vaka analizi · 13 rehber</span><span class="meta-dot">·</span><span>Güncel çalışma notları</span></div>
+
+    <header class="page-intro">
+      <div class="wrap">
+        <nav class="breadcrumbs" aria-label="Sayfa yolu">
+    <a href="index.html">Ana Sayfa</a><span aria-hidden="true">/</span><span aria-current="page">Mühendislik Yazıları</span>
+  </nav>
+        <div class="eyebrow">MÜHENDİSLİK YAYINI · 20 ÖZGÜN YAZI</div>
+        <h1>Mühendislik yazıları, vaka analizleri ve teknik rehberler.</h1>
+        <p class="lead">Gerçek yazılım projelerini geliştirirken karşılaştığım mimari kararlar, performans ölçümleri, güvenlik sınırları ve uygulanabilir Türkçe teknik kılavuzlar. Konuya göre süzün veya arayın.</p>
+      </div>
     </header>
-    <section class="wrap notice"><p>ÇevirmenX kullanım rehberini ve diğer yazıları konu ve kelimeyle bulmak için <a class="text-link" href="haberler.html">teknoloji ve okuma arşivini açın →</a></p></section><section class="section wrap" aria-label="Vaka analizleri">
-      <div class="case-grid">
-        <article class="case-card">
-          <div class="case-visual case-ai-visual"><div class="case-glow"></div><div class="mini-code"><div class="mini-code-top"><span></span><span></span><span></span><b>stream.py</b></div><code><i>async for</i> chunk <i>in</i> response:<br>&nbsp;&nbsp;<em>yield</em> <strong>format_sse</strong>(chunk)</code><div class="mini-stream"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><span class="visual-number">CASE 01</span><div class="visual-bottom"><span>FASTAPI</span><span>SSE STREAMING</span><span>CLOUDFLARE PAGES</span></div></div>
-          <div class="case-content"><div class="case-meta"><span class="tag">VAKA ANALİZİ · YAPAY ZEKÂ</span><span class="read-time">◷ &nbsp;8 dk okuma</span></div><h2>Akışın arkasındaki mimari: HaKING AI</h2><p>FastAPI backend, Cloudflare Pages istemcisi ve SSE akışını birleştiren AI sohbet platformunun mimarisi. Prompt yönetimi ve streaming gecikmesiyle ilgili ürün kararları.</p><a class="case-link" href="makale-1.html">Vaka analizini oku <span>↗</span></a></div>
-        </article>
-        <article class="case-card">
-          <div class="case-visual case-plant-visual"><div class="case-glow"></div><div class="mini-plant"><div class="mini-leaf ml-one"></div><div class="mini-leaf ml-two"></div><div class="mini-leaf ml-three"></div><div class="mini-stem"></div><div class="mini-pot"></div></div><div class="mini-axis axis-x"></div><div class="mini-axis axis-y"></div><span class="visual-number">CASE 02</span><div class="visual-bottom"><span>THREE.JS</span><span>PRODUCT 3D</span></div></div>
-          <div class="case-content"><div class="case-meta"><span class="tag">VAKA ANALİZİ · WEBGL</span><span class="read-time">◷ &nbsp;8 dk okuma</span></div><h2>3D Plant Showroom: ürünün tarayıcıdaki sahnesi</h2><p>Three.js ile 3D saksı modellerini e-ticaret ürün vitrinine taşıma; render performansı, ışıklandırma ve HTML arayüzüyle etkileşim kararları.</p><a class="case-link" href="makale-2.html">Vaka analizini oku <span>↗</span></a></div>
-        </article>
-        <article class="case-card">
-          <div class="case-visual case-qr-visual"><div class="case-glow"></div><div class="qr-card-art"><div class="qr-art-code"><i></i><i></i><i></i><span></span></div><div class="qr-art-lines"><b>QR Scanner</b><i></i><i></i><small>Manifest V3</small></div></div><div class="grade-card-art"><span>NOTMATİK</span><b>BAŞARI NOTU</b><strong>Σ <i>puan × ağırlık</i></strong><div class="grade-bars"><i></i><i></i><i></i></div></div><span class="visual-number">CASE 03</span><div class="visual-bottom"><span>CHROME EXTENSION</span><span>GRADE LOGIC</span></div></div>
-          <div class="case-content"><div class="case-meta"><span class="tag">VAKA ANALİZİ · JAVASCRIPT</span><span class="read-time">◷ &nbsp;7 dk okuma</span></div><h2>QR Scanner ve NotMatik: iki ürün, ortak ilkeler</h2><p>Manifest V3 tabanlı Chrome eklentisindeki izin ve yaşam döngüsü kararlarını, NotMatik'in JavaScript ağırlıklı not hesaplama algoritmasıyla birlikte inceliyorum.</p><a class="case-link" href="makale-3.html">Vaka analizini oku <span>↗</span></a></div>
-        </article>
-      </div>
-    </section>
+
     <section class="section wrap">
-      <div class="content-panel glass">
-        <div class="eyebrow">YAYIN İLKESİ</div>
-        <h2>Projeyi olduğu gibi anlatmak</h2>
-        <p>Bu arşivde proje vaka analizlerini, genel teknik önerilerden ayırıyorum. HaKING AI, 3D Plant Showroom, QR Scanner ve NotMatik geliştirme çalışmalarımın bağlamında ele alınıyor. Performans ölçümü veya kullanıcı testi yapılmadığı sürece makalelerde doğrulanmamış FPS, gecikme, dönüşüm ya da başarı oranı kullanmıyorum. Kod parçaları kavramı açıklayan örneklerdir; tam kaynak kodu veya doğrudan üretime alınabilecek paket olarak sunulmaz.</p>
-        <p>Teknik API ve kütüphane davranışları sürümle değişebilir. Güncellik düzeltmesi ya da proje geri bildirimi için <a href="iletisim.html">iletişim sayfasını</a> kullanabilir; sitenin veri ve reklam teknolojileri hakkında <a href="gizlilik-politikasi.html">Gizlilik Politikası</a> metnini okuyabilirsiniz.</p>
+      <div class="filter-bar">
+        <div class="filter-pills" role="group" aria-label="Yazı kategorisi">
+          <button type="button" class="filter-pill is-active" data-reading-filter data-filter="all">Tümü</button><button type="button" class="filter-pill" data-reading-filter data-filter="Yapay Zekâ">Yapay Zekâ</button><button type="button" class="filter-pill" data-reading-filter data-filter="CS2 Ekonomi &amp; Oyun">CS2 Ekonomi &amp; Oyun</button><button type="button" class="filter-pill" data-reading-filter data-filter="Tasarım &amp; Web">Tasarım &amp; Web</button><button type="button" class="filter-pill" data-reading-filter data-filter="Tarayıcı Eklentileri">Tarayıcı Eklentileri</button><button type="button" class="filter-pill" data-reading-filter data-filter="Eğitim &amp; Topluluk">Eğitim &amp; Topluluk</button>
+        </div>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <label for="reading-search" class="sr-only">Yazılarda ara</label>
+          <input id="reading-search" type="search" placeholder="Konu veya kavram ara (ör. SSE, CVaR, OKLCH, QR)...">
+        </div>
+      </div>
+
+      <p class="mono" id="reading-count" style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:18px;">20 yazı</p>
+
+      <div class="article-grid">
+        <article class="article-card article-card-featured" data-reading-card data-category="Yapay Zekâ">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+            <span class="tag tag-accent">ÖZEL VİTRİN · YAPAY ZEKÂ</span>
+            <span class="mono" style="font-size:0.75rem;color:var(--ink-muted);">11 dk okuma</span>
+          </div>
+          <h3><a href="haking-ai-prompt-modu.html">HaKING AI Prompt Modu (v1.19.2): Fikrinden Denetlenmiş AI Agent Promptuna</a></h3>
+          <p>Görev kartı (prompt_state), ücretsiz keşif soruları, 7 farklı görev türüne özel teslimat ve canlı öncesi/sonrası prompt karşılaştırıcısı.</p>
+          <div class="article-card-foot">
+            <span>Halit Güneş · 27 Kasım 2026</span>
+            <a class="text-link" href="haking-ai-prompt-modu.html">Özel sayfayı aç →</a>
+          </div>
+        </article>
+        <article class="article-card" data-reading-card data-category="Yapay Zekâ">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Yapay Zekâ · Vaka Analizi</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">11 dk okuma</span>
+              </div>
+              <h3><a href="makale-1.html">HaKING AI v1.19.2 Mimarisi: FastAPI, SSE Akışı, Prompt Karar Belleği ve Neon Kredi Katmanı</a></h3>
+              <p>Tarayıcı ön yüzü ile model sağlayıcıları arasında nasıl güvenli bir servis sınırı kurdum? SSE akış gecikmesi, Groq/Gemini yönlendirme, ortak kredi muhasebesi ve Prompt Modu mimarisi.</p>
+              <div class="chips"><span class="chip">FastAPI</span><span class="chip">SSE</span><span class="chip">Cloudflare Workers</span></div>
+              <div class="article-card-foot">
+                <span>27 Kasım 2026</span>
+                <a class="text-link" href="makale-1.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="CS2 Ekonomi &amp; Oyun">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">CS2 Ekonomi &amp; Oyun · Vaka Analizi</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">10 dk okuma</span>
+              </div>
+              <h3><a href="makale-spread-arbitraj-mimarisi.html">SPREAD V11.1 Mimarisi: Valve Cent Komisyonu, Gerçek Steam Hacmi ve 500 Senaryolu Monte Carlo CVaR</a></h3>
+              <p>CS2 arbitraj hesaplayıcıları neden sıkça hayali kâr gösterir? Valve’ın cent tabanlı kesinti formülü, 7g/30g satış geçmişi ve Tekli vs. Sepet Meta-Hakem algoritmasının arkasındaki matematik.</p>
+              <div class="chips"><span class="chip">SPREAD</span><span class="chip">CS2 Ekonomi</span><span class="chip">Monte Carlo CVaR</span></div>
+              <div class="article-card-foot">
+                <span>26 Kasım 2026</span>
+                <a class="text-link" href="makale-spread-arbitraj-mimarisi.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Eğitim &amp; Topluluk">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Eğitim &amp; Topluluk · Vaka Analizi</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">10 dk okuma</span>
+              </div>
+              <h3><a href="makale-gercek-zamanli-oyun-sunucusu.html">Socket.IO ve Three.js ile Sunucu Doğrulamalı Çok Oyunculu Masa Oyunları: Haking Chat Mimarisi</a></h3>
+              <p>Klasik Okey 3D, 101 Okey 3D, Tavla, Satranç ve sesli oda özelliklerini barındıran Haking Chat’te gizli el güvenliği, sıra senkronizasyonu ve oda yaşam döngüsü nasıl tasarlandı?</p>
+              <div class="chips"><span class="chip">Socket.IO</span><span class="chip">Node.js</span><span class="chip">Three.js</span></div>
+              <div class="article-card-foot">
+                <span>24 Kasım 2026</span>
+                <a class="text-link" href="makale-gercek-zamanli-oyun-sunucusu.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Yapay Zekâ">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Yapay Zekâ · Mühendislik Notu</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">8 dk okuma</span>
+              </div>
+              <h3><a href="yazi-haking-ai-kesilen-yanit.html">Uzun AI Kod Yanıtları Kesildiğinde Güvenli Devam ve Parça Birleştirme Rehberi</a></h3>
+              <p>Dil modellerinin maksimum çıkış token sınırına veya ağ kesintisine takılan kod yanıtlarını bozmadan, tekrar üretmeden ve sözdizimi hatası doğurmadan nasıl tamamlarsınız?</p>
+              <div class="chips"><span class="chip">HaKING AI</span><span class="chip">Kod Üretimi</span><span class="chip">SSE</span></div>
+              <div class="article-card-foot">
+                <span>23 Kasım 2026</span>
+                <a class="text-link" href="yazi-haking-ai-kesilen-yanit.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tarayıcı Eklentileri">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tarayıcı Eklentileri · Vaka Analizi</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">10 dk okuma</span>
+              </div>
+              <h3><a href="makale-3.html">Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri</a></h3>
+              <p>Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.</p>
+              <div class="chips"><span class="chip">Manifest V3</span><span class="chip">Chrome Extension</span><span class="chip">PWA</span></div>
+              <div class="article-card-foot">
+                <span>22 Kasım 2026</span>
+                <a class="text-link" href="makale-3.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Eğitim &amp; Topluluk">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Eğitim &amp; Topluluk · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">9 dk okuma</span>
+              </div>
+              <h3><a href="rehber-not-hesaplama.html">Üniversite Ağırlıklı Not Hesaplama: Doğru Formül, Tam Sayı Katkısı ve Hedef Final Stratejisi</a></h3>
+              <p>Vize, ödev, proje ve final ağırlıklarıyla gerçek dönem sonu ortalaması nasıl hesaplanır? Sık yapılan 5 hesaplama hatası ve canlı hedef final simülatörü.</p>
+              <div class="chips"><span class="chip">NotMatik</span><span class="chip">Ağırlıklı Ortalama</span><span class="chip">Hedef Final</span></div>
+              <div class="article-card-foot">
+                <span>22 Kasım 2026</span>
+                <a class="text-link" href="rehber-not-hesaplama.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Yapay Zekâ">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Yapay Zekâ · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">8 dk okuma</span>
+              </div>
+              <h3><a href="rehber-ai-gecikmesi.html">Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi</a></h3>
+              <p>Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.</p>
+              <div class="chips"><span class="chip">TTFT</span><span class="chip">SSE</span><span class="chip">FastAPI</span></div>
+              <div class="article-card-foot">
+                <span>21 Kasım 2026</span>
+                <a class="text-link" href="rehber-ai-gecikmesi.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tasarım &amp; Web">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tasarım &amp; Web · Vaka Analizi</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">9 dk okuma</span>
+              </div>
+              <h3><a href="makale-2.html">Tarayıcıda Etkileşimli 3D Deneyimler: Three.js, WebGL Performansı ve DOM Uyumu</a></h3>
+              <p>HaKING 3D Vault, CS2 Studio Dust2 Spray Arenası ve Haking Chat 3D masa oyunlarını geliştirirken edindiğim WebGL render bütçesi, ışıklandırma ve mobil uyumluluk dersleri.</p>
+              <div class="chips"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">GLTF</span></div>
+              <div class="article-card-foot">
+                <span>20 Kasım 2026</span>
+                <a class="text-link" href="makale-2.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Eğitim &amp; Topluluk">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Eğitim &amp; Topluluk · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">7 dk okuma</span>
+              </div>
+              <h3><a href="yazi-notmatik-cok-bilesenli.html">Çok Bileşenli Derslerde Vize, Ödev, Lab ve Proje Ağırlıklarını Hatasız Hesaplama</a></h3>
+              <p>Yıl içi %40 içinde birden fazla ödev, kısa sınav ve proje bulunan üniversite derslerinde efektif ağırlık dönüşümü ve dönem boyu takip stratejisi.</p>
+              <div class="chips"><span class="chip">NotMatik</span><span class="chip">Proje Ağırlığı</span><span class="chip">Üniversite</span></div>
+              <div class="article-card-foot">
+                <span>19 Kasım 2026</span>
+                <a class="text-link" href="yazi-notmatik-cok-bilesenli.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="CS2 Ekonomi &amp; Oyun">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">CS2 Ekonomi &amp; Oyun · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">9 dk okuma</span>
+              </div>
+              <h3><a href="rehber-cs2-autoexec-crosshair.html">CS2 Autoexec, Viewmodel, Spray Kontrolü ve Pro Crosshair Yapılandırma Rehberi</a></h3>
+              <p>Counter-Strike 2’de kalıcı autoexec.cfg nasıl hazırlanır, nişangâh kontrastı harita ışığına göre nasıl seçilir ve CS2 Studio ile tüm ayarlar tek dosyada nasıl dışa aktarılır?</p>
+              <div class="chips"><span class="chip">CS2</span><span class="chip">Autoexec</span><span class="chip">Crosshair</span></div>
+              <div class="article-card-foot">
+                <span>18 Kasım 2026</span>
+                <a class="text-link" href="rehber-cs2-autoexec-crosshair.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="CS2 Ekonomi &amp; Oyun">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">CS2 Ekonomi &amp; Oyun · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">8 dk okuma</span>
+              </div>
+              <h3><a href="yazi-csell-net-satis.html">CS2 Pazar Yeri Komisyonları ve Net Kâr Takibi: Brüt Satış ile Gerçekleşen Gelir Farkı</a></h3>
+              <p>CS2 alım-satım işlemlerinde yüzdelik ve sabit komisyonlar, takas koruma kilidi ve gerçekleşmiş vs. tahmini kâr takibi neden ayrı kayıt altına alınmalıdır?</p>
+              <div class="chips"><span class="chip">CSELL</span><span class="chip">CS2 Komisyon</span><span class="chip">İşlem Günlüğü</span></div>
+              <div class="article-card-foot">
+                <span>17 Kasım 2026</span>
+                <a class="text-link" href="yazi-csell-net-satis.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tasarım &amp; Web">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tasarım &amp; Web · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">9 dk okuma</span>
+              </div>
+              <h3><a href="yazi-copyhex-tema-tokenlari.html">OKLCH Renk Uzayı ile Tasarım Sistemleri: Paletten Anlamsal CSS Tokenlarına</a></h3>
+              <p>Neden sabit HEX kodları büyüyen arayüzlerde bakım kâbusuna dönüşür? CopyHex ile OKLCH 50–950 skalaları, anlamsal roller ve WCAG kontrast güvencesi kurma rehberi.</p>
+              <div class="chips"><span class="chip">OKLCH</span><span class="chip">CSS Değişkenleri</span><span class="chip">Design Tokens</span></div>
+              <div class="article-card-foot">
+                <span>16 Kasım 2026</span>
+                <a class="text-link" href="yazi-copyhex-tema-tokenlari.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="CS2 Ekonomi &amp; Oyun">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">CS2 Ekonomi &amp; Oyun · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">8 dk okuma</span>
+              </div>
+              <h3><a href="yazi-tradecalc-senaryolar.html">CS2 Takas Planlamada Maliyet, Bakiye İskontosu ve Marj Senaryoları</a></h3>
+              <p>Bir takas sitesine yatırılan nakit, hedef eşyanın piyasa değeri ve sitede kalan bakiyenin gerçek nakit karşılığı arasındaki farkı TradeCalc ile doğru modellemek.</p>
+              <div class="chips"><span class="chip">TradeCalc</span><span class="chip">Takas Planlama</span><span class="chip">Marj Analizi</span></div>
+              <div class="article-card-foot">
+                <span>16 Kasım 2026</span>
+                <a class="text-link" href="yazi-tradecalc-senaryolar.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="CS2 Ekonomi &amp; Oyun">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">CS2 Ekonomi &amp; Oyun · Vaka Analizi</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">9 dk okuma</span>
+              </div>
+              <h3><a href="makale-cosmic-tarayici-oyun-motoru.html">60 Tarayıcı Oyununu Tek Portalda Yönetmek: COSMIC v12.0 Modüler Motor ve Performans Mimarisi</a></h3>
+              <p>Tek bir statik web portalında 60 farklı uzay oyununu, 24 bölümlük hikâye modunu ve ortak cephaneliği sayfa hızını bozmadan nasıl bir araya getirdim?</p>
+              <div class="chips"><span class="chip">COSMIC</span><span class="chip">HTML5 Canvas</span><span class="chip">Oyun Mimarisi</span></div>
+              <div class="article-card-foot">
+                <span>15 Kasım 2026</span>
+                <a class="text-link" href="makale-cosmic-tarayici-oyun-motoru.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Yapay Zekâ">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Yapay Zekâ · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">9 dk okuma</span>
+              </div>
+              <h3><a href="yazi-ai-desktop-arama.html">Yazım Hatalarına Dayanıklı Arama Motoru Tasarımı: BM25, Karakter N-Gram TF-IDF ve Hibrit Sıralama</a></h3>
+              <p>Kullanıcı &quot;samsng galxy&quot; yazdığında klasik kelime araması neden sıfır sonuç döndürür? HaKING AI Desktop’taki hibrit skorlama, Recall@K ve MRR değerlendirme yaklaşımı.</p>
+              <div class="chips"><span class="chip">BM25</span><span class="chip">TF-IDF</span><span class="chip">Bilgi Erişimi</span></div>
+              <div class="article-card-foot">
+                <span>15 Kasım 2026</span>
+                <a class="text-link" href="yazi-ai-desktop-arama.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tarayıcı Eklentileri">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tarayıcı Eklentileri · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">8 dk okuma</span>
+              </div>
+              <h3><a href="yazi-qr-paylasim-baski.html">Baskı ve Dijital Ortam İçin Yüksek Çözünürlüklü QR Kod Hazırlama: SVG, Hata Düzeltme ve Sessiz Bölge</a></h3>
+              <p>Kartvizit, afiş ve ürün ambalajına basılan QR kodlar neden bazen telefon kamerasıyla okunmaz? SVG vektör çıktısı, ECC seviyesi (L/M/Q/H) ve kontrast kuralları.</p>
+              <div class="chips"><span class="chip">QR Baskı</span><span class="chip">SVG</span><span class="chip">Hata Düzeltme</span></div>
+              <div class="article-card-foot">
+                <span>14 Kasım 2026</span>
+                <a class="text-link" href="yazi-qr-paylasim-baski.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tarayıcı Eklentileri">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tarayıcı Eklentileri · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">7 dk okuma</span>
+              </div>
+              <h3><a href="yazi-cevirmenx-sozluk.html">Teknik Dokümanlarda ve Oyun Terimlerinde Kişisel Sözlükle Çeviri Tutarlılığı</a></h3>
+              <p>Otomatik çeviri araçlarının &quot;branch&quot;, &quot;commit&quot;, &quot;shader&quot; veya &quot;crosshair&quot; gibi terimleri her paragrafta farklı çevirmesini ÇevirmenX çift yönlü kişisel sözlükle önlemek.</p>
+              <div class="chips"><span class="chip">ÇevirmenX</span><span class="chip">Kişisel Sözlük</span><span class="chip">Teknik Çeviri</span></div>
+              <div class="article-card-foot">
+                <span>13 Kasım 2026</span>
+                <a class="text-link" href="yazi-cevirmenx-sozluk.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tarayıcı Eklentileri">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tarayıcı Eklentileri · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">8 dk okuma</span>
+              </div>
+              <h3><a href="rehber-qr-guvenligi.html">QR Kod Güvenliği, Tarayıcı İzinleri ve Cihaz İçi İşleme Rehberi</a></h3>
+              <p>Quishing (QR oltalama) saldırılarından nasıl korunursunuz? Kamera izni, URL önizleme, kısaltılmış bağlantılar ve cihaz içi QR taramanın önemi.</p>
+              <div class="chips"><span class="chip">QR Güvenliği</span><span class="chip">Quishing</span><span class="chip">Gizlilik</span></div>
+              <div class="article-card-foot">
+                <span>12 Kasım 2026</span>
+                <a class="text-link" href="rehber-qr-guvenligi.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tarayıcı Eklentileri">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tarayıcı Eklentileri · Teknik Rehber</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">8 dk okuma</span>
+              </div>
+              <h3><a href="rehber-cevirmenx.html">ÇevirmenX 1.4.0 Kurulum ve Verimli Sayfa İçi Çeviri Rehberi</a></h3>
+              <p>Sekme değiştirmeden Alt+T kısayoluyla teknik doküman okuma, çift yönlü kişisel sözlük kurma, seslendirme ve Chrome/Edge/Firefox kurulum adımları.</p>
+              <div class="chips"><span class="chip">ÇevirmenX</span><span class="chip">Tarayıcı Eklentisi</span><span class="chip">Çeviri</span></div>
+              <div class="article-card-foot">
+                <span>11 Kasım 2026</span>
+                <a class="text-link" href="rehber-cevirmenx.html">Oku →</a>
+              </div>
+            </article><article class="article-card" data-reading-card data-category="Tasarım &amp; Web">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">Tasarım &amp; Web · Mühendislik Notu</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">7 dk okuma</span>
+              </div>
+              <h3><a href="yazi-plant-showroom-sahne.html">WebGL Ürün Sahnelerinde Işık, Kamera ve Mobil Okunabilirlik Dengesi</a></h3>
+              <p>Tarayıcı içinde 3D bir nesne sergilerken sahnenin ziyaretçiyi yormaması, ürün formunun net okunması ve sayfa kaydırmasıyla çakışmaması için pratik mühendislik kuralları.</p>
+              <div class="chips"><span class="chip">WebGL</span><span class="chip">Three.js</span><span class="chip">3D UX</span></div>
+              <div class="article-card-foot">
+                <span>10 Kasım 2026</span>
+                <a class="text-link" href="yazi-plant-showroom-sahne.html">Oku →</a>
+              </div>
+            </article>
+      </div>
+      <p id="reading-empty" hidden style="text-align:center;padding:36px;color:var(--ink-muted);">Aramanızla eşleşen yazı bulunamadı.</p>
+    </section>
+
+    <section class="section-tight wrap">
+      <div class="panel">
+        <h2>Editoryal Kalite ve Şeffaflık Yaklaşımımız</h2>
+        <p>Bu arşivdeki tüm yazılar gerçek proje deneyimine dayanır. Ölçüm verisi olmayan konularda kesin performans rakamları uydurulmaz; sürümle değişebilen platform davranışları için resmî belgelere atıf yapılır. Yayın ve düzeltme süreçlerimizi <a href="yayin-ilkeleri.html">Yayın İlkeleri</a> sayfasında okuyabilirsiniz.</p>
       </div>
     </section>
-  <section class="section wrap"><div class="content-panel"><h2>Her projeden yeni bir teknik konu</h2><p>CopyHex tema tokenları, CSELL net satış hesabı, TradeCalc senaryoları, masaüstü arama yöntemleri, 3D sahne tasarımı ve diğer proje rehberlerini okuma arşivinde keşfedin.</p><a class="button" href="haberler.html">16 yazılık arşivi aç →</a></div></section></main>
-  <footer class="site-footer"><div class="wrap"><div class="footer-main"><div class="footer-brand"><a class="brand" href="index.html"><img class="brand-mark brand-image" src="assets/images/haking-icon-512.png" alt="" width="36" height="36"><span>HaKING<span class="brand-dot">.</span></span></a><p>Projeler, ürün kararları<br>ve öğrenme notları.</p></div><div class="footer-column"><span class="footer-title">KEŞFET</span><a href="projects.html">Projeler</a><a href="blog.html">Mühendislik yazıları</a></div><div class="footer-column"><span class="footer-title">BİLGİ</span><a href="gizlilik-politikasi.html">Gizlilik Politikası</a><a href="terms.html">Kullanım Koşulları</a><a href="iletisim.html">İletişim</a></div><div class="footer-contact"><span class="footer-title">BAĞLANTIDA KAL</span><a href="mailto:merhaba@haking.tr">merhaba@haking.tr <span>↗</span></a><small>İstanbul, Türkiye</small></div></div><div class="footer-bottom"><span>© <span data-year>2026</span> HaKING · Halit Güneş</span><span>Merakla tasarlandı, özenle geliştirildi.</span><a href="sitemap.xml">Site haritası</a></div></div><nav class="wrap publication-links" aria-label="Yayın bilgileri"><a href="haberler.html">Teknoloji ve rehberler</a><a href="hakkimda.html">Hakkımda</a><a href="yayin-ilkeleri.html">Yayın ilkeleri</a></nav></footer>
+  
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38" loading="lazy">
+            <span class="brand-text">
+              <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+              <span class="brand-sub">Halit Güneş · haking.tr</span>
+            </span>
+          </a>
+          <p>Bağımsız yazılım stüdyosu ve Türkçe mühendislik yayını. 15 açık kaynak GitHub projesi, derin vaka analizleri ve pratik geliştirici rehberleri.</p>
+          <div class="chips" style="margin-top:14px;">
+            <a class="chip" href="https://github.com/HaKING06" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="chip" href="https://www.youtube.com/@gunshalit" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+            <a class="chip" href="https://steamcommunity.com/profiles/76561199760755154/" target="_blank" rel="noopener noreferrer">Steam ↗</a>
+            <a class="chip" href="https://buymeacoffee.com/haking" target="_blank" rel="noopener noreferrer">Destek ↗</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Öne Çıkan Ürünler</h4>
+          <ul>
+            <li><a href="proje-haking-ai.html">HaKING AI (v1.19.2)</a></li>
+            <li><a href="haking-ai-prompt-modu.html">HaKING Prompt Modu</a></li>
+            <li><a href="proje-spread.html">SPREAD V11.1</a></li>
+            <li><a href="proje-cosmic.html">COSMIC v12.0</a></li>
+            <li><a href="proje-cs2studio.html">CS2 Studio</a></li>
+            <li><a href="projects.html">Tüm 15 Proje →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Yayın &amp; Rehberler</h4>
+          <ul>
+            <li><a href="blog.html">Mühendislik Yazıları</a></li>
+            <li><a href="haberler.html">Okuma Merkezi &amp; Sürümler</a></li>
+            <li><a href="makale-1.html">HaKING AI Mimarisi</a></li>
+            <li><a href="makale-spread-arbitraj-mimarisi.html">SPREAD Quant Mimarisi</a></li>
+            <li><a href="rehber-not-hesaplama.html">Not Hesaplama Rehberi</a></li>
+            <li><a href="rss.xml">RSS Akışı (XML)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stüdyo</h4>
+          <ul>
+            <li><a href="hakkimda.html">Hakkımda (Ben Kimim?)</a></li>
+            <li><a href="github.html">GitHub Sayfam</a></li>
+            <li><a href="proje-yaptir.html">Proje Yaptır &amp; Teklif</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="yayin-ilkeleri.html">Yayın İlkeleri</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Yasal &amp; İletişim</h4>
+          <ul>
+            <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+            <li><a href="cerez-politikasi.html">Çerez Politikası</a></li>
+            <li><a href="terms.html">Kullanım Koşulları</a></li>
+            <li><a href="site-haritasi.html">HTML Site Haritası</a></li>
+            <li><a href="mailto:merhaba@haking.tr">merhaba@haking.tr</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> HaKING · Halit Güneş · İstanbul, Türkiye</span>
+        <div class="footer-bottom-links">
+          <a href="sitemap.xml">sitemap.xml</a>
+          <a href="rss.xml">rss.xml</a>
+          <a href="llms.txt">llms.txt</a>
+          <button type="button" data-open-cookie-settings style="background:none;border:0;padding:0;color:inherit;text-decoration:underline;font-size:inherit;">Çerez Tercihleri</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Search Command Modal -->
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" hidden>
+    <div class="modal-box">
+      <div class="modal-search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <label for="global-search-input" id="search-modal-title" class="sr-only">Site içinde ara</label>
+        <input id="global-search-input" type="search" placeholder="Proje, rehber veya konu ara (ör. Prompt Modu, SPREAD, OKLCH, QR)..." autocomplete="off">
+        <button type="button" class="btn btn-secondary btn-sm" data-close-search>Kapat</button>
+      </div>
+      <div class="modal-results" id="global-search-results"></div>
+      <div class="modal-foot">
+        <span id="global-search-count">Hazır</span>
+        <span>↑↓ Gezin · Enter Aç · Esc Kapat</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reading List / Bookmarks Modal -->
+  <div class="modal-backdrop" id="bookmarks-modal" role="dialog" aria-modal="true" aria-labelledby="bookmarks-modal-title" hidden>
+    <div class="modal-box">
+      <div class="modal-search-bar">
+        <strong id="bookmarks-modal-title" style="flex:1;">Okuma Listem (Yerel Kayıt)</strong>
+        <button type="button" class="btn btn-secondary btn-sm" data-close-bookmarks>Kapat</button>
+      </div>
+      <div class="modal-results" id="bookmarks-list"></div>
+      <div class="modal-foot">
+        <span>Kayıtlar yalnızca bu tarayıcıda saklanır.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie & Storage Notice -->
+  <aside class="cookie-bar" id="cookie-bar" aria-label="Çerez ve depolama bildirimi" hidden>
+    <h4>Çerezler ve Yerel Depolama</h4>
+    <p>haking.tr tema ve okuma listesi için tarayıcı depolamasını kullanır. Google AdSense reklamları etkin olduğunda üçüncü taraf reklam çerezleri kullanılabilir. Ayrıntılar için <a href="cerez-politikasi.html">Çerez Politikası</a> ve <a href="gizlilik-politikasi.html">Gizlilik Politikası</a> sayfalarını inceleyebilirsiniz.</p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-sm" data-cookie-choice="accepted">Anladım</button>
+      <button type="button" class="btn btn-secondary btn-sm" data-cookie-choice="essential">Yalnızca Temel</button>
+      <a class="text-link" href="cerez-politikasi.html" style="font-size:0.83rem;margin-left:auto;">Ayrıntılar →</a>
+    </div>
+  </aside>
 </body>
 </html>

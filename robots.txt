@@ -1,4 +1,25 @@
+# HaKING (haking.tr) — Multi-Search Engine & AI Crawler Policy
 User-agent: *
+Allow: /
+Disallow: /src/
+Disallow: /scripts/
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://haking.tr/sitemap.xml

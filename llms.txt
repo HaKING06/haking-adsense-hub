@@ -1,0 +1,57 @@
+# HaKING (haking.tr)
+
+> Halit Güneş (HaKING06) tarafından yürütülen bağımsız Türkçe yazılım stüdyosu, açık kaynak ürün ekosistemi ve mühendislik yayını.
+
+- Yazar: Halit Güneş (HaKING06)
+- Konum: İstanbul, Türkiye
+- Eğitim: İstanbul Kültür Üniversitesi — Bilgisayar Programcılığı
+- İletişim: merhaba@haking.tr
+- GitHub: https://github.com/HaKING06
+
+## Öne Çıkan Sayfalar
+- [Ana Sayfa](https://haking.tr/): Stüdyo özeti, seçili ürünler ve mühendislik yazıları.
+- [HaKING AI Prompt Modu (v1.19.2)](https://haking.tr/haking-ai-prompt-modu.html): Codex ve AI agentları için görev kartlı Türkçe prompt atölyesi.
+- [Açık Kaynak Projeler (15 Ürün)](https://haking.tr/projects.html): Tüm büyük public GitHub projeleri ve canlı adresleri.
+- [Mühendislik Yazıları](https://haking.tr/blog.html): Vaka analizleri ve teknik rehberler.
+- [Hakkımda — Halit Güneş](https://haking.tr/hakkimda.html): Yazar biyografisi, yetkinlik haritası ve kronoloji.
+- [GitHub Sayfam](https://haking.tr/github.html): 15 public deponun özet tablosu ve katkı ilkeleri.
+- [Proje Yaptır](https://haking.tr/proje-yaptir.html): Özel yazılım, AI ve tarayıcı eklentisi geliştirme brief aracı.
+
+## 15 Büyük Public GitHub Projesi
+- [HaKING AI (v1.19.2)](https://haking.tr/proje-haking-ai.html): SSE akışlı Türkçe yazılım asistanı, yapılandırılmış Prompt Modu ve Tavily araştırmalı Çılgın Mod. | Canlı: https://ai.haking.tr/ | Repo: https://github.com/HaKING06/haking-asistan-frontend
+- [SPREAD (V11.1)](https://haking.tr/proje-spread.html): 6.000+ skin ve 354+ Doppler fazıyla sıfır kayıtlı, açık kaynak CS2 çift yönlü arbitraj ve risk terminali. | Canlı: https://spread.haking.tr/ | Repo: https://github.com/HaKING06/SPREAD
+- [COSMIC Universe (v12.0)](https://haking.tr/proje-cosmic.html): 60 oynanabilir uzay temalı tarayıcı oyunu ve 24 bölümlük Captain Nova Vex hikâye modunu sunan arcade portalı. | Canlı: https://cosmic.haking.tr/ | Repo: https://github.com/HaKING06/COSMIC
+- [CS2 Studio (v0.1.0)](https://haking.tr/proje-cs2studio.html): 3D Dust2 Spray Arenası, 670+ pro e-spor crosshair veritabanı, canlı Viewmodel ve Autoexec yapılandırma paketi. | Canlı: https://cs2studio.haking.tr/ | Repo: https://github.com/HaKING06/CS2Studio
+- [Haking Chat (v2.0.2)](https://haking.tr/proje-haking-chat.html): Gerçek zamanlı geliştirici sohbeti, sesli oda ve sunucu doğrulamalı 3D Okey, Tavla, Satranç & masa oyunları. | Canlı: https://chat.haking.tr/ | Repo: https://github.com/HaKING06/chat
+- [UTRZONE (UnlockTR) (v0.11.5)](https://haking.tr/proje-utrzone.html): Türkçe oyun yamaları, çeviri projeleri ve topluluk modları için modern React/Vite + Express/Neon platformu. | Canlı: https://utrzone.haking.tr/ | Repo: https://github.com/HaKING06/UnlockTR
+- [HaKING 3D Vault (v2.5.3)](https://haking.tr/proje-haking-vault.html): Canlı Steam kütüphane telemetrisi, etkileşimli Three.js 3D HP Victus 16 modeli ve 20 dilli 3D Müze vitrini. | Canlı: https://steam.haking.tr/ | Repo: https://github.com/HaKING06/HaKING
+- [CopyHex (v1.0.6)](https://haking.tr/proje-copyhex.html): 6.000+ HEX renk araması, OKLCH 50–950 tema üretici, WCAG kontrast denetimi ve DTCG/CSS token dışa aktarımı. | Canlı: https://copyhex.haking.tr/ | Repo: https://github.com/HaKING06/copyhex
+- [QR Scanner (v1.1.4)](https://haking.tr/proje-qr-scanner.html): 7 QR veri türü, 2048px PNG/SVG çıktısı ve cihaz içi kamera/görsel taraması sunan gizlilik odaklı web + eklenti paketi. | Canlı: https://qr.haking.tr/ | Repo: https://github.com/HaKING06/QR
+- [ÇevirmenX (v1.4.0)](https://haking.tr/proje-cevirmenx.html): API anahtarı gerektirmeyen, Alt+T ve sağ tıkla sayfa içi çeviri, çift yönlü kişisel sözlük ve seslendirme eklentisi. | Canlı: https://cevir.haking.tr/ | Repo: https://github.com/HaKING06/CevirmenX
+- [NotMatik (v3.0)](https://haking.tr/proje-notmatik.html): Üniversite öğrencileri için tam sayı katkılı vize-final-proje ortalama, gerekli final notu ve çevrimdışı hedef takip platformu. | Canlı: https://notmatik.haking.tr/ | Repo: https://github.com/HaKING06/Notmatik
+- [CSELL (v1.0.1)](https://haking.tr/proje-csell.html): CS2 eşya alım-satım işlemlerini, pazar komisyonlarını, takas kilidi bitişini ve gerçek net kârı izleyen Türkçe günlük. | Canlı: https://csell.haking.tr/ | Repo: https://github.com/HaKING06/CSELL
+- [HaKING TradeCalc (v1.0)](https://haking.tr/proje-tradecalc.html): CS2 takas öncesi yatırım maliyeti, kalan bakiye nakit eşdeğeri, komisyon ve net marj senaryo planlayıcısı. | Canlı: https://trade.haking.tr/ | Repo: https://github.com/HaKING06/TradeCalc
+- [CSNAME (v1.0)](https://haking.tr/proje-csname.html): Türkçe CS2 envanter ve skin adlarını CSFloat / Steam İngilizce pazar isimleriyle anında eşleştiren görselli sözlük. | Canlı: https://cs.haking.tr/ | Repo: https://github.com/HaKING06/csname
+- [HaKING AI Desktop (v0.1.2)](https://haking.tr/proje-ai-desktop.html): Yazım hatalarına dayanıklı çevrimdışı hibrit ürün arama motoru (BM25 + TF-IDF) ve yazılım hata imzası sınıflandırıcısı. | Repo: https://github.com/HaKING06/haking-ai-desktop
+
+## Mühendislik Yazıları ve Teknik Rehberler
+- [HaKING AI v1.19.2 Mimarisi: FastAPI, SSE Akışı, Prompt Karar Belleği ve Neon Kredi Katmanı](https://haking.tr/makale-1.html): Tarayıcı ön yüzü ile model sağlayıcıları arasında nasıl güvenli bir servis sınırı kurdum? SSE akış gecikmesi, Groq/Gemini yönlendirme, ortak kredi muhasebesi ve Prompt Modu mimarisi.
+- [SPREAD V11.1 Mimarisi: Valve Cent Komisyonu, Gerçek Steam Hacmi ve 500 Senaryolu Monte Carlo CVaR](https://haking.tr/makale-spread-arbitraj-mimarisi.html): CS2 arbitraj hesaplayıcıları neden sıkça hayali kâr gösterir? Valve’ın cent tabanlı kesinti formülü, 7g/30g satış geçmişi ve Tekli vs. Sepet Meta-Hakem algoritmasının arkasındaki matematik.
+- [Socket.IO ve Three.js ile Sunucu Doğrulamalı Çok Oyunculu Masa Oyunları: Haking Chat Mimarisi](https://haking.tr/makale-gercek-zamanli-oyun-sunucusu.html): Klasik Okey 3D, 101 Okey 3D, Tavla, Satranç ve sesli oda özelliklerini barındıran Haking Chat’te gizli el güvenliği, sıra senkronizasyonu ve oda yaşam döngüsü nasıl tasarlandı?
+- [Uzun AI Kod Yanıtları Kesildiğinde Güvenli Devam ve Parça Birleştirme Rehberi](https://haking.tr/yazi-haking-ai-kesilen-yanit.html): Dil modellerinin maksimum çıkış token sınırına veya ağ kesintisine takılan kod yanıtlarını bozmadan, tekrar üretmeden ve sözdizimi hatası doğurmadan nasıl tamamlarsınız?
+- [Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri](https://haking.tr/makale-3.html): Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.
+- [Üniversite Ağırlıklı Not Hesaplama: Doğru Formül, Tam Sayı Katkısı ve Hedef Final Stratejisi](https://haking.tr/rehber-not-hesaplama.html): Vize, ödev, proje ve final ağırlıklarıyla gerçek dönem sonu ortalaması nasıl hesaplanır? Sık yapılan 5 hesaplama hatası ve canlı hedef final simülatörü.
+- [Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi](https://haking.tr/rehber-ai-gecikmesi.html): Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.
+- [Tarayıcıda Etkileşimli 3D Deneyimler: Three.js, WebGL Performansı ve DOM Uyumu](https://haking.tr/makale-2.html): HaKING 3D Vault, CS2 Studio Dust2 Spray Arenası ve Haking Chat 3D masa oyunlarını geliştirirken edindiğim WebGL render bütçesi, ışıklandırma ve mobil uyumluluk dersleri.
+- [Çok Bileşenli Derslerde Vize, Ödev, Lab ve Proje Ağırlıklarını Hatasız Hesaplama](https://haking.tr/yazi-notmatik-cok-bilesenli.html): Yıl içi %40 içinde birden fazla ödev, kısa sınav ve proje bulunan üniversite derslerinde efektif ağırlık dönüşümü ve dönem boyu takip stratejisi.
+- [CS2 Autoexec, Viewmodel, Spray Kontrolü ve Pro Crosshair Yapılandırma Rehberi](https://haking.tr/rehber-cs2-autoexec-crosshair.html): Counter-Strike 2’de kalıcı autoexec.cfg nasıl hazırlanır, nişangâh kontrastı harita ışığına göre nasıl seçilir ve CS2 Studio ile tüm ayarlar tek dosyada nasıl dışa aktarılır?
+- [CS2 Pazar Yeri Komisyonları ve Net Kâr Takibi: Brüt Satış ile Gerçekleşen Gelir Farkı](https://haking.tr/yazi-csell-net-satis.html): CS2 alım-satım işlemlerinde yüzdelik ve sabit komisyonlar, takas koruma kilidi ve gerçekleşmiş vs. tahmini kâr takibi neden ayrı kayıt altına alınmalıdır?
+- [OKLCH Renk Uzayı ile Tasarım Sistemleri: Paletten Anlamsal CSS Tokenlarına](https://haking.tr/yazi-copyhex-tema-tokenlari.html): Neden sabit HEX kodları büyüyen arayüzlerde bakım kâbusuna dönüşür? CopyHex ile OKLCH 50–950 skalaları, anlamsal roller ve WCAG kontrast güvencesi kurma rehberi.
+- [CS2 Takas Planlamada Maliyet, Bakiye İskontosu ve Marj Senaryoları](https://haking.tr/yazi-tradecalc-senaryolar.html): Bir takas sitesine yatırılan nakit, hedef eşyanın piyasa değeri ve sitede kalan bakiyenin gerçek nakit karşılığı arasındaki farkı TradeCalc ile doğru modellemek.
+- [60 Tarayıcı Oyununu Tek Portalda Yönetmek: COSMIC v12.0 Modüler Motor ve Performans Mimarisi](https://haking.tr/makale-cosmic-tarayici-oyun-motoru.html): Tek bir statik web portalında 60 farklı uzay oyununu, 24 bölümlük hikâye modunu ve ortak cephaneliği sayfa hızını bozmadan nasıl bir araya getirdim?
+- [Yazım Hatalarına Dayanıklı Arama Motoru Tasarımı: BM25, Karakter N-Gram TF-IDF ve Hibrit Sıralama](https://haking.tr/yazi-ai-desktop-arama.html): Kullanıcı "samsng galxy" yazdığında klasik kelime araması neden sıfır sonuç döndürür? HaKING AI Desktop’taki hibrit skorlama, Recall@K ve MRR değerlendirme yaklaşımı.
+- [Baskı ve Dijital Ortam İçin Yüksek Çözünürlüklü QR Kod Hazırlama: SVG, Hata Düzeltme ve Sessiz Bölge](https://haking.tr/yazi-qr-paylasim-baski.html): Kartvizit, afiş ve ürün ambalajına basılan QR kodlar neden bazen telefon kamerasıyla okunmaz? SVG vektör çıktısı, ECC seviyesi (L/M/Q/H) ve kontrast kuralları.
+- [Teknik Dokümanlarda ve Oyun Terimlerinde Kişisel Sözlükle Çeviri Tutarlılığı](https://haking.tr/yazi-cevirmenx-sozluk.html): Otomatik çeviri araçlarının "branch", "commit", "shader" veya "crosshair" gibi terimleri her paragrafta farklı çevirmesini ÇevirmenX çift yönlü kişisel sözlükle önlemek.
+- [QR Kod Güvenliği, Tarayıcı İzinleri ve Cihaz İçi İşleme Rehberi](https://haking.tr/rehber-qr-guvenligi.html): Quishing (QR oltalama) saldırılarından nasıl korunursunuz? Kamera izni, URL önizleme, kısaltılmış bağlantılar ve cihaz içi QR taramanın önemi.
+- [ÇevirmenX 1.4.0 Kurulum ve Verimli Sayfa İçi Çeviri Rehberi](https://haking.tr/rehber-cevirmenx.html): Sekme değiştirmeden Alt+T kısayoluyla teknik doküman okuma, çift yönlü kişisel sözlük kurma, seslendirme ve Chrome/Edge/Firefox kurulum adımları.
+- [WebGL Ürün Sahnelerinde Işık, Kamera ve Mobil Okunabilirlik Dengesi](https://haking.tr/yazi-plant-showroom-sahne.html): Tarayıcı içinde 3D bir nesne sergilerken sahnenin ziyaretçiyi yormaması, ürün formunun net okunması ve sayfa kaydırmasıyla çakışmaması için pratik mühendislik kuralları.

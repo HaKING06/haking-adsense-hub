@@ -3,85 +3,334 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b14">
-  <meta name="description" content="Halit Güneş'in QR Scanner ve NotMatik vaka analizi: Chrome Manifest V3 eklenti yapısı, kullanıcı izinleri ve JavaScript ağırlıklı not hesaplama algoritması.">
-  <title>QR Scanner ve NotMatik: Eklenti ve Not Hesaplama | HaKING</title>
+  <title>Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri | HaKING</title>
+  <meta name="description" content="Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.">
+  <meta name="author" content="Halit Güneş">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#f6f3ec">
   <link rel="canonical" href="https://haking.tr/makale-3.html">
-  <link rel="stylesheet" href="assets/style.css?v=20261109-2">
-  <script defer src="assets/site.js"></script>
+  <link rel="alternate" hreflang="tr-TR" href="https://haking.tr/makale-3.html">
+  <link rel="alternate" hreflang="x-default" href="https://haking.tr/makale-3.html">
+  <link rel="alternate" type="application/rss+xml" title="HaKING — Yazılar ve Sürüm Notları (RSS)" href="https://haking.tr/rss.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="HaKING Arama" href="https://haking.tr/opensearch.xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-64.png" sizes="64x64">
+  <link rel="icon" type="image/png" href="assets/images/brand/logo-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
+  <meta property="og:site_name" content="HaKING">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://haking.tr/makale-3.html">
+  <meta property="og:title" content="Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri | HaKING">
+  <meta property="og:description" content="Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.">
+  <meta property="og:image" content="https://haking.tr/assets/images/projects/qr-scanner.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri | HaKING">
+  <meta name="twitter:description" content="Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.">
+  <meta name="twitter:image" content="https://haking.tr/assets/images/projects/qr-scanner.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..600&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap&subset=latin,latin-ext" rel="stylesheet">
+  <script>(function(){try{var t=localStorage.getItem('haking_theme_v2');if(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+  <link rel="stylesheet" href="assets/style.css?v=20261127-1">
+  <script defer src="assets/site.js?v=20261127-1"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2827419116684137" crossorigin="anonymous"></script>
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="assets/images/haking-icon-512.png" sizes="512x512"><link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"><meta property="og:image" content="https://haking.tr/assets/images/haking-social.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://haking.tr/assets/images/haking-social.png"></head>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://haking.tr/#website","name":"HaKING","alternateName":"HaKING — Halit Güneş","url":"https://haking.tr/","inLanguage":"tr-TR","description":"Açık kaynak web ürünleri, yazılım mühendisliği vaka analizleri ve teknik rehberler.","publisher":{"@id":"https://haking.tr/#person"},"potentialAction":{"@type":"SearchAction","target":"https://haking.tr/haberler.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://haking.tr/#person","name":"Halit Güneş","alternateName":"HaKING06","url":"https://haking.tr/hakkimda.html","image":"https://haking.tr/assets/images/brand/logo-512.png","jobTitle":"Bağımsız Yazılım Geliştirici & Yayın Sorumlusu","email":"mailto:merhaba@haking.tr","address":{"@type":"PostalAddress","addressLocality":"İstanbul","addressCountry":"TR"},"alumniOf":{"@type":"CollegeOrUniversity","name":"İstanbul Kültür Üniversitesi"},"sameAs":["https://github.com/HaKING06","https://www.youtube.com/@gunshalit","https://steamcommunity.com/profiles/76561199760755154/","https://buymeacoffee.com/haking"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://haking.tr/index.html"},{"@type":"ListItem","position":2,"name":"Mühendislik Yazıları","item":"https://haking.tr/blog.html"},{"@type":"ListItem","position":3,"name":"Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri","item":"https://haking.tr/makale-3.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri","description":"Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.","image":"https://haking.tr/assets/images/projects/qr-scanner.webp","datePublished":"2026-11-22","dateModified":"2026-11-22","inLanguage":"tr-TR","keywords":"Manifest V3, Chrome Extension, PWA, Gizlilik, JavaScript","author":{"@id":"https://haking.tr/#person"},"publisher":{"@id":"https://haking.tr/#person"},"mainEntityOfPage":"https://haking.tr/makale-3.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Chrome ve Edge için ayrı kod tabanı mı yazılıyor?","acceptedAnswer":{"@type":"Answer","text":"Hayır. QR Scanner ve ÇevirmenX ortak çekirdek kod tabanı kullanır; tarayıcıya özgü manifest alanları derleme aşamasında otomatik ayrıştırılır."}}]}</script>
+</head>
 <body>
   <a class="skip-link" href="#icerik">İçeriğe geç</a>
-  <header class="site-header"><nav class="nav wrap" aria-label="Ana gezinme">
-    <a class="brand" href="index.html"><img class="brand-mark brand-image" src="assets/images/haking-icon-512.png" alt="" width="36" height="36"><span>HaKING<span class="brand-dot">.</span></span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menü</button>
-    <div class="nav-links" id="nav-links"><a href="index.html">Ana Sayfa</a><a href="projects.html">Projeler</a><a href="blog.html" aria-current="page">Mühendislik Yazıları</a><a class="nav-contact" href="iletisim.html">İletişim <span>↗</span></a></div>
-  </nav></header>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Ana gezinme">
+      <a class="brand" href="index.html" aria-label="HaKING ana sayfa">
+        <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38">
+        <span class="brand-text">
+          <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+          <span class="brand-sub">Yazılım Stüdyosu &amp; Yayın</span>
+        </span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Ana Sayfa</a><a href="projects.html">Projeler</a><a href="haking-ai-prompt-modu.html">Prompt Modu</a><a href="blog.html" aria-current="page">Yazılar</a><a href="hakkimda.html">Hakkımda</a><a href="github.html">GitHub</a><a href="proje-yaptir.html" class="nav-cta">Proje Yaptır</a>
+      </div>
+      <div class="nav-tools">
+        <button type="button" class="icon-btn" data-open-search aria-label="Site içinde ara (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="search-btn-label">Ara</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+        <button type="button" class="icon-btn" data-open-bookmarks aria-label="Okuma listem">
+          <span aria-hidden="true">★</span>
+          <span class="bookmark-count" data-bookmark-count hidden>0</span>
+        </button>
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Temayı değiştir" aria-pressed="false">
+          <span data-theme-icon aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menü</button>
+      </div>
+    </nav>
+  </header>
+
   <main id="icerik">
-    <header class="page-intro article-intro">
-      <a class="back-link" href="blog.html">← Vaka analizleri</a>
-      <div class="eyebrow case-eyebrow">CASE STUDY 03 <span class="eyebrow-divider">/</span> CHROME · JAVASCRIPT · EĞİTİM</div>
-      <h1>QR Scanner ve NotMatik: iki farklı akış, ortak bir mühendislik yaklaşımı</h1>
-      <p>Manifest V3 ile tarayıcı içinde QR tarama akışını ve NotMatik'teki ağırlıklı not hesaplama mantığını geliştirirken kullanıcı kontrolü, girdi doğrulama ve açıklanabilir sonuç üzerine aldığım kararlar.</p>
-      <div class="article-meta"><span>Halit Güneş</span><span class="meta-dot">·</span><span>Vaka analizi</span><span class="meta-dot">·</span><span>7 dk okuma</span></div>
-      <div class="article-hero-art tools-article-art"><div class="hero-art-icon">⌗</div><div class="hero-art-label"><span>QR SCANNER v1 / NOTMATİK</span><span>MANIFEST V3 · JAVASCRIPT</span></div></div>
+
+    <header class="page-intro">
+      <div class="wrap">
+        <nav class="breadcrumbs" aria-label="Sayfa yolu">
+    <a href="index.html">Ana Sayfa</a><span aria-hidden="true">/</span><a href="blog.html">Mühendislik Yazıları</a><span aria-hidden="true">/</span><span aria-current="page">Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri</span>
+  </nav>
+        <div class="eyebrow"><span class="tag tag-accent">Tarayıcı Eklentileri</span> <span class="tag">Vaka Analizi</span></div>
+        <h1>Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri</h1>
+        <p class="lead">Manifest V3 izin disiplini, çoklu tarayıcı derleme hattı ve çevrimdışı PWA hesaplama doğruluğu: üç farklı günlük aracın ortak mühendislik temelleri.</p>
+        <div class="article-meta-bar">
+          <a class="author-inline" href="hakkimda.html"><img class="author-avatar-sm" src="assets/images/brand/logo-64.png" alt="" width="28" height="28">Halit Güneş</a>
+          <span>Yayın / Güncelleme: <time datetime="2026-11-22">22 Kasım 2026</time></span>
+          <span>10 dk okuma</span>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin-left:auto;" data-bookmark-toggle data-url="makale-3.html" data-title="Tarayıcı Eklentilerinde Güvenlik ve Yerel Hesaplama: QR Scanner, ÇevirmenX ve NotMatik İlkeleri" data-type="Vaka Analizi">☆ Okuma listesine ekle</button>
+        </div>
+      </div>
     </header>
-    <div class="article-shell">
-      <nav class="article-toc" aria-label="Makale içindekiler"><strong>İÇİNDEKİLER</strong><a href="#ortak">Ortak problem</a><a href="#qr">QR Scanner</a><a href="#notmatik">NotMatik algoritması</a><a href="#test">Doğrulama</a><a href="#sonuc">Sonuç</a></nav>
-      <article class="article">
-        <p>QR Scanner ve NotMatik ilk bakışta farklı ürünlerdir. Biri Chrome içinde bir tarayıcı eklentisi olarak çalışan QR tarama akışı, diğeri öğrencinin ders değerlendirmelerini ve hedef puan senaryolarını hesaplamasına yardımcı olan web aracıdır. Bu iki projeyi birlikte düşünmemin nedeni, aynı mühendislik sorusunu farklı biçimlerde ele almalarıdır: kullanıcı girdisi nasıl alınır, doğru bağlamda nasıl işlenir ve sonuç kullanıcıya nasıl anlaşılır biçimde geri verilir? QR Scanner'da bu sınır tarayıcı izinleri ve eklenti yaşam döngüsü etrafında; NotMatik'te ise not bileşenleri, ağırlıklar ve hesaplama varsayımları etrafında kurulur.</p>
-        <h2 id="ortak">Kullanıcı akışından teknik gereksinime</h2>
-        <p>Bir özelliği kodlamadan önce kullanıcı yolunu belirlemek, gereksiz karmaşıklığı azaltır. QR Scanner için temel akış QR içeriğini tarayıcı içinde elde etmek ve kullanıcıya sonucu göstermek üzerine kuruludur. Eklenti, her web sayfasında kendiliğinden çalışan kapsamlı bir otomasyon olmak zorunda değildir; kullanıcının eklentiyi açtığı ve açıkça başlattığı bir etkileşim, izinlerin ve veri erişiminin daha sınırlı tutulmasına yardımcı olur. NotMatik'te kullanıcı dersin değerlendirme bileşenlerini ve ağırlıklarını girer; araç girilen değerlerle dönem ortalaması veya kalan değerlendirmede gereken puanı hesaplar. Her iki durumda da ürün kullanıcının yerine karar vermez, girdiye dayalı sonucu görünür kılar.</p>
-        <h2 id="qr">QR Scanner: Manifest V3 ve tarayıcı sınırları</h2>
-        <p>Chrome uzantısının yapılandırması Manifest V3 manifest dosyasında tanımlanır. Eklentinin düğmesi ve popup arayüzü kullanıcı etkileşiminin başlangıç noktası olabilir; arka planda gerekli olaylar service worker ile ele alınır. Manifest V3 service worker'ı sürekli açık kalan bir işlem gibi düşünmemek gerekir: tarayıcı ihtiyaç olmadığında onu durdurabilir ve yeni bir olayda yeniden başlatabilir. Bu nedenle geçici JavaScript belleğinde kalıcı olacağını varsaydığımız durumlar yerine, gerekli olduğunda uygun uzantı depolama API'si kullanılmalıdır.</p>
-        <p>QR tarama akışında eklentinin hangi kaynağa erişmesi gerektiği tasarımın önemli parçasıdır. Eklenti, QR içeriğini hangi kaynaktan alıyorsa yalnızca o eylem için gereken izinleri istemeli; kullanıcıya izin talebinin amacını açıklamalıdır. Görüntü veya sekme verisi işleniyorsa, işlem mümkün olan en dar bağlamda ve açık kullanıcı etkileşimiyle yapılmalıdır. Kodda, sayfa içeriğinden gelen QR metni güvenilir kabul edilmemelidir. Sonuç URL ise protokol ve alan adı kullanıcıya gösterilmeli; otomatik yönlendirme veya yürütme yerine kullanıcının ne açılacağına karar vermesi sağlanmalıdır.</p>
-        <p>MV3'te popup, service worker ve olası içerik betikleri arasında mesajlaşma kuruluyorsa mesaj türü ve verisi doğrulanmalıdır. Bir bileşenden gelen veriyi doğrudan HTML olarak yerleştirmek yerine metin olarak göstermek, sayfa kaynaklı içeriğin arayüzde kod gibi yorumlanmasını önlemeye yardımcı olur. Eklentide bir tarama başarısız olduğunda boş sonuç ile hata durumu birbirine karıştırılmamalıdır; kamera veya sekme erişimi reddedildiyse bunu açıkça belirtmek, kullanıcıya kontrol verir.</p>
-        <pre><code>{
-  "manifest_version": 3,
-  "name": "QR Scanner",
-  "version": "1.0",
-  "action": { "default_popup": "popup.html" },
-  "background": { "service_worker": "service-worker.js" }
-}</code></pre>
-        <p>Bu sade manifest örneği mimariyi göstermek için hazırlanmıştır; tüm izinler veya gerçek proje manifest dosyası olduğu iddiasını taşımaz. QR verisinin nasıl alındığına bağlı olarak gereken izinler farklı olabilir. Yayın öncesinde kullanılan Chrome API'lerini ve güncel mağaza politikalarını gerçek eklenti yapılandırmasına göre kontrol etmek gerekir.</p>
-        <h2 id="notmatik">NotMatik: ağırlıklı ortalama algoritmasının anlaşılır olması</h2>
-        <p>NotMatik'in temel hesabı, farklı ağırlıklara sahip değerlendirme bileşenlerini tek bir ağırlıklı sonuçta birleştirmektir. Örneğin ara sınav, final ve ödevin puanları ile ders izlencesinde tanımlanan oranlar aynı olmak zorunda değildir. Her bileşenin puanı ve ağırlığı kullanıcıdan alınır; toplam ağırlık 100 üzerinden verildiyse ağırlıklı ortalama, her puanın kendi ağırlığıyla çarpılıp bu çarpımların toplamının 100'e bölünmesiyle bulunur. Ağırlıkların yüzde değil farklı ölçeklerde girildiği durumda formüldeki payda girilmiş ağırlıkların toplamı olmalıdır. Bu ayrıntı, aynı algoritmayı farklı ders kurallarına uyarlarken önem taşır.</p>
-        <pre><code>function weightedAverage(items) {
-  const validItems = items.filter(item =>
-    Number.isFinite(item.score) &&
-    Number.isFinite(item.weight) &&
-    item.weight > 0
-  );
 
-  const totalWeight = validItems.reduce(
-    (sum, item) => sum + item.weight, 0
-  );
-  if (totalWeight === 0) return null;
+    <div class="wrap article-shell">
+      <aside class="article-aside">
+        <nav class="toc-card" aria-label="Makale içindekiler">
+          <div class="toc-title">Bu Yazıda</div>
+          <ul class="toc-list">
+            <li><a href="#ortak-sorun">Üç farklı araç, tek bir ortak tasarım felsefesi</a></li><li><a href="#manifest-v3">Manifest V3 izin disiplini ve mağaza inceleme süreci</a></li><li><a href="#hesaplama-dogrulugu">NotMatik v3.0’da tam sayı katkısı ve imkânsız hedef kontrolleri</a></li><li><a href="#kontrol-tablosu">Üç üründe veri akışı ve gizlilik karşılaştırması</a></li><li><a href="#sss">Sıkça Sorulan Sorular</a></li>
+          </ul>
+        </nav>
+        <div class="toc-card">
+                <div class="toc-title">İlgili Açık Kaynak Proje</div>
+                <strong style="display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:6px;">QR Scanner (v1.1.4)</strong>
+                <p style="font-size:0.83rem;margin-bottom:12px;">7 QR veri türü, 2048px PNG/SVG çıktısı ve cihaz içi kamera/görsel taraması sunan gizlilik odaklı web + eklenti paketi.</p>
+                <div style="display:flex;flex-direction:column;gap:7px;">
+                  <a class="btn btn-accent btn-sm" href="https://qr.haking.tr/" target="_blank" rel="noopener noreferrer">Canlı Siteyi Aç ↗</a>
+                  <a class="btn btn-secondary btn-sm" href="proje-qr-scanner.html">Proje Sayfası →</a>
+                </div>
+              </div>
+      </aside>
 
-  const weightedTotal = validItems.reduce(
-    (sum, item) => sum + item.score * item.weight, 0
-  );
-  return weightedTotal / totalWeight;
-}</code></pre>
-        <p>Örnekteki <code>null</code>, geçerli ağırlık yokken sıfır not göstermemek içindir; sıfır bir başarı puanıdır, hesap yapılamamasıyla aynı şey değildir. Gerçek formda puan aralığı, boş giriş, negatif ağırlık ve toplamın ders izlencesindeki yüzdeye uyup uymadığı da kontrol edilmelidir. Kullanıcının her girdiyi yeniden hesaplamadan düzenleyebilmesi, anlık senaryo denemeyi kolaylaştırır. Sonuç kartında yalnızca ortalamayı değil, kullanılan toplam ağırlığı veya eksik bileşen uyarısını göstermek hesaplamanın denetlenebilirliğini artırır.</p>
-        <h3>Kalan sınav için hedef puan senaryosu</h3>
-        <p>Kullanıcı belirli bir dönem sonu hedefine ulaşmak için kalan final veya başka bir değerlendirmeden kaç alması gerektiğini sorabilir. Mevcut bileşenlerin katkısı çıkarılır, kalan ağırlığa düşen puan hesaplanır. Eğer tüm ders ağırlıkları 100'e tamamlanıyorsa hedef formül şu biçimdedir:</p>
-        <pre><code>requiredScore =
-  (targetAverage * totalCourseWeight - completedWeightedTotal)
-  / remainingWeight;</code></pre>
-        <p>Sonucu doğrudan başarı garantisi gibi sunmamak gerekir. Gerekli puan izin verilen not aralığının üzerindeyse hedefin mevcut varsayımlarla mümkün olmadığı; sıfırın altındaysa tamamlanan puanların hedefi zaten karşıladığı açıklanabilir. Dersin harf notu eşikleri veya yuvarlama kuralları kuruma göre değişebildiğinden, NotMatik öğrencinin kendi ders izlencesini esas almalıdır. Araç resmi öğrenci bilgi sistemi yerine geçmez.</p>
-        <h2 id="test">İki projede ortak doğrulama ilkeleri</h2>
-        <p>QR Scanner için izin verilmemesi, bozuk veya boş QR sonucu, geçersiz URL, service worker'ın yeniden başlatılması ve tarayıcı sekmesinin kapanması gibi durumlar test edilmelidir. NotMatik için ağırlık toplamının 100 olması, eksik bileşen, sıfır ağırlık, geçersiz karakter, küsuratlı puan ve hedef puanın mümkün olmadığı durumlar örneklenmelidir. Girdi sınırlarını yalnızca arayüzde değil hesaplama fonksiyonunda da doğrulamak, beklenmeyen değerlerin sonucu bozmasını önler.</p>
-        <p>Her iki projede kullanıcıya hangi varsayımla işlem yapıldığı gösterilmelidir. QR sonucu bir metin veya bağlantıdır; kullanıcı açmadan önce içeriği görmelidir. NotMatik sonucu hesaplamadır; kullanıcı kendi ders ölçütlerini girdiğini ve kullanılan ağırlıkları kontrol edebilmelidir. Bu yaklaşım, otomasyonu ve hesaplamayı kullanıcının kontrolünü elinden almadan faydalı hale getirir.</p>
-        <h2 id="sonuc">Sonuç: küçük araçlarda bile şeffaflık önemlidir</h2>
-        <p>QR Scanner ve NotMatik farklı teknik yüzeylerde çalışsa da ikisi de kullanıcıya net bir girdi-sonuç ilişkisi sunmayı hedefler. Manifest V3 tarafında izinleri sınırlı tutmak, eklenti bileşenlerinin yaşam döngüsünü doğru anlamak ve taranan içeriği güvenli biçimde göstermek; NotMatik tarafında ise ağırlıklı ortalama formülünü, geçersiz girişleri ve hedef puan sınırlarını açık ele almak temel kararlardır. JavaScript burada yalnızca arayüzü hareketlendiren değil, ürünün kullanıcıya nasıl davrandığını belirleyen katmandır.</p>
-        <p>NotMatik'i <a href="https://notmatik.haking.tr" target="_blank" rel="noopener noreferrer">notmatik.haking.tr</a> adresinde deneyebilir, diğer projeleri <a href="projects.html">portfolyo sayfasında</a> görebilirsiniz. Chrome uzantılarında izin ve API davranışları güncellenebileceğinden yayına almadan önce <a href="https://developer.chrome.com/docs/extensions/" target="_blank" rel="noopener noreferrer">Chrome Extensions belgelerini</a> kontrol etmek önemlidir.</p>
-        <div class="article-note"><strong>Proje kapsamı:</strong> QR Scanner, Manifest V3 tabanlı Chrome eklentisi çalışması; NotMatik ise JavaScript ile ders puanı ve ağırlık senaryoları hesaplayan eğitim aracıdır. Kod örnekleri algoritma ve izin yaklaşımını açıklar, tam proje kaynak kodu olarak sunulmaz.</div>
-      </article>
-      <div class="article-footer-card"><div><strong>NotMatik'i deneyin</strong><p>Ders bileşenlerinizi ve ağırlık senaryolarınızı uygulamada inceleyin.</p></div><a class="button" href="https://notmatik.haking.tr" target="_blank" rel="noopener noreferrer">Uygulamayı aç <span>↗</span></a></div>
+      <article class="prose">
+        <details class="mobile-toc">
+          <summary>İçindekiler</summary>
+          <ul class="toc-list"><li><a href="#ortak-sorun">Üç farklı araç, tek bir ortak tasarım felsefesi</a></li><li><a href="#manifest-v3">Manifest V3 izin disiplini ve mağaza inceleme süreci</a></li><li><a href="#hesaplama-dogrulugu">NotMatik v3.0’da tam sayı katkısı ve imkânsız hedef kontrolleri</a></li><li><a href="#kontrol-tablosu">Üç üründe veri akışı ve gizlilik karşılaştırması</a></li><li><a href="#sss">Sıkça Sorulan Sorular</a></li></ul>
+        </details>
+
+        <section aria-labelledby="ortak-sorun">
+              <h2 id="ortak-sorun">Üç farklı araç, tek bir ortak tasarım felsefesi</h2>
+              
+          <p>İlk bakışta <a href="proje-qr-scanner.html">QR Scanner (v1.1.4)</a>, <a href="proje-cevirmenx.html">ÇevirmenX (v1.4.0)</a> ve <a href="proje-notmatik.html">NotMatik (v3.0)</a> tamamen farklı kullanıcı problemlerini çözer: biri QR kod üretip tarar, biri sayfa içi metin çevirir, diğeri üniversite ders ortalaması hesaplar. Ancak geliştirme sürecinde bu üç ürünü birleştiren çok güçlü ortak mühendislik ilkeleri ortaya çıktı: <strong>minimum veri çıkışı, sıfır hesap zorunluluğu ve hatalı girdilere karşı savunmacı tasarım</strong>.</p>
+        
+            </section><section aria-labelledby="manifest-v3">
+              <h2 id="manifest-v3">Manifest V3 izin disiplini ve mağaza inceleme süreci</h2>
+              
+          <p>Chrome Web Store ve Microsoft Edge Add-ons incelemelerinde en sık reddedilen uzantılar, “ileride lazım olur” düşüncesiyle geniş <code>&lt;all_urls&gt;</code> veya gereksiz <code>tabs</code> izni isteyenlerdir. QR Scanner’da aktif sekme taraması ve sayfa bağlantısından QR üretimi yalnızca kullanıcı uzantı simgesine tıkladığında (<code>activeTab</code>) devreye girer; arka planda gezinti geçmişi okunmaz.</p>
+          <p>ÇevirmenX 1.4.0’da ise seçili metin üzerindeki çeviri balonu her sitenin kendi CSS kurallarıyla çakışmamalıdır. Bu nedenle izole stil sarmalayıcıları ve çakışmayan kısayol yönetimi (<code>Alt+T</code> + özelleştirilebilir kısayol) benimsendi; aynı kaynak koddan tek derleme betiğiyle Chrome, Edge ve Firefox (<code>.xpi</code>) paketleri üretildi.</p>
+        
+            </section><section aria-labelledby="hesaplama-dogrulugu">
+              <h2 id="hesaplama-dogrulugu">NotMatik v3.0’da tam sayı katkısı ve imkânsız hedef kontrolleri</h2>
+              
+          <p>Basit görünen bir not hesaplama aracı, gerçek öğrenci senaryolarında şaşırtıcı sayıda uç durum barındırır: virgül ile nokta ayrımı (<code>67,5</code> vs <code>67.5</code>), ağırlık toplamının %100 etmemesi, bazı üniversitelerde her bileşenin tam sayı katkısıyla toplanması ve “finalden 112 alman gerekiyor” gibi pratikte olanaksız hedefler.</p>
+          <p>NotMatik’te her girdi anlık doğrulanır, ağırlık toplamı görsel olarak izlenir ve 100’ü aşan hedef final sonuçları kullanıcıyı yanıltmayacak biçimde açık uyarıyla sunulur. Service Worker desteği sayesinde sınav haftasında internet bağlantısı kesilse dahi Hedef Defterim kayıtlarına çevrimdışı erişilebilir.</p>
+        
+            </section><section aria-labelledby="kontrol-tablosu">
+              <h2 id="kontrol-tablosu">Üç üründe veri akışı ve gizlilik karşılaştırması</h2>
+              
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Ürün</th><th>Hesap Gerekir mi?</th><th>Veri Nerede İşlenir?</th><th>Çevrimdışı Çalışma</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>QR Scanner v1.1.4</strong></td><td>Hayır</td><td>%100 cihaz içi (tarayıcı belleği)</td><td>Tam destek</td></tr>
+                <tr><td><strong>NotMatik v3.0</strong></td><td>Hayır</td><td>%100 cihaz içi (localStorage + SW)</td><td>Tam PWA destek</td></tr>
+                <tr><td><strong>ÇevirmenX v1.4.0</strong></td><td>Hayır</td><td>Seçili metin çeviri servisine gider; sözlük ve geçmiş yereldedir</td><td>Kişisel sözlük yerel</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Bir aracın veri akışını sade tutmak yalnızca gizliliği artırmaz; sunucu bakım yükünü, hata yüzeyini ve gecikmeyi de kökten azaltır.</p>
+        
+            </section>
+
+        <section aria-labelledby="sss">
+                <h2 id="sss">Sıkça Sorulan Sorular</h2>
+                <div class="faq-list">
+                  <details class="faq-item"><summary>Chrome ve Edge için ayrı kod tabanı mı yazılıyor?</summary><p>Hayır. QR Scanner ve ÇevirmenX ortak çekirdek kod tabanı kullanır; tarayıcıya özgü manifest alanları derleme aşamasında otomatik ayrıştırılır.</p></details>
+                </div>
+              </section>
+
+        <div class="chips" style="margin-top:26px;">
+          <span class="chip">#Manifest V3</span><span class="chip">#Chrome Extension</span><span class="chip">#PWA</span><span class="chip">#Gizlilik</span><span class="chip">#JavaScript</span>
+        </div>
+
+        <div class="panel" style="margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+                <div>
+                  <div class="eyebrow" style="margin-bottom:4px;">UYGULAMALI PROJE BAĞLAMI</div>
+                  <h3 style="margin-bottom:4px;">QR Scanner (v1.1.4)</h3>
+                  <p style="font-size:0.9rem;margin:0;max-width:48ch;">Bu rehberdeki mühendislik yaklaşımını çalışan üründe ve açık kaynak kodunda inceleyin.</p>
+                </div>
+                <div class="actions">
+                  <a class="btn btn-accent btn-sm" href="https://qr.haking.tr/" target="_blank" rel="noopener noreferrer">Canlı Site ↗</a>
+                  <a class="btn btn-secondary btn-sm" href="proje-qr-scanner.html">Proje İncelemesi →</a>
+                </div>
+              </div>
+
+        <section class="author-card" aria-label="Yazar hakkında">
+    <img src="assets/images/brand/logo-192.png" alt="Halit Güneş — HaKING" width="72" height="72" loading="lazy">
+    <div>
+      <div class="eyebrow" style="margin-bottom:4px;">YAZAR &amp; GELİŞTİRİCİ</div>
+      <h3>Halit Güneş (HaKING06)</h3>
+      <p>İstanbul Kültür Üniversitesi Bilgisayar Programcılığı öğrencisi ve bağımsız yazılım geliştirici. Yapay zekâ arayüzleri, CS2 ekonomi analiz araçları, tarayıcı uzantıları ve WebGL tabanlı 3D web ürünleri geliştiriyor; arkasındaki mimari kararları haking.tr'de belgeliyor.</p>
+      <div class="actions" style="gap:14px;">
+        <a class="text-link" href="hakkimda.html">Hakkımda →</a>
+        <a class="text-link" href="github.html">GitHub Projeleri →</a>
+        <a class="text-link" href="proje-yaptir.html">Proje Yaptır →</a>
+      </div>
     </div>
+  </section>
+
+        <section style="margin-top:38px;">
+                <h2 style="margin-top:0;">Okumaya Devam Et</h2>
+                <div class="grid-3" style="margin-top:16px;">
+                  <article class="article-card" style="padding:18px;">
+                        <span class="tag">Teknik Rehber</span>
+                        <h3 style="font-size:1.02rem;"><a href="yazi-qr-paylasim-baski.html">Baskı ve Dijital Ortam İçin Yüksek Çözünürlüklü QR Kod Hazırlama: SVG, Hata Düzeltme ve Sessiz Bölge</a></h3>
+                        <a class="text-link" href="yazi-qr-paylasim-baski.html" style="margin-top:auto;">Yazıyı oku →</a>
+                      </article><article class="article-card" style="padding:18px;">
+                        <span class="tag">Teknik Rehber</span>
+                        <h3 style="font-size:1.02rem;"><a href="yazi-cevirmenx-sozluk.html">Teknik Dokümanlarda ve Oyun Terimlerinde Kişisel Sözlükle Çeviri Tutarlılığı</a></h3>
+                        <a class="text-link" href="yazi-cevirmenx-sozluk.html" style="margin-top:auto;">Yazıyı oku →</a>
+                      </article><article class="article-card" style="padding:18px;">
+                        <span class="tag">Teknik Rehber</span>
+                        <h3 style="font-size:1.02rem;"><a href="rehber-qr-guvenligi.html">QR Kod Güvenliği, Tarayıcı İzinleri ve Cihaz İçi İşleme Rehberi</a></h3>
+                        <a class="text-link" href="rehber-qr-guvenligi.html" style="margin-top:auto;">Yazıyı oku →</a>
+                      </article>
+                </div>
+              </section>
+      </article>
+    </div>
+  
   </main>
-  <footer class="site-footer"><div class="wrap"><div class="footer-main"><div class="footer-brand"><a class="brand" href="index.html"><img class="brand-mark brand-image" src="assets/images/haking-icon-512.png" alt="" width="36" height="36"><span>HaKING<span class="brand-dot">.</span></span></a><p>Projeler, ürün kararları<br>ve öğrenme notları.</p></div><div class="footer-column"><span class="footer-title">KEŞFET</span><a href="projects.html">Projeler</a><a href="blog.html">Mühendislik yazıları</a></div><div class="footer-column"><span class="footer-title">BİLGİ</span><a href="gizlilik-politikasi.html">Gizlilik Politikası</a><a href="terms.html">Kullanım Koşulları</a><a href="iletisim.html">İletişim</a></div><div class="footer-contact"><span class="footer-title">BAĞLANTIDA KAL</span><a href="mailto:merhaba@haking.tr">merhaba@haking.tr <span>↗</span></a><small>İstanbul, Türkiye</small></div></div><div class="footer-bottom"><span>© <span data-year>2026</span> HaKING · Halit Güneş</span><span>Merakla tasarlandı, özenle geliştirildi.</span><a href="sitemap.xml">Site haritası</a></div></div><nav class="wrap publication-links" aria-label="Yayın bilgileri"><a href="haberler.html">Teknoloji ve rehberler</a><a href="hakkimda.html">Hakkımda</a><a href="yayin-ilkeleri.html">Yayın ilkeleri</a></nav></footer>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38" loading="lazy">
+            <span class="brand-text">
+              <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+              <span class="brand-sub">Halit Güneş · haking.tr</span>
+            </span>
+          </a>
+          <p>Bağımsız yazılım stüdyosu ve Türkçe mühendislik yayını. 15 açık kaynak GitHub projesi, derin vaka analizleri ve pratik geliştirici rehberleri.</p>
+          <div class="chips" style="margin-top:14px;">
+            <a class="chip" href="https://github.com/HaKING06" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="chip" href="https://www.youtube.com/@gunshalit" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+            <a class="chip" href="https://steamcommunity.com/profiles/76561199760755154/" target="_blank" rel="noopener noreferrer">Steam ↗</a>
+            <a class="chip" href="https://buymeacoffee.com/haking" target="_blank" rel="noopener noreferrer">Destek ↗</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Öne Çıkan Ürünler</h4>
+          <ul>
+            <li><a href="proje-haking-ai.html">HaKING AI (v1.19.2)</a></li>
+            <li><a href="haking-ai-prompt-modu.html">HaKING Prompt Modu</a></li>
+            <li><a href="proje-spread.html">SPREAD V11.1</a></li>
+            <li><a href="proje-cosmic.html">COSMIC v12.0</a></li>
+            <li><a href="proje-cs2studio.html">CS2 Studio</a></li>
+            <li><a href="projects.html">Tüm 15 Proje →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Yayın &amp; Rehberler</h4>
+          <ul>
+            <li><a href="blog.html">Mühendislik Yazıları</a></li>
+            <li><a href="haberler.html">Okuma Merkezi &amp; Sürümler</a></li>
+            <li><a href="makale-1.html">HaKING AI Mimarisi</a></li>
+            <li><a href="makale-spread-arbitraj-mimarisi.html">SPREAD Quant Mimarisi</a></li>
+            <li><a href="rehber-not-hesaplama.html">Not Hesaplama Rehberi</a></li>
+            <li><a href="rss.xml">RSS Akışı (XML)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stüdyo</h4>
+          <ul>
+            <li><a href="hakkimda.html">Hakkımda (Ben Kimim?)</a></li>
+            <li><a href="github.html">GitHub Sayfam</a></li>
+            <li><a href="proje-yaptir.html">Proje Yaptır &amp; Teklif</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="yayin-ilkeleri.html">Yayın İlkeleri</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Yasal &amp; İletişim</h4>
+          <ul>
+            <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+            <li><a href="cerez-politikasi.html">Çerez Politikası</a></li>
+            <li><a href="terms.html">Kullanım Koşulları</a></li>
+            <li><a href="site-haritasi.html">HTML Site Haritası</a></li>
+            <li><a href="mailto:merhaba@haking.tr">merhaba@haking.tr</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> HaKING · Halit Güneş · İstanbul, Türkiye</span>
+        <div class="footer-bottom-links">
+          <a href="sitemap.xml">sitemap.xml</a>
+          <a href="rss.xml">rss.xml</a>
+          <a href="llms.txt">llms.txt</a>
+          <button type="button" data-open-cookie-settings style="background:none;border:0;padding:0;color:inherit;text-decoration:underline;font-size:inherit;">Çerez Tercihleri</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Search Command Modal -->
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" hidden>
+    <div class="modal-box">
+      <div class="modal-search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <label for="global-search-input" id="search-modal-title" class="sr-only">Site içinde ara</label>
+        <input id="global-search-input" type="search" placeholder="Proje, rehber veya konu ara (ör. Prompt Modu, SPREAD, OKLCH, QR)..." autocomplete="off">
+        <button type="button" class="btn btn-secondary btn-sm" data-close-search>Kapat</button>
+      </div>
+      <div class="modal-results" id="global-search-results"></div>
+      <div class="modal-foot">
+        <span id="global-search-count">Hazır</span>
+        <span>↑↓ Gezin · Enter Aç · Esc Kapat</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reading List / Bookmarks Modal -->
+  <div class="modal-backdrop" id="bookmarks-modal" role="dialog" aria-modal="true" aria-labelledby="bookmarks-modal-title" hidden>
+    <div class="modal-box">
+      <div class="modal-search-bar">
+        <strong id="bookmarks-modal-title" style="flex:1;">Okuma Listem (Yerel Kayıt)</strong>
+        <button type="button" class="btn btn-secondary btn-sm" data-close-bookmarks>Kapat</button>
+      </div>
+      <div class="modal-results" id="bookmarks-list"></div>
+      <div class="modal-foot">
+        <span>Kayıtlar yalnızca bu tarayıcıda saklanır.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie & Storage Notice -->
+  <aside class="cookie-bar" id="cookie-bar" aria-label="Çerez ve depolama bildirimi" hidden>
+    <h4>Çerezler ve Yerel Depolama</h4>
+    <p>haking.tr tema ve okuma listesi için tarayıcı depolamasını kullanır. Google AdSense reklamları etkin olduğunda üçüncü taraf reklam çerezleri kullanılabilir. Ayrıntılar için <a href="cerez-politikasi.html">Çerez Politikası</a> ve <a href="gizlilik-politikasi.html">Gizlilik Politikası</a> sayfalarını inceleyebilirsiniz.</p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-sm" data-cookie-choice="accepted">Anladım</button>
+      <button type="button" class="btn btn-secondary btn-sm" data-cookie-choice="essential">Yalnızca Temel</button>
+      <a class="text-link" href="cerez-politikasi.html" style="font-size:0.83rem;margin-left:auto;">Ayrıntılar →</a>
+    </div>
+  </aside>
 </body>
 </html>
