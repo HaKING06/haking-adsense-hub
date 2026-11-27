@@ -2,7 +2,7 @@ import { SITE } from '../data/site.mjs';
 import { PROJECTS } from '../data/projects.mjs';
 import { renderLayout, renderBreadcrumbs, esc } from './layout.mjs';
 
-function legalShell({ title, description, canonicalPath, eyebrow, heading, lead, breadcrumbs, contentHtml, noindex = false }) {
+function legalShell({ title, description, canonicalPath, eyebrow, heading, lead, breadcrumbs, contentHtml, noindex = false, disableAds = false }) {
   const bodyHtml = `
     <header class="page-intro">
       <div class="wrap">
@@ -24,6 +24,7 @@ function legalShell({ title, description, canonicalPath, eyebrow, heading, lead,
     canonicalPath,
     breadcrumbs,
     noindex,
+    disableAds,
     bodyHtml,
   });
 }
@@ -83,7 +84,7 @@ export function renderPrivacyPolicy() {
       <p><a href="iletisim.html">İletişim</a> ve <a href="proje-yaptir.html">Proje Yaptır</a> sayfalarındaki formlar statik olarak çalışır; girdiğiniz bilgiler HaKING sunucusuna kaydedilmez, yalnızca kendi cihazınızdaki e-posta uygulamasında bir taslak oluşturur. E-postayı göndermeyi tercih ettiğinizde iletiniz, yalnızca talebinizi yanıtlamak amacıyla e-posta sağlayıcınız ve <code>merhaba@haking.tr</code> posta kutusu üzerinden işlenir.</p>
 
       <h2>4. Yerel Tarayıcı Depolaması (localStorage)</h2>
-      <p>Site deneyimini iyileştirmek için tarayıcınızın yerel depolamasında yalnızca üç teknik tercih tutulur: tema seçimi (<code>haking_theme_v2</code>), kaydettiğiniz okuma listesi (<code>haking_bookmarks_v2</code>) ve çerez bildirim seçiminiz (<code>haking_cookie_pref_v2</code>). Bu veriler sunucularımıza gönderilmez. Ayrıntılar için <a href="cerez-politikasi.html">Çerez Politikası</a> sayfasını okuyabilirsiniz.</p>
+      <p>Site deneyimini iyileştirmek için tarayıcınızın yerel depolamasında yalnızca dört teknik tercih tutulur: tema seçimi (<code>haking_theme_v2</code>), okuma yazı boyutu tercihi (<code>haking_font_scale</code>), kaydettiğiniz okuma listesi (<code>haking_bookmarks_v2</code>) ve çerez bildirim seçiminiz (<code>haking_cookie_pref_v2</code>). Bu veriler sunucularımıza gönderilmez. Ayrıntılar için <a href="cerez-politikasi.html">Çerez Politikası</a> sayfasını okuyabilirsiniz.</p>
 
       <h2>5. Google AdSense, DoubleClick ve Üçüncü Taraf Reklamlar</h2>
       <p>Bu sitede Google AdSense reklamları (yayıncı kimliği: <code>pub-2827419116684137</code>) kullanılmaktadır. Google ve üçüncü taraf reklam satıcıları, ziyaretçilerin bu siteye veya internetteki diğer sitelere yaptığı önceki ziyaretlere dayanarak reklam sunmak için çerezlerden (DoubleClick DART çerezi dahil) ve benzeri tanımlayıcılardan yararlanabilir.</p>
@@ -123,6 +124,7 @@ export function renderCookiePolicy() {
           </thead>
           <tbody>
             <tr><td><code>haking_theme_v2</code></td><td>localStorage</td><td>Açık (Arşiv Kâğıdı) / Koyu (Grafit) tema seçiminizi hatırlar.</td><td>Hayır</td></tr>
+            <tr><td><code>haking_font_scale</code></td><td>localStorage</td><td>Yazı ve proje sayfalarındaki A− / A+ okuma boyutu tercihinizi saklar.</td><td>Hayır</td></tr>
             <tr><td><code>haking_bookmarks_v2</code></td><td>localStorage</td><td>“Okuma listem” bölümüne eklediğiniz makale ve projeleri tutar.</td><td>Hayır</td></tr>
             <tr><td><code>haking_cookie_pref_v2</code></td><td>localStorage</td><td>Çerez bilgilendirme çubuğu onay tercihinizi saklar.</td><td>Hayır</td></tr>
           </tbody>
@@ -136,7 +138,7 @@ export function renderCookiePolicy() {
         <li>Üçüncü taraf reklam çerezleri hakkında kapsamlı seçenekler için <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">YourAdChoices</a> platformunu ziyaret edebilirsiniz.</li>
       </ul>
 
-      <h2>4. Popüler Tarayıcılarda Çerezleri Yönetme ve Silme</h2>
+      <h2>4. Masaüstü Tarayıcılarda Çerezleri Yönetme ve Silme</h2>
       <p>Tarayıcınızın gizlilik ayarları üzerinden mevcut çerezleri silebilir, üçüncü taraf çerezlerini engelleyebilir veya yalnızca belirli siteler için depolama izni verebilirsiniz:</p>
       <ul>
         <li><strong>Google Chrome:</strong> Ayarlar → Gizlilik ve güvenlik → Üçüncü taraf çerezleri / Tarama verilerini temizle.</li>
@@ -144,7 +146,10 @@ export function renderCookiePolicy() {
         <li><strong>Mozilla Firefox:</strong> Ayarlar → Gizlilik ve Güvenlik → Çerezler ve Site Verileri → Verileri Temizle.</li>
         <li><strong>Safari:</strong> Ayarlar → Gizlilik → Web Sitesi Verilerini Yönet.</li>
       </ul>
-      <p>Yerel depolamayı temizlediğinizde açık/koyu tema seçiminiz ve okuma listeniz varsayılan durumuna döner; site içeriğine erişiminiz hiçbir şekilde kısıtlanmaz. Sitemizdeki bildirim tercihini yeniden açmak için aşağıdaki düğmeyi kullanabilirsiniz:</p>
+
+      <h2>5. Mobil Cihazlarda Reklam ve Depolama Tercihleri</h2>
+      <p>Android cihazlarda <em>Ayarlar → Google → Reklamlar</em> menüsünden reklam kimliğini sıfırlayabilir veya silebilirsiniz. iOS/iPadOS cihazlarda ise <em>Ayarlar → Gizlilik ve Güvenlik → Takip</em> ve <em>Safari → Geçmişi ve Web Sitesi Verilerini Sil</em> seçenekleri üzerinden site verilerini yönetebilirsiniz. Yerel depolamayı temizlediğinizde açık/koyu tema seçiminiz, okuma boyutu ayarınız ve okuma listeniz varsayılan durumuna döner; site içeriğine erişiminiz hiçbir şekilde kısıtlanmaz.</p>
+      <p>Sitemizdeki çerez bilgilendirme tercihini dilediğiniz zaman yeniden düzenlemek için aşağıdaki düğmeyi kullanabilirsiniz:</p>
       <p><button type="button" class="btn btn-secondary btn-sm" data-open-cookie-settings>Çerez Tercihi Çubuğunu Aç</button></p>
     `,
   });
@@ -185,11 +190,11 @@ export function renderHtmlSitemap(allArticles) {
   const breadcrumbs = [{ name: 'Ana Sayfa', href: 'index.html' }, { name: 'HTML Site Haritası' }];
   return legalShell({
     title: 'HTML Site Haritası',
-    description: 'haking.tr üzerindeki tüm sayfaların, 15 açık kaynak projenin ve 20+ mühendislik yazısının kategorize edilmiş tam listesi.',
+    description: 'haking.tr üzerindeki tüm sayfaların, 15 açık kaynak projenin ve 33 teknoloji haberi ile mühendislik yazısının kategorize edilmiş tam listesi.',
     canonicalPath: 'site-haritasi.html',
     eyebrow: 'GEZİNME DİZİNİ',
     heading: 'HTML Site Haritası',
-    lead: 'haking.tr üzerindeki tüm çekirdek sayfalar, açık kaynak proje incelemeleri, teknik makaleler ve yasal belgeler. Arama motorları için XML sürümü: sitemap.xml.',
+    lead: 'haking.tr üzerindeki tüm çekirdek sayfalar, 15 açık kaynak proje incelemesi, teknoloji haberleri, teknik makaleler ve yasal belgeler.',
     breadcrumbs,
     contentHtml: `
       <h2>Ana ve Stüdyo Sayfaları</h2>
@@ -215,15 +220,12 @@ export function renderHtmlSitemap(allArticles) {
         ${allArticles.map((a) => `<li><a href="${a.file}">${esc(a.title)}</a> <span class="mono" style="font-size:0.8em;color:var(--ink-muted);">(${esc(a.dateDisplay)})</span></li>`).join('')}
       </ul>
 
-      <h2>Güven, Yasal ve Tarayıcı Dosyaları</h2>
+      <h2>Güven ve Yasal Belgeler</h2>
       <ul>
         <li><a href="yayin-ilkeleri.html">Yayın ve Düzeltme İlkeleri</a></li>
         <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
         <li><a href="cerez-politikasi.html">Çerez ve Yerel Depolama Politikası</a></li>
         <li><a href="terms.html">Kullanım Koşulları</a></li>
-        <li><a href="sitemap.xml">XML Site Haritası (sitemap.xml)</a></li>
-        <li><a href="rss.xml">RSS Yayın Akışı (rss.xml)</a></li>
-        <li><a href="llms.txt">Yapay Zekâ Arama İndeksi (llms.txt)</a></li>
       </ul>
     `,
   });
@@ -239,6 +241,7 @@ export function render404Page() {
     lead: 'Bağlantı güncellenmiş veya adreste küçük bir yazım hatası olabilir. Aşağıdaki hızlı bağlantılarla ya da üstteki Ctrl+K aramasıyla aradığınız içeriğe hemen ulaşabilirsiniz.',
     breadcrumbs: [{ name: 'Ana Sayfa', href: 'index.html' }, { name: '404' }],
     noindex: true,
+    disableAds: true,
     contentHtml: `
       <div class="actions" style="margin-bottom:28px;">
         <a class="btn btn-accent" href="index.html">Ana Sayfaya Dön →</a>

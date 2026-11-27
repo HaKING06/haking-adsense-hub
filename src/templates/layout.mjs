@@ -19,6 +19,8 @@ export function renderLayout({
   breadcrumbs = [],
   showReadingBar = false,
   noindex = false,
+  disableAds = false,
+  mobileStickyBar = '',
   bodyHtml = '',
 }) {
   const canonicalUrl = canonicalPath
@@ -92,6 +94,10 @@ export function renderLayout({
     })
     .join('');
 
+  const adsScript = disableAds
+    ? ''
+    : `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>`;
+
   return `<!doctype html>
 <html lang="tr">
 <head>
@@ -105,7 +111,7 @@ export function renderLayout({
   <link rel="canonical" href="${esc(canonicalUrl)}">
   <link rel="alternate" hreflang="tr-TR" href="${esc(canonicalUrl)}">
   <link rel="alternate" hreflang="x-default" href="${esc(canonicalUrl)}">
-  <link rel="alternate" type="application/rss+xml" title="HaKING — Yazılar ve Sürüm Notları (RSS)" href="${SITE.domain}/rss.xml">
+  <link rel="alternate" type="application/rss+xml" title="HaKING — Haberler ve Mühendislik Yazıları" href="${SITE.domain}/rss.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="HaKING Arama" href="${SITE.domain}/opensearch.xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -128,10 +134,10 @@ export function renderLayout({
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..600&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap&subset=latin,latin-ext" rel="stylesheet">
-  <script>(function(){try{var t=localStorage.getItem('haking_theme_v2');if(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+  <script>(function(){try{var t=localStorage.getItem('haking_theme_v2');if(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');var fs=localStorage.getItem('haking_font_scale');if(fs)document.documentElement.style.setProperty('--prose-scale',fs);}catch(e){}})();</script>
   <link rel="stylesheet" href="assets/style.css?v=${SITE.assetVersion}">
   <script defer src="assets/site.js?v=${SITE.assetVersion}"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>
+  ${adsScript}
   ${schemaScripts}
 </head>
 <body>
@@ -140,9 +146,9 @@ export function renderLayout({
   <header class="site-header">
     <nav class="nav wrap" aria-label="Ana gezinme">
       <a class="brand" href="index.html" aria-label="HaKING ana sayfa">
-        <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38">
+        <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING amblemi" width="38" height="38">
         <span class="brand-text">
-          <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+          <span class="brand-name">HaKING</span>
           <span class="brand-sub">Yazılım Stüdyosu &amp; Yayın</span>
         </span>
       </a>
@@ -176,13 +182,13 @@ ${bodyHtml}
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html">
-            <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING logosu" width="38" height="38" loading="lazy">
+            <img class="brand-mark" src="assets/images/brand/logo-64.png" alt="HaKING amblemi" width="38" height="38" loading="lazy">
             <span class="brand-text">
-              <span class="brand-name">HaKING<span class="brand-dot">.</span></span>
+              <span class="brand-name">HaKING</span>
               <span class="brand-sub">Halit Güneş · haking.tr</span>
             </span>
           </a>
-          <p>Bağımsız yazılım stüdyosu ve Türkçe mühendislik yayını. 15 açık kaynak GitHub projesi, derin vaka analizleri ve pratik geliştirici rehberleri.</p>
+          <p>Bağımsız yazılım stüdyosu ve Türkçe teknoloji yayını. 15 açık kaynak GitHub projesi, derin mühendislik analizleri ve güncel teknoloji rehberleri.</p>
           <div class="chips" style="margin-top:14px;">
             <a class="chip" href="${SITE.author.github}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <a class="chip" href="${SITE.author.youtube}" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
@@ -194,22 +200,21 @@ ${bodyHtml}
           <h4>Öne Çıkan Ürünler</h4>
           <ul>
             <li><a href="proje-haking-ai.html">HaKING AI (v1.19.2)</a></li>
-            <li><a href="haking-ai-prompt-modu.html">HaKING Prompt Modu</a></li>
             <li><a href="proje-spread.html">SPREAD V11.1</a></li>
-            <li><a href="proje-cosmic.html">COSMIC v12.0</a></li>
+            <li><a href="proje-cosmic.html">COSMIC Universe</a></li>
             <li><a href="proje-cs2studio.html">CS2 Studio</a></li>
+            <li><a href="proje-haking-chat.html">Haking Chat</a></li>
             <li><a href="projects.html">Tüm 15 Proje →</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Yayın &amp; Rehberler</h4>
+          <h4>Haberler &amp; Rehberler</h4>
           <ul>
+            <li><a href="haberler.html">Teknoloji Haberleri</a></li>
             <li><a href="blog.html">Mühendislik Yazıları</a></li>
-            <li><a href="haberler.html">Okuma Merkezi &amp; Sürümler</a></li>
-            <li><a href="makale-1.html">HaKING AI Mimarisi</a></li>
-            <li><a href="makale-spread-arbitraj-mimarisi.html">SPREAD Quant Mimarisi</a></li>
-            <li><a href="rehber-not-hesaplama.html">Not Hesaplama Rehberi</a></li>
-            <li><a href="rss.xml">RSS Akışı (XML)</a></li>
+            <li><a href="haking-ai-prompt-modu.html">HaKING Prompt Modu</a></li>
+            <li><a href="haber-cs2-ekonomi-doppler-likidite-analizi.html">CS2 Valve Cent Aracı</a></li>
+            <li><a href="rehber-not-hesaplama.html">Not Hesaplama Aracı</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -223,12 +228,12 @@ ${bodyHtml}
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Yasal &amp; İletişim</h4>
+          <h4>Güven &amp; İletişim</h4>
           <ul>
             <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
             <li><a href="cerez-politikasi.html">Çerez Politikası</a></li>
             <li><a href="terms.html">Kullanım Koşulları</a></li>
-            <li><a href="site-haritasi.html">HTML Site Haritası</a></li>
+            <li><a href="site-haritasi.html">Site Haritası</a></li>
             <li><a href="mailto:${SITE.author.email}">${SITE.author.email}</a></li>
           </ul>
         </div>
@@ -236,14 +241,18 @@ ${bodyHtml}
       <div class="footer-bottom">
         <span>© <span data-year>2026</span> HaKING · ${esc(SITE.author.name)} · ${esc(SITE.author.city)}</span>
         <div class="footer-bottom-links">
-          <a href="sitemap.xml">sitemap.xml</a>
-          <a href="rss.xml">rss.xml</a>
-          <a href="llms.txt">llms.txt</a>
-          <button type="button" data-open-cookie-settings style="background:none;border:0;padding:0;color:inherit;text-decoration:underline;font-size:inherit;">Çerez Tercihleri</button>
+          <a href="site-haritasi.html">Site Haritası</a>
+          <a href="yayin-ilkeleri.html">Yayın İlkeleri</a>
+          <button type="button" data-open-cookie-settings class="footer-link-btn">Çerez Tercihleri</button>
+          <a href="#icerik">Yukarı Çık ↑</a>
         </div>
       </div>
     </div>
   </footer>
+
+  ${mobileStickyBar}
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Yukarı çık" hidden>↑</button>
 
   <!-- Global Search Command Modal -->
   <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" hidden>
@@ -251,7 +260,7 @@ ${bodyHtml}
       <div class="modal-search-bar">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <label for="global-search-input" id="search-modal-title" class="sr-only">Site içinde ara</label>
-        <input id="global-search-input" type="search" placeholder="Proje, rehber veya konu ara (ör. Prompt Modu, SPREAD, OKLCH, QR)..." autocomplete="off">
+        <input id="global-search-input" type="search" placeholder="Proje, haber veya rehber ara (ör. Prompt Modu, SPREAD, Haking Chat, OKLCH)..." autocomplete="off">
         <button type="button" class="btn btn-secondary btn-sm" data-close-search>Kapat</button>
       </div>
       <div class="modal-results" id="global-search-results"></div>
@@ -279,11 +288,11 @@ ${bodyHtml}
   <!-- Cookie & Storage Notice -->
   <aside class="cookie-bar" id="cookie-bar" aria-label="Çerez ve depolama bildirimi" hidden>
     <h4>Çerezler ve Yerel Depolama</h4>
-    <p>haking.tr tema ve okuma listesi için tarayıcı depolamasını kullanır. Google AdSense reklamları etkin olduğunda üçüncü taraf reklam çerezleri kullanılabilir. Ayrıntılar için <a href="cerez-politikasi.html">Çerez Politikası</a> ve <a href="gizlilik-politikasi.html">Gizlilik Politikası</a> sayfalarını inceleyebilirsiniz.</p>
+    <p>haking.tr tema ve okuma listesi için yerel depolama kullanır. Google AdSense reklamları etkin olduğunda üçüncü taraf reklam çerezleri kullanılabilir. <a href="cerez-politikasi.html">Çerez Politikası</a> · <a href="gizlilik-politikasi.html">Gizlilik</a></p>
     <div class="cookie-actions">
       <button type="button" class="btn btn-sm" data-cookie-choice="accepted">Anladım</button>
       <button type="button" class="btn btn-secondary btn-sm" data-cookie-choice="essential">Yalnızca Temel</button>
-      <a class="text-link" href="cerez-politikasi.html" style="font-size:0.83rem;margin-left:auto;">Ayrıntılar →</a>
+      <a class="text-link" href="cerez-politikasi.html" style="font-size:0.82rem;margin-left:auto;">Ayrıntılar →</a>
     </div>
   </aside>
 </body>
@@ -317,4 +326,15 @@ export function renderAuthorBox() {
       </div>
     </div>
   </section>`;
+}
+
+export function renderReadingControls() {
+  return `<div class="toc-card reading-controls-card">
+    <div class="toc-title">Okuma Konforu</div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <button type="button" class="btn btn-secondary btn-sm" data-font-dec aria-label="Yazı boyutunu küçült" style="flex:1;">A−</button>
+      <button type="button" class="btn btn-secondary btn-sm" data-font-reset aria-label="Varsayılan yazı boyutu">100%</button>
+      <button type="button" class="btn btn-secondary btn-sm" data-font-inc aria-label="Yazı boyutunu büyüt" style="flex:1;">A+</button>
+    </div>
+  </div>`;
 }

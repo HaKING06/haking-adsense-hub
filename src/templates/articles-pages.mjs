@@ -1,6 +1,6 @@
 import { SITE } from '../data/site.mjs';
 import { PROJECTS } from '../data/projects.mjs';
-import { renderLayout, renderBreadcrumbs, renderAuthorBox, esc } from './layout.mjs';
+import { renderLayout, renderBreadcrumbs, renderAuthorBox, renderReadingControls, esc } from './layout.mjs';
 
 const ARTICLE_CATS = ['Tümü', 'Yapay Zekâ', 'CS2 Ekonomi & Oyun', 'Tasarım & Web', 'Tarayıcı Eklentileri', 'Eğitim & Topluluk'];
 
@@ -14,7 +14,7 @@ export function renderBlogArchive(allArticles) {
     <header class="page-intro">
       <div class="wrap">
         ${renderBreadcrumbs(breadcrumbs)}
-        <div class="eyebrow">MÜHENDİSLİK YAYINI · ${allArticles.length} ÖZGÜN YAZI</div>
+        <div class="eyebrow">MÜHENDİSLİK YAYINI · ${allArticles.length + 1} ÖZGÜN İÇERİK</div>
         <h1>Mühendislik yazıları, vaka analizleri ve teknik rehberler.</h1>
         <p class="lead">Gerçek yazılım projelerini geliştirirken karşılaştığım mimari kararlar, performans ölçümleri, güvenlik sınırları ve uygulanabilir Türkçe teknik kılavuzlar. Konuya göre süzün veya arayın.</p>
       </div>
@@ -32,19 +32,19 @@ export function renderBlogArchive(allArticles) {
         </div>
       </div>
 
-      <p class="mono" id="reading-count" style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:18px;">${allArticles.length} yazı</p>
+      <p class="mono" id="reading-count" style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:18px;">${allArticles.length + 1} yazı</p>
 
       <div class="article-grid">
         <article class="article-card article-card-featured" data-reading-card data-category="Yapay Zekâ">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
-            <span class="tag tag-accent">ÖZEL VİTRİN · YAPAY ZEKÂ</span>
+            <span class="tag tag-accent">ÖZEL DOSYA · YAPAY ZEKÂ</span>
             <span class="mono" style="font-size:0.75rem;color:var(--ink-muted);">11 dk okuma</span>
           </div>
           <h3><a href="haking-ai-prompt-modu.html">HaKING AI Prompt Modu (v1.19.2): Fikrinden Denetlenmiş AI Agent Promptuna</a></h3>
           <p>Görev kartı (prompt_state), ücretsiz keşif soruları, 7 farklı görev türüne özel teslimat ve canlı öncesi/sonrası prompt karşılaştırıcısı.</p>
           <div class="article-card-foot">
             <span>${esc(SITE.author.name)} · 27 Kasım 2026</span>
-            <a class="text-link" href="haking-ai-prompt-modu.html">Özel sayfayı aç →</a>
+            <a class="text-link" href="haking-ai-prompt-modu.html">Özel dosyayı aç →</a>
           </div>
         </article>
         ${allArticles
@@ -79,7 +79,7 @@ export function renderBlogArchive(allArticles) {
   return renderLayout({
     title: 'Mühendislik Yazıları ve Teknik Rehberler | HaKING — Halit Güneş',
     description:
-      'Yapay zekâ, FastAPI SSE akışı, SPREAD Monte Carlo CVaR, Three.js 3D WebGL, Manifest V3 eklentiler, OKLCH tasarım sistemleri ve eğitim araçları üzerine özgün Türkçe mühendislik yazıları.',
+      'Yapay zekâ, FastAPI SSE akışı, SPREAD Monte Carlo CVaR, Three.js 3D WebGL, Manifest V3 eklentiler, OKLCH tasarım sistemleri ve eğitim araçları üzerine 32+ özgün Türkçe mühendislik yazısı.',
     canonicalPath: 'blog.html',
     activeNav: 'blog',
     breadcrumbs,
@@ -97,10 +97,10 @@ export function renderBlogArchive(allArticles) {
   });
 }
 
-export function renderNewsHub(allArticles) {
+export function renderNewsHub(allArticles, newsArticles) {
   const breadcrumbs = [
     { name: 'Ana Sayfa', href: 'index.html' },
-    { name: 'Okuma Merkezi & Sürümler' },
+    { name: 'Teknoloji Haberleri & Sürümler' },
   ];
 
   const releases = [
@@ -118,54 +118,78 @@ export function renderNewsHub(allArticles) {
     <header class="page-intro">
       <div class="wrap">
         ${renderBreadcrumbs(breadcrumbs)}
-        <div class="eyebrow">YAYIN AKIŞI &amp; SÜRÜM GÜNLÜĞÜ</div>
-        <h1>Okuma merkezi ve güncel ürün sürümleri.</h1>
-        <p class="lead">HaKING ekosistemindeki güncel sürüm kilometre taşları ve tüm teknik okuma arşivi. RSS okuyucunuzla takip etmek için <a href="rss.xml">rss.xml</a> akışına abone olabilirsiniz.</p>
+        <div class="eyebrow">TEKNOLOJİ HABERLERİ, ANALİZLER &amp; SÜRÜM GÜNLÜĞÜ</div>
+        <h1>Teknoloji gündemi, derin analizler ve ürün güncellemeleri.</h1>
+        <p class="lead">Yapay zekâ agentları, web performansı, bulut/kenar dağıtımı, CS2 pazar ekonomisi ve HaKING ekosistemindeki tüm yeni sürümler üzerine özgün Türkçe teknoloji haberleri.</p>
       </div>
     </header>
 
     <section class="section wrap">
-      <div class="section-head">
-        <div class="section-head-copy">
-          <div class="eyebrow">SON SÜRÜM NOTLARI</div>
-          <h2>Kasım 2026 ürün güncellemeleri</h2>
+      <div class="filter-bar">
+        <div class="filter-pills" role="group" aria-label="Haber kategorisi">
+          ${ARTICLE_CATS.map((c, i) => `<button type="button" class="filter-pill${i === 0 ? ' is-active' : ''}" data-reading-filter data-filter="${i === 0 ? 'all' : esc(c)}">${esc(c)}</button>`).join('')}
         </div>
-        <a class="btn btn-secondary btn-sm" href="rss.xml">RSS Akışı (XML) ↗</a>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <label for="reading-search" class="sr-only">Haberlerde ara</label>
+          <input id="reading-search" type="search" placeholder="Haber veya konu ara (ör. Prompt, Workers, CS2, Neon)...">
+        </div>
       </div>
-      <div class="timeline">
-        ${releases
+
+      <p class="mono" id="reading-count" style="font-size:0.82rem;color:var(--ink-muted);margin-bottom:18px;">${newsArticles.length + 1} haber</p>
+
+      <div class="article-grid">
+        <article class="article-card article-card-featured" data-reading-card data-category="Yapay Zekâ">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+            <span class="tag tag-accent">ÖNE ÇIKAN DOSYA · YENİ ÖZELLİK</span>
+            <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">27 Kasım 2026 · 11 dk</span>
+          </div>
+          <h3><a href="haking-ai-prompt-modu.html">HaKING AI Prompt Modu (v1.19.2): Fikrinden Denetlenmiş AI Agent Promptuna</a></h3>
+          <p>Kod, sunum, video, görsel ve araştırma işleri için görev kartlı Türkçe prompt atölyesi, bağımsız çelişki denetimi ve etkileşimli öncesi/sonrası karşılaştırıcı.</p>
+          <div class="article-card-foot">
+            <span>${esc(SITE.author.name)}</span>
+            <a class="text-link" href="haking-ai-prompt-modu.html">Dosyayı incele →</a>
+          </div>
+        </article>
+
+        ${newsArticles
           .map(
-            (r) => `<div class="timeline-item">
-              <div class="timeline-date">${esc(r.date)}</div>
-              <h3 style="margin:4px 0 6px;"><a href="${r.href}" style="text-decoration:none;">${esc(r.product)}</a></h3>
-              <p style="font-size:0.94rem;">${esc(r.note)} <a class="text-link" href="${r.href}">İncele →</a></p>
-            </div>`
+            (n) => `<article class="article-card" data-reading-card data-category="${esc(n.category)}">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+                <span class="tag">${esc(n.category)} · ${esc(n.kind)}</span>
+                <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">${esc(n.readTime)}</span>
+              </div>
+              <h3><a href="${n.file}">${esc(n.title)}</a></h3>
+              <p>${esc(n.shortDesc)}</p>
+              <div class="chips">${n.tags.slice(0, 3).map((t) => `<span class="chip">${esc(t)}</span>`).join('')}</div>
+              <div class="article-card-foot">
+                <span>${esc(n.dateDisplay)}</span>
+                <a class="text-link" href="${n.file}">Oku →</a>
+              </div>
+            </article>`
           )
           .join('')}
       </div>
+      <p id="reading-empty" hidden style="text-align:center;padding:36px;color:var(--ink-muted);">Aramanızla eşleşen haber bulunamadı.</p>
     </section>
 
     <section class="section section-band">
       <div class="wrap">
         <div class="section-head">
           <div class="section-head-copy">
-            <div class="eyebrow">TAM OKUMA ARŞİVİ</div>
-            <h2>Tüm rehberler ve vaka analizleri</h2>
+            <div class="eyebrow">ÜRÜN SÜRÜM GÜNLÜĞÜ</div>
+            <h2>Kasım 2026 canlı sürüm notları</h2>
           </div>
-          <a class="btn btn-secondary btn-sm" href="blog.html">Filtreli Arşive Geç →</a>
+          <a class="btn btn-secondary btn-sm" href="blog.html">Tüm ${allArticles.length} Yazıya Geç →</a>
         </div>
-        <div class="article-grid">
-          ${allArticles
+        <div class="timeline">
+          ${releases
             .map(
-              (a) => `<article class="article-card">
-                <span class="tag">${esc(a.category)} · ${esc(a.kind)}</span>
-                <h3><a href="${a.file}">${esc(a.title)}</a></h3>
-                <p>${esc(a.shortDesc)}</p>
-                <div class="article-card-foot">
-                  <span>${esc(a.dateDisplay)} · ${esc(a.readTime)}</span>
-                  <a class="text-link" href="${a.file}">Oku →</a>
-                </div>
-              </article>`
+              (r) => `<div class="timeline-item">
+                <div class="timeline-date">${esc(r.date)}</div>
+                <h3 style="margin:4px 0 6px;"><a href="${r.href}" style="text-decoration:none;">${esc(r.product)}</a></h3>
+                <p style="font-size:0.94rem;">${esc(r.note)} <a class="text-link" href="${r.href}">İncele →</a></p>
+              </div>`
             )
             .join('')}
         </div>
@@ -174,10 +198,10 @@ export function renderNewsHub(allArticles) {
   `;
 
   return renderLayout({
-    title: 'Teknoloji, Sürüm Notları ve Okuma Merkezi | HaKING',
-    description: 'HaKING ekosistemindeki güncel sürüm notları, yazılım mühendisliği vaka analizleri ve tüm teknik rehberlerin kronolojik arşivi.',
+    title: 'Teknoloji Haberleri, Analizler ve Sürüm Günlüğü | HaKING',
+    description: 'Yapay zekâ agentları, Cloudflare Workers, CS2 ekonomisi, Core Web Vitals, Neon PostgreSQL, Manifest V3 ve HaKING ekosistemindeki güncel sürüm haberleri.',
     canonicalPath: 'haberler.html',
-    activeNav: 'blog',
+    activeNav: 'news',
     breadcrumbs,
     bodyHtml,
   });
@@ -185,9 +209,10 @@ export function renderNewsHub(allArticles) {
 
 export function renderArticlePage(article, allArticles) {
   const project = PROJECTS.find((p) => p.slug === article.projectSlug);
+  const isNews = article.file.startsWith('haber-');
   const breadcrumbs = [
     { name: 'Ana Sayfa', href: 'index.html' },
-    { name: 'Mühendislik Yazıları', href: 'blog.html' },
+    { name: isNews ? 'Teknoloji Haberleri' : 'Mühendislik Yazıları', href: isNews ? 'haberler.html' : 'blog.html' },
     { name: article.title },
   ];
 
@@ -199,6 +224,19 @@ export function renderArticlePage(article, allArticles) {
   const related = allArticles
     .filter((a) => a.slug !== article.slug && (a.category === article.category || a.projectSlug === article.projectSlug))
     .slice(0, 3);
+
+  const mobileStickyBar = project?.liveUrl
+    ? `<div class="mobile-sticky-bar" id="mobile-sticky-bar" aria-label="İlgili canlı proje" hidden>
+        <div class="mobile-sticky-info">
+          <strong>${esc(project.name)}</strong>
+          <span class="mono">${esc(project.version)} · Canlı Servis</span>
+        </div>
+        <div class="mobile-sticky-actions">
+          <a class="btn btn-accent btn-sm" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Canlı Siteye Git ↗</a>
+          <a class="btn btn-secondary btn-sm" href="#icerik" aria-label="Yukarı çık">↑</a>
+        </div>
+      </div>`
+    : '';
 
   const bodyHtml = `
     <header class="page-intro">
@@ -218,25 +256,35 @@ export function renderArticlePage(article, allArticles) {
 
     <div class="wrap article-shell">
       <aside class="article-aside">
+        ${
+          project
+            ? `<div class="toc-card sticky-launch-card">
+                <div class="sticky-launch-head">
+                  <div>
+                    <span class="live-pill" style="font-size:0.7rem;">İlgili Açık Kaynak Ürün</span>
+                    <strong class="sticky-launch-title">${esc(project.name)} <span class="mono" style="font-size:0.74rem;color:var(--ink-muted);">${esc(project.version)}</span></strong>
+                  </div>
+                </div>
+                <div class="sticky-launch-btns">
+                  ${project.liveUrl ? `<a class="btn btn-accent btn-sm" style="width:100%;" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Canlı Siteye Git ↗</a>` : ''}
+                  <a class="btn btn-secondary btn-sm" style="width:100%;" href="${project.page}">Proje Sayfası →</a>
+                </div>
+                <div class="sticky-launch-mini">
+                  <button type="button" class="mini-util-btn" data-bookmark-toggle data-url="${article.file}" data-title="${esc(article.title)}" data-type="${esc(article.kind)}">☆ Kaydet</button>
+                  <button type="button" class="mini-util-btn" data-copy-text="${SITE.domain}/${article.file}">Linki Kopyala</button>
+                </div>
+              </div>`
+            : ''
+        }
+
         <nav class="toc-card" aria-label="Makale içindekiler">
           <div class="toc-title">Bu Yazıda</div>
           <ul class="toc-list">
             ${toc.map((t) => `<li><a href="#${t.id}">${esc(t.label)}</a></li>`).join('')}
           </ul>
         </nav>
-        ${
-          project
-            ? `<div class="toc-card">
-                <div class="toc-title">İlgili Açık Kaynak Proje</div>
-                <strong style="display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:6px;">${esc(project.name)} (${esc(project.version)})</strong>
-                <p style="font-size:0.83rem;margin-bottom:12px;">${esc(project.tagline)}</p>
-                <div style="display:flex;flex-direction:column;gap:7px;">
-                  ${project.liveUrl ? `<a class="btn btn-accent btn-sm" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Canlı Siteyi Aç ↗</a>` : ''}
-                  <a class="btn btn-secondary btn-sm" href="${project.page}">Proje Sayfası →</a>
-                </div>
-              </div>`
-            : ''
-        }
+
+        ${renderReadingControls()}
       </aside>
 
       <article class="prose">
@@ -275,10 +323,10 @@ export function renderArticlePage(article, allArticles) {
                 <div>
                   <div class="eyebrow" style="margin-bottom:4px;">UYGULAMALI PROJE BAĞLAMI</div>
                   <h3 style="margin-bottom:4px;">${esc(project.name)} (${esc(project.version)})</h3>
-                  <p style="font-size:0.9rem;margin:0;max-width:48ch;">Bu rehberdeki mühendislik yaklaşımını çalışan üründe ve açık kaynak kodunda inceleyin.</p>
+                  <p style="font-size:0.9rem;margin:0;max-width:48ch;">Bu yazıdaki mühendislik yaklaşımını çalışan üründe ve açık kaynak kodunda inceleyin.</p>
                 </div>
                 <div class="actions">
-                  ${project.liveUrl ? `<a class="btn btn-accent btn-sm" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Canlı Site ↗</a>` : ''}
+                  ${project.liveUrl ? `<a class="btn btn-accent btn-sm" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Canlı Siteye Git ↗</a>` : ''}
                   <a class="btn btn-secondary btn-sm" href="${project.page}">Proje İncelemesi →</a>
                 </div>
               </div>`
@@ -341,11 +389,12 @@ export function renderArticlePage(article, allArticles) {
     title: `${article.title} | HaKING`,
     description: article.shortDesc,
     canonicalPath: article.file,
-    activeNav: 'blog',
+    activeNav: isNews ? 'news' : 'blog',
     ogImage: article.image,
     ogType: 'article',
     breadcrumbs,
     showReadingBar: true,
+    mobileStickyBar,
     bodyHtml,
     schemas,
   });

@@ -28,7 +28,11 @@ for (const file of htmlFiles) {
   const html = fs.readFileSync(full, 'utf8');
 
   if (!html.startsWith('<!doctype html>')) errors.push(`${file}: missing <!doctype html>`);
-  if (!html.includes('ca-pub-2827419116684137')) errors.push(`${file}: missing AdSense tag`);
+  if (file === '404.html') {
+    if (html.includes('adsbygoogle.js')) errors.push(`404.html must NOT contain AdSense script (policy violation)`);
+  } else {
+    if (!html.includes('ca-pub-2827419116684137')) errors.push(`${file}: missing AdSense tag`);
+  }
   if (!html.includes('rel="canonical"')) errors.push(`${file}: missing canonical`);
   if (!html.includes('property="og:image"')) errors.push(`${file}: missing og:image`);
 

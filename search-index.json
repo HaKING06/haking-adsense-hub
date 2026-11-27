@@ -135,7 +135,7 @@
     ]
   },
   {
-    "title": "UTRZONE (UnlockTR) (v0.11.5)",
+    "title": "UTRZONE (v0.11.5)",
     "desc": "Türkçe oyun yamaları, çeviri projeleri ve topluluk modları için modern React/Vite + Express/Neon platformu.",
     "url": "proje-utrzone.html",
     "type": "Proje",
@@ -287,6 +287,33 @@
     ]
   },
   {
+    "title": "Yapay Zekâ Agentlarıyla Kodlama 2026: Neden İyi Görev Şartnamesi ve Kabul Testi Model Seçiminden Daha Önemlidir?",
+    "desc": "Otonom kodlama agentları yaygınlaşırken ekiplerin en büyük darboğazı artık kod üretme hızı değil; belirsiz gereksinimler, unutulan kısıtlar ve doğrulanmamış teslimatlar.",
+    "url": "haber-yapay-zeka-agent-kodlama-2026.html",
+    "type": "Teknoloji Analizi",
+    "tags": [
+      "Yapay Zekâ",
+      "AI Agent",
+      "Prompt Mühendisliği",
+      "Kabul Testi",
+      "HaKING AI"
+    ]
+  },
+  {
+    "title": "Çoklu Arama Motoru ve AI Arama (GEO) İçin Teknik SEO: JSON-LD, Sitemap, RSS ve llms.txt Rehberi",
+    "desc": "Yalnızca Google’da değil Bing, DuckDuckGo, Yandex ve ChatGPT/Perplexity/Gemini gibi yapay zekâ aramalarında da görünür olmak için modern statik sitelerde uygulanması gereken eksiksiz kontrol listesi.",
+    "url": "haber-statik-site-uretimi-ve-teknik-seo.html",
+    "type": "SEO & GEO Rehberi",
+    "tags": [
+      "Tasarım & Web",
+      "Teknik SEO",
+      "GEO",
+      "JSON-LD",
+      "llms.txt",
+      "Sitemap"
+    ]
+  },
+  {
     "title": "HaKING AI v1.19.2 Mimarisi: FastAPI, SSE Akışı, Prompt Karar Belleği ve Neon Kredi Katmanı",
     "desc": "Tarayıcı ön yüzü ile model sağlayıcıları arasında nasıl güvenli bir servis sınırı kurdum? SSE akış gecikmesi, Groq/Gemini yönlendirme, ortak kredi muhasebesi ve Prompt Modu mimarisi.",
     "url": "makale-1.html",
@@ -298,6 +325,33 @@
       "Cloudflare Workers",
       "Neon PostgreSQL",
       "Prompt Modu"
+    ]
+  },
+  {
+    "title": "Sunucusuz Kenar (Edge) Dağıtımı: Cloudflare Workers ve Statik Varlıklarla Sıfır Maliyetli Yüksek Hız",
+    "desc": "HaKING AI, SPREAD, ÇevirmenX ve CSNAME gibi canlı servisleri neden Cloudflare Workers + Static Assets mimarisiyle yayınlıyorum? Avantajlar, limitler ve güvenlik başlıkları.",
+    "url": "haber-cloudflare-workers-edge-mimarisi.html",
+    "type": "Altyapı Analizi",
+    "tags": [
+      "Tasarım & Web",
+      "Cloudflare Workers",
+      "Edge Computing",
+      "Wrangler",
+      "Performans"
+    ]
+  },
+  {
+    "title": "CS2 Pazar Ekonomisi 2026: Doppler Fazları, Emir Defteri Derinliği ve Canlı Valve Cent Hesaplayıcı",
+    "desc": "CS2 eşya ticaretinde yüzeysel indirim oranları neden yanıltır? 354+ Doppler fazının fiyat ayrışması, 7-8 günlük takas kilidi riski ve sayfa içi canlı Valve Cent komisyon hesaplayıcısı.",
+    "url": "haber-cs2-ekonomi-doppler-likidite-analizi.html",
+    "type": "Veri Analizi",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "CS2 Ekonomi",
+      "Valve Cent",
+      "Doppler",
+      "Likidite",
+      "SPREAD"
     ]
   },
   {
@@ -315,6 +369,47 @@
     ]
   },
   {
+    "title": "Core Web Vitals 2026 (LCP, INP, CLS): Modern Web Sitelerinde Gerçek Hız Optimizasyonu",
+    "desc": "Google sıralamalarını ve kullanıcı kalış süresini doğrudan etkileyen LCP, INP ve CLS metrikleri nasıl ölçülür? Görsel WebP sıkıştırması, font yükleme ve sıfır kayma teknikleri.",
+    "url": "haber-core-web-vitals-inp-lcp-rehberi.html",
+    "type": "Performans Rehberi",
+    "tags": [
+      "Tasarım & Web",
+      "Core Web Vitals",
+      "LCP",
+      "INP",
+      "CLS",
+      "Performans"
+    ]
+  },
+  {
+    "title": "Neon PostgreSQL ve Havuzlu Bağlantılar: Sunucusuz Backend’lerde Veritabanı Kilitlenmesini Önleme",
+    "desc": "FastAPI ve Express tabanlı sunucusuz servislerde DATABASE_URL (pooled) ile DATABASE_URL_UNPOOLED ayrımı, SQL göçleri ve atomik kredi muhasebesi nasıl kurulur?",
+    "url": "haber-neon-postgresql-serverless-mimari.html",
+    "type": "Backend Analizi",
+    "tags": [
+      "Yapay Zekâ",
+      "Neon PostgreSQL",
+      "Backend",
+      "SQL",
+      "FastAPI",
+      "UTRZONE"
+    ]
+  },
+  {
+    "title": "Chrome, Edge ve Firefox İçin Tek Kod Tabanından Manifest V3 Eklentisi Geliştirme ve Mağaza Yayını",
+    "desc": "QR Scanner v1.1.4 ve ÇevirmenX v1.4.0 geliştirme sürecinden süzülen Manifest V3 service worker kısıtları, mağaza inceleme kuralları ve çoklu tarayıcı paketleme rehberi.",
+    "url": "haber-manifest-v3-tarayici-eklentisi-rehberi.html",
+    "type": "Geliştirici Rehberi",
+    "tags": [
+      "Tarayıcı Eklentileri",
+      "Manifest V3",
+      "Chrome Web Store",
+      "Edge Add-ons",
+      "Firefox XPI"
+    ]
+  },
+  {
     "title": "Socket.IO ve Three.js ile Sunucu Doğrulamalı Çok Oyunculu Masa Oyunları: Haking Chat Mimarisi",
     "desc": "Klasik Okey 3D, 101 Okey 3D, Tavla, Satranç ve sesli oda özelliklerini barındıran Haking Chat’te gizli el güvenliği, sıra senkronizasyonu ve oda yaşam döngüsü nasıl tasarlandı?",
     "url": "makale-gercek-zamanli-oyun-sunucusu.html",
@@ -326,6 +421,20 @@
       "Three.js",
       "Multiplayer",
       "Haking Chat"
+    ]
+  },
+  {
+    "title": "Local-First Web Uygulamaları ve PWA: Hesapsız, Çevrimdışı ve Hızlı Ürün Tasarlama İlkeleri",
+    "desc": "Her web aracı için üyelik duvarı ve bulut veritabanı şart mı? NotMatik, CopyHex, CSELL ve QR Scanner’da yerel öncelikli (local-first) mimarinin sağladığı hız ve gizlilik avantajları.",
+    "url": "haber-yerel-oncelikli-web-uygulamalari-pwa.html",
+    "type": "Mimari Rehber",
+    "tags": [
+      "Eğitim & Topluluk",
+      "Local-First",
+      "PWA",
+      "Service Worker",
+      "Gizlilik",
+      "NotMatik"
     ]
   },
   {
@@ -369,6 +478,20 @@
     ]
   },
   {
+    "title": "Türkçe Oyun Yerelleştirme Ekosistemi ve UTRZONE Mimarisi: Sürüm Takibi, Güvenlik ve Topluluk",
+    "desc": "Türkçe oyun yamaları ararken kırık link ve güvensiz arşiv karmaşasını çözmek için React/Vite + Express/Neon altyapısıyla kurulan UTRZONE platformunun tasarım kararları.",
+    "url": "haber-turkce-oyun-yerellestirme-ve-utrzone.html",
+    "type": "Platform Analizi",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "UTRZONE",
+      "React",
+      "Vite",
+      "Express",
+      "Oyun Yerelleştirme"
+    ]
+  },
+  {
     "title": "Yapay Zekâ Sohbetinde İlk Yanıt (TTFT) Neden Gecikir? Darboğaz Ölçme ve İyileştirme Rehberi",
     "desc": "Sunucusuz soğuk başlangıç, TLS el sıkışması, model kuyruğu ve akış tamponlaması arasındaki farkları ayırarak sohbet uygulamalarında ilk kelime süresini iyileştirme rehberi.",
     "url": "rehber-ai-gecikmesi.html",
@@ -380,6 +503,20 @@
       "FastAPI",
       "Gecikme Analizi",
       "Yapay Zekâ"
+    ]
+  },
+  {
+    "title": "Koyu Tema Neden Sadece Renkleri Tersine Çevirmek Değildir? Kontrast, Yüzey Katmanları ve Göz Konforu",
+    "desc": "Saf siyah (#000) üzerine saf beyaz (#FFF) neden gözü yorar? Editoryal açık/koyu tema çifti kurarken yüzey derinliği, doygunluk azaltma ve WCAG okunabilirlik ilkeleri.",
+    "url": "haber-oklch-ve-koyu-tema-tasarimi.html",
+    "type": "Tasarım Rehberi",
+    "tags": [
+      "Tasarım & Web",
+      "Koyu Tema",
+      "UI Tasarım",
+      "WCAG",
+      "CopyHex",
+      "Renk Teorisi"
     ]
   },
   {
@@ -397,6 +534,20 @@
     ]
   },
   {
+    "title": "SSE, WebSocket ve Uzun Yoklama: Web Projeniz İçin Doğru Gerçek Zamanlı Protokolü Seçme",
+    "desc": "HaKING AI’da neden Server-Sent Events (SSE), Haking Chat’te ise neden Socket.IO (WebSocket) tercih ettim? İki gerçek proje üzerinden teknik karşılaştırma.",
+    "url": "haber-gercek-zamanli-web-websocket-sse.html",
+    "type": "Mimari Karşılaştırma",
+    "tags": [
+      "Eğitim & Topluluk",
+      "WebSocket",
+      "SSE",
+      "Socket.IO",
+      "Mimari",
+      "Haking Chat"
+    ]
+  },
+  {
     "title": "Çok Bileşenli Derslerde Vize, Ödev, Lab ve Proje Ağırlıklarını Hatasız Hesaplama",
     "desc": "Yıl içi %40 içinde birden fazla ödev, kısa sınav ve proje bulunan üniversite derslerinde efektif ağırlık dönüşümü ve dönem boyu takip stratejisi.",
     "url": "yazi-notmatik-cok-bilesenli.html",
@@ -407,6 +558,20 @@
       "Proje Ağırlığı",
       "Üniversite",
       "Planlama"
+    ]
+  },
+  {
+    "title": "GitHub Actions ile Sıfır Sunuculu Veri Otomasyonu: Katalog Güncelleme, Steam Senkronizasyonu ve CI Güvenliği",
+    "desc": "HaKING 3D Vault, CSELL, CSNAME ve Haking Chat depolarında zamanlanmış JSON güncelleme akışları nasıl çalışır? Zaman aşımı (timeout) ve eşzamanlılık (concurrency) korumaları.",
+    "url": "haber-github-actions-otomasyon-rehberi.html",
+    "type": "Otomasyon Rehberi",
+    "tags": [
+      "CS2 Ekonomi & Oyun",
+      "GitHub Actions",
+      "CI/CD",
+      "Otomasyon",
+      "Steam API",
+      "Güvenlik"
     ]
   },
   {

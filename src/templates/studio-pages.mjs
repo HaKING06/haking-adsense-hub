@@ -597,6 +597,13 @@ export function renderContactPage() {
           <p style="font-size:0.9rem;">HaKING bireysel olarak sürdürülen bağımsız bir yayın ve stüdyodur. Mesajlara yoğunluğa bağlı olarak en kısa sürede yanıt verilir; iletişim içerikleri yalnızca ilgili talebi yanıtlamak amacıyla e-posta ortamında işlenir ve üçüncü taraflarla paylaşılmaz.</p>
         </div>
       </div>
+
+      <div class="wrap prose prose-wide" style="margin-top:34px;">
+        <h2>Doğru İletişim Kanalını Seçme Rehberi</h2>
+        <p><strong>Açık kaynak proje hataları ve özellik önerileri:</strong> HaKING AI, SPREAD, COSMIC, CS2 Studio, Haking Chat, UTRZONE veya tarayıcı uzantılarıyla ilgili teknik sorunlarda doğrudan ilgili <a href="github.html">GitHub deposunda</a> konu açmanız, çözüm adımlarının diğer kullanıcılar için de belgelenmesini sağlar. Yeniden üretilebilir kısa adımlar, tarayıcı sürümü ve varsa konsol çıktısını eklemeniz incelemeyi hızlandırır.</p>
+        <p><strong>Özel yazılım, web uygulaması ve teknik danışmanlık:</strong> Yeni bir ürün fikri, mevcut sitenizin performans/SEO yenilemesi veya özel etkileşimli web aracı için kapsamı önceden yapılandıran <a href="proje-yaptir.html#brief-olustur">Proje Yaptır &amp; Brief Oluşturucu</a> sayfasından hazırlanmış özeti e-posta olarak gönderebilirsiniz.</p>
+        <p><strong>Editoryal düzeltme ve telif bildirimleri:</strong> Haberlerde, vaka analizlerinde veya teknik rehberlerde güncelliğini yitirmiş sürüm bilgisi, kırık bağlantı ya da ifade hatası fark ederseniz sayfa bağlantısıyla birlikte <strong>${SITE.author.email}</strong> adresine iletebilirsiniz. Tüm düzeltmeler <a href="yayin-ilkeleri.html">Yayın İlkeleri</a> çerçevesinde şeffaf biçimde işlenir.</p>
+      </div>
     </section>
   `;
 

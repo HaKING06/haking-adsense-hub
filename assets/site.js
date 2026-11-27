@@ -189,8 +189,11 @@
     $$('[data-bookmark-toggle]').forEach((btn) => {
       const url = btn.dataset.url;
       const saved = list.some((x) => x.url === url);
+      const compact = btn.classList.contains('mini-util-btn');
       btn.setAttribute('aria-pressed', String(saved));
-      btn.textContent = saved ? '★ Okuma listesinde' : '☆ Okuma listesine ekle';
+      btn.textContent = compact
+        ? (saved ? '★ Kayıtlı' : '☆ Kaydet')
+        : (saved ? '★ Okuma listesinde' : '☆ Okuma listesine ekle');
     });
     const drawerList = $('#bookmarks-list');
     if (drawerList) {
@@ -541,6 +544,169 @@
     });
   }
 
+  /* -----------------------------------------------------------------------
+     12. Hero Interactive Live Ecosystem Showcase Stage
+     ----------------------------------------------------------------------- */
+  function initHeroStage() {
+    const stage = $('[data-hero-stage]');
+    if (!stage) return;
+    const tabs = $$('[data-stage-tab]', stage);
+    const imgEl = $('[data-stage-img]', stage);
+    const urlEl = $('[data-stage-url]', stage);
+    const statusEl = $('[data-stage-status]', stage);
+    const catEl = $('[data-stage-cat]', stage);
+    const verEl = $('[data-stage-ver]', stage);
+    const titleEl = $('[data-stage-title]', stage);
+    const descEl = $('[data-stage-desc]', stage);
+    const liveBtn = $('[data-stage-live]', stage);
+    const detailBtn = $('[data-stage-detail]', stage);
+
+    const selectTab = (btn) => {
+      tabs.forEach((t) => t.classList.toggle('is-active', t === btn));
+      if (imgEl && btn.dataset.img) {
+        imgEl.classList.add('is-swapping');
+        setTimeout(() => {
+          imgEl.src = btn.dataset.img;
+          imgEl.alt = btn.dataset.title || 'HaKING proje önizlemesi';
+          imgEl.classList.remove('is-swapping');
+        }, 90);
+      }
+      if (urlEl) urlEl.textContent = btn.dataset.url || '';
+      if (statusEl) statusEl.textContent = btn.dataset.status || '';
+      if (catEl) catEl.textContent = btn.dataset.cat || '';
+      if (verEl) verEl.textContent = btn.dataset.ver || '';
+      if (titleEl) titleEl.textContent = btn.dataset.title || '';
+      if (descEl) descEl.textContent = btn.dataset.desc || '';
+      if (liveBtn) {
+        liveBtn.href = btn.dataset.live || 'projects.html';
+        liveBtn.textContent = btn.dataset.liveLabel || 'Canlı Siteye Git ↗';
+        if (btn.dataset.ext === 'true') {
+          liveBtn.target = '_blank';
+          liveBtn.rel = 'noopener noreferrer';
+        } else {
+          liveBtn.removeAttribute('target');
+          liveBtn.removeAttribute('rel');
+        }
+      }
+      if (detailBtn) {
+        detailBtn.href = btn.dataset.detail || 'projects.html';
+        detailBtn.textContent = btn.dataset.detailLabel || 'İncele';
+      }
+    };
+
+    tabs.forEach((btn) => btn.addEventListener('click', () => selectTab(btn)));
+  }
+
+  /* -----------------------------------------------------------------------
+     13. Live Valve Cent Steam Commission & Net Profit Calculator
+     ----------------------------------------------------------------------- */
+  function initValveCalc() {
+    const box = $('[data-valve-sim]');
+    if (!box) return;
+    const buyEl = $('#vc-buy', box);
+    const sellEl = $('#vc-sell', box);
+    const qtyEl = $('#vc-qty', box);
+    const outEl = $('#vc-result', box);
+
+    // Exact inverse of Valve's integer-cent fee schedule (5% Steam + 10% CS2, min $0.01 each)
+    const netFromBuyerCents = (buyerCents) => {
+      let lo = 1;
+      let hi = Math.max(1, buyerCents - 2);
+      let best = 1;
+      while (lo <= hi) {
+        const mid = (lo + hi) >> 1;
+        const sf = Math.max(1, Math.floor(mid * 0.05));
+        const gf = Math.max(1, Math.floor(mid * 0.10));
+        const total = mid + sf + gf;
+        if (total <= buyerCents) {
+          best = mid;
+          lo = mid + 1;
+        } else {
+          hi = mid - 1;
+        }
+      }
+      const steamFee = Math.max(1, Math.floor(best * 0.05));
+      const gameFee = Math.max(1, Math.floor(best * 0.10));
+      return { net: best, steamFee, gameFee, feeTotal: buyerCents - best };
+    };
+
+    const calc = () => {
+      const buy = Math.max(0.01, Number(buyEl.value) || 0);
+      const sell = Math.max(0.03, Number(sellEl.value) || 0);
+      const qty = Math.max(1, Math.min(500, Math.round(Number(qtyEl.value) || 1)));
+      const buyerCents = Math.round(sell * 100);
+      const res = netFromBuyerCents(buyerCents);
+      const netPerUnit = res.net / 100;
+      const feePerUnit = res.feeTotal / 100;
+      const effFeePct = (feePerUnit / sell) * 100;
+      const totalCost = buy * qty;
+      const totalNet = netPerUnit * qty;
+      const profit = totalNet - totalCost;
+      const roi = totalCost > 0 ? (profit / totalCost) * 100 : 0;
+      const color = profit >= 0 ? 'var(--forest)' : 'var(--accent)';
+
+      outEl.innerHTML = `Adet başı Valve kesintisi: <strong>$${feePerUnit.toFixed(2)}</strong> (%${effFeePct.toFixed(2)}) · Steam cüzdanına geçen net: <strong>$${netPerUnit.toFixed(2)}</strong> (${qty} adet toplam <strong>$${totalNet.toFixed(2)}</strong>)<br>Net sonuç: <strong style="color:${color};font-size:1.12em;">${profit >= 0 ? '+' : ''}$${profit.toFixed(2)} (${roi >= 0 ? '+' : ''}%${roi.toFixed(2)})</strong> · Çarpan: <strong>${(totalNet / totalCost).toFixed(4)}x</strong>`;
+    };
+
+    [buyEl, sellEl, qtyEl].forEach((el) => el?.addEventListener('input', calc));
+    calc();
+  }
+
+  /* -----------------------------------------------------------------------
+     14. Reading Comfort Font Scale (A- / 100% / A+), Back-to-Top & Mobile Sticky Bar
+     ----------------------------------------------------------------------- */
+  function initReadingScaleAndScrollUI() {
+    const KEY = 'haking_font_scale';
+    const setScale = (val) => {
+      const clamped = Math.min(1.24, Math.max(0.88, Math.round(val * 100) / 100));
+      document.documentElement.style.setProperty('--prose-scale', String(clamped));
+      localStorage.setItem(KEY, String(clamped));
+    };
+    const getScale = () => Number(localStorage.getItem(KEY)) || 1;
+    $$('[data-font-inc]').forEach((b) => b.addEventListener('click', () => setScale(getScale() + 0.08)));
+    $$('[data-font-dec]').forEach((b) => b.addEventListener('click', () => setScale(getScale() - 0.08)));
+    $$('[data-font-reset]').forEach((b) => b.addEventListener('click', () => setScale(1)));
+
+    const btt = $('#back-to-top');
+    const mobileBar = $('#mobile-sticky-bar');
+    if (btt) {
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+    const onScroll = () => {
+      const y = window.scrollY;
+      const showMobileBar = Boolean(mobileBar) && y >= 340;
+      if (mobileBar) mobileBar.hidden = !showMobileBar;
+      const hideBttForMobileBar = showMobileBar && window.innerWidth <= 880;
+      if (btt) btt.hidden = y < 520 || hideBttForMobileBar;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
+
+    // Subtle scroll reveal
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const els = $$('[data-reveal]');
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              en.target.classList.add('is-revealed');
+              en.target.classList.remove('will-reveal');
+              obs.unobserve(en.target);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -40px 0px', threshold: 0.05 }
+      );
+      els.forEach((el) => {
+        if (el.getBoundingClientRect().top > window.innerHeight * 0.95) {
+          el.classList.add('will-reveal');
+          obs.observe(el);
+        }
+      });
+    }
+  }
+
   /* Boot */
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
@@ -548,6 +714,9 @@
     initSearchModal();
     initBookmarks();
     initReadingUX();
+    initHeroStage();
+    initValveCalc();
+    initReadingScaleAndScrollUI();
     initFilterableGrid({
       cardSelector: '[data-project-card]',
       pillSelector: '[data-project-filter]',

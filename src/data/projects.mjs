@@ -249,7 +249,7 @@ export const PROJECTS = [
   {
     slug: 'utrzone',
     page: 'proje-utrzone.html',
-    name: 'UTRZONE (UnlockTR)',
+    name: 'UTRZONE',
     version: 'v0.11.5',
     updated: '2026-11-20',
     category: 'CS2 Ekonomi & Oyun',
@@ -263,8 +263,8 @@ export const PROJECTS = [
     stack: ['React', 'Vite', 'Express', 'Neon PostgreSQL', 'Resend E-posta'],
     tagline: 'Türkçe oyun yamaları, çeviri projeleri ve topluluk modları için modern React/Vite + Express/Neon platformu.',
     summary:
-      'UTRZONE (GitHub deposu UnlockTR); oyuncuların Türkçe yama ve mod içeriklerini düzenli sürüm notları, güvenlik kontrolleri ve topluluk geri bildirimleriyle keşfedebilmesi için React/Vite ön yüz ve Express/Neon PostgreSQL backend mimarisiyle geliştirilmiş web platformudur.',
-    relatedArticles: ['makale-1.html'],
+      'UTRZONE; oyuncuların Türkçe yama ve mod içeriklerini düzenli sürüm notları, güvenlik kontrolleri ve topluluk geri bildirimleriyle keşfedebilmesi için React/Vite ön yüz ve Express/Neon PostgreSQL backend mimarisiyle geliştirilmiş web platformudur.',
+    relatedArticles: ['haber-turkce-oyun-yerellestirme-ve-utrzone.html', 'haber-neon-postgresql-serverless-mimari.html'],
     highlights: [
       'React ve Vite ile hızlı, bileşen tabanlı modern arayüz ve koyu/kırmızı UTR marka kimliği.',
       'Express API, Neon PostgreSQL veritabanı şema göçleri ve Resend entegrasyonlu kurumsal e-posta bildirim sistemi.',

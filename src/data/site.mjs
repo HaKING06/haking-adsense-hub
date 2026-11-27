@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'HaKING',
   fullTitle: 'HaKING — Halit Güneş | Bağımsız Yazılım Stüdyosu & Teknoloji Yayını',
-  tagline: 'Açık kaynak web ürünleri, yazılım mühendisliği vaka analizleri ve teknik rehberler.',
+  tagline: 'Açık kaynak web ürünleri, yazılım mühendisliği vaka analizleri ve teknoloji haberleri.',
   domain: 'https://haking.tr',
   locale: 'tr_TR',
   lang: 'tr',
@@ -9,7 +9,7 @@ export const SITE = {
   adsTxtLine: 'google.com, pub-2827419116684137, DIRECT, f08c47fec0942fa0',
   buildDate: '2026-11-27',
   buildDateDisplay: '27 Kasım 2026',
-  assetVersion: '20261127-1',
+  assetVersion: '20261127-3',
   author: {
     name: 'Halit Güneş',
     handle: 'HaKING06',
@@ -34,7 +34,7 @@ export const SITE = {
   nav: [
     { href: 'index.html', label: 'Ana Sayfa', id: 'home' },
     { href: 'projects.html', label: 'Projeler', id: 'projects' },
-    { href: 'haking-ai-prompt-modu.html', label: 'Prompt Modu', id: 'prompt-mode' },
+    { href: 'haberler.html', label: 'Haberler', id: 'news' },
     { href: 'blog.html', label: 'Yazılar', id: 'blog' },
     { href: 'hakkimda.html', label: 'Hakkımda', id: 'about' },
     { href: 'github.html', label: 'GitHub', id: 'github' },

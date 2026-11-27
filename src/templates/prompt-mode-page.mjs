@@ -1,5 +1,5 @@
 import { SITE } from '../data/site.mjs';
-import { renderLayout, renderBreadcrumbs, renderAuthorBox, esc } from './layout.mjs';
+import { renderLayout, renderBreadcrumbs, renderAuthorBox, renderReadingControls, esc } from './layout.mjs';
 
 export function renderPromptModePage() {
   const breadcrumbs = [
@@ -66,17 +66,27 @@ export function renderPromptModePage() {
 
     <div class="wrap article-shell">
       <aside class="article-aside">
+        <div class="toc-card sticky-launch-card">
+          <div class="sticky-launch-head">
+            <div>
+              <span class="live-pill" style="font-size:0.7rem;">HaKING AI · v1.19.2</span>
+              <strong class="sticky-launch-title">Prompt Modu</strong>
+            </div>
+          </div>
+          <div class="sticky-launch-btns">
+            <a class="btn btn-accent btn-sm" style="width:100%;" href="https://ai.haking.tr/?mode=prompt" target="_blank" rel="noopener noreferrer">Canlı Siteye Git ↗</a>
+            <a class="btn btn-secondary btn-sm" style="width:100%;" href="proje-haking-ai.html">HaKING AI Projesi →</a>
+          </div>
+          <div class="sticky-launch-mini">
+            <button type="button" class="mini-util-btn" data-bookmark-toggle data-url="haking-ai-prompt-modu.html" data-title="HaKING AI Prompt Modu" data-type="Özel Dosya">☆ Kaydet</button>
+            <button type="button" class="mini-util-btn" data-copy-text="${SITE.domain}/haking-ai-prompt-modu.html">Linki Kopyala</button>
+          </div>
+        </div>
         <nav class="toc-card" aria-label="İçindekiler">
           <div class="toc-title">İçindekiler</div>
           <ul class="toc-list">${toc.map((t) => `<li><a href="#${t.id}">${esc(t.label)}</a></li>`).join('')}</ul>
         </nav>
-        <div class="toc-card">
-          <div class="toc-title">Hızlı Erişim</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <a class="btn btn-accent btn-sm" href="https://ai.haking.tr/?mode=prompt" target="_blank" rel="noopener noreferrer">Canlı Başlat ↗</a>
-            <a class="btn btn-secondary btn-sm" href="makale-1.html">HaKING AI Mimarisi</a>
-          </div>
-        </div>
+        ${renderReadingControls()}
       </aside>
 
       <article class="prose prose-wide">
@@ -204,11 +214,18 @@ export function renderPromptModePage() {
     description:
       'HaKING AI Prompt Modu nasıl çalışır? Görev kartı (prompt_state), ücretsiz keşif soruları, 7 görev türü, gerçek sohbet değerlendirmesi ve canlı öncesi/sonrası prompt karşılaştırıcısı.',
     canonicalPath: 'haking-ai-prompt-modu.html',
-    activeNav: 'prompt-mode',
+    activeNav: 'news',
     ogImage: 'assets/images/projects/prompt-mode.webp',
     ogType: 'article',
     breadcrumbs,
     showReadingBar: true,
+    mobileStickyBar: `<div class="mobile-sticky-bar" id="mobile-sticky-bar" aria-label="Prompt Modu hızlı erişim" hidden>
+      <div class="mobile-sticky-info"><strong>HaKING Prompt Modu</strong><span class="mono">v1.19.2 · Keşif Ücretsiz</span></div>
+      <div class="mobile-sticky-actions">
+        <a class="btn btn-accent btn-sm" href="https://ai.haking.tr/?mode=prompt" target="_blank" rel="noopener noreferrer">Canlı Aç ↗</a>
+        <a class="btn btn-secondary btn-sm" href="#icerik" aria-label="Yukarı çık">↑</a>
+      </div>
+    </div>`,
     bodyHtml,
     schemas: [
       {

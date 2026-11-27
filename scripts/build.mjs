@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { SITE } from '../src/data/site.mjs';
 import { PROJECTS } from '../src/data/projects.mjs';
 import { CORE_ARTICLES } from '../src/data/articles-core.mjs';
+import { NEWS_ARTICLES } from '../src/data/articles-news.mjs';
 import { GUIDES_A } from '../src/data/articles-guides-a.mjs';
 import { GUIDES_B } from '../src/data/articles-guides-b.mjs';
 import { renderHomePage } from '../src/templates/home.mjs';
@@ -23,7 +24,7 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-const ALL_ARTICLES = [...CORE_ARTICLES, ...GUIDES_A, ...GUIDES_B].sort((a, b) => b.date.localeCompare(a.date));
+const ALL_ARTICLES = [...NEWS_ARTICLES, ...CORE_ARTICLES, ...GUIDES_A, ...GUIDES_B].sort((a, b) => b.date.localeCompare(a.date));
 
 function writeOut(relPath, content) {
   const full = path.join(ROOT, relPath);
@@ -37,11 +38,11 @@ function xmlEsc(s = '') {
 
 // 1. Render all HTML pages
 const pages = [
-  { file: 'index.html', urlPath: '', html: renderHomePage(ALL_ARTICLES), lastmod: SITE.buildDate, priority: '1.0', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
+  { file: 'index.html', urlPath: '', html: renderHomePage(ALL_ARTICLES, NEWS_ARTICLES), lastmod: SITE.buildDate, priority: '1.0', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
   { file: 'projects.html', urlPath: 'projects.html', html: renderProjectsCatalog(), lastmod: SITE.buildDate, priority: '0.95', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
   { file: 'haking-ai-prompt-modu.html', urlPath: 'haking-ai-prompt-modu.html', html: renderPromptModePage(), lastmod: SITE.buildDate, priority: '0.95', changefreq: 'weekly', image: 'assets/images/projects/prompt-mode.webp' },
   { file: 'blog.html', urlPath: 'blog.html', html: renderBlogArchive(ALL_ARTICLES), lastmod: SITE.buildDate, priority: '0.90', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
-  { file: 'haberler.html', urlPath: 'haberler.html', html: renderNewsHub(ALL_ARTICLES), lastmod: SITE.buildDate, priority: '0.85', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
+  { file: 'haberler.html', urlPath: 'haberler.html', html: renderNewsHub(ALL_ARTICLES, NEWS_ARTICLES), lastmod: SITE.buildDate, priority: '0.90', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
   { file: 'hakkimda.html', urlPath: 'hakkimda.html', html: renderAboutPage(), lastmod: SITE.buildDate, priority: '0.85', changefreq: 'monthly', image: 'assets/images/brand/og-haking.png' },
   { file: 'github.html', urlPath: 'github.html', html: renderGitHubPage(), lastmod: SITE.buildDate, priority: '0.85', changefreq: 'weekly', image: 'assets/images/brand/og-haking.png' },
   { file: 'proje-yaptir.html', urlPath: 'proje-yaptir.html', html: renderHirePage(), lastmod: SITE.buildDate, priority: '0.85', changefreq: 'monthly', image: 'assets/images/brand/og-haking.png' },

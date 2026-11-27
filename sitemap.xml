@@ -33,7 +33,7 @@
     <loc>https://haking.tr/haberler.html</loc>
     <lastmod>2026-11-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
     <image:image><image:loc>https://haking.tr/assets/images/brand/og-haking.png</image:loc></image:image>
   </url>
   <url>
@@ -200,11 +200,39 @@
     <image:image><image:loc>https://haking.tr/assets/images/projects/ai-desktop.webp</image:loc></image:image>
   </url>
   <url>
+    <loc>https://haking.tr/haber-yapay-zeka-agent-kodlama-2026.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/prompt-mode.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-statik-site-uretimi-ve-teknik-seo.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/brand/hero-studio.webp</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://haking.tr/makale-1.html</loc>
     <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <image:image><image:loc>https://haking.tr/assets/images/projects/haking-ai.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-cloudflare-workers-edge-mimarisi.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/spread.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-cs2-ekonomi-doppler-likidite-analizi.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/spread.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://haking.tr/makale-spread-arbitraj-mimarisi.html</loc>
@@ -214,11 +242,39 @@
     <image:image><image:loc>https://haking.tr/assets/images/projects/spread.webp</image:loc></image:image>
   </url>
   <url>
+    <loc>https://haking.tr/haber-core-web-vitals-inp-lcp-rehberi.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/copyhex.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-neon-postgresql-serverless-mimari.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/haking-ai.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-manifest-v3-tarayici-eklentisi-rehberi.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/cevirmenx.webp</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://haking.tr/makale-gercek-zamanli-oyun-sunucusu.html</loc>
     <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <image:image><image:loc>https://haking.tr/assets/images/projects/haking-chat.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-yerel-oncelikli-web-uygulamalari-pwa.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/notmatik.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://haking.tr/yazi-haking-ai-kesilen-yanit.html</loc>
@@ -242,11 +298,25 @@
     <image:image><image:loc>https://haking.tr/assets/images/projects/notmatik.webp</image:loc></image:image>
   </url>
   <url>
+    <loc>https://haking.tr/haber-turkce-oyun-yerellestirme-ve-utrzone.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/utrzone.webp</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://haking.tr/rehber-ai-gecikmesi.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <image:image><image:loc>https://haking.tr/assets/images/projects/haking-ai.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-oklch-ve-koyu-tema-tasarimi.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/copyhex.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://haking.tr/makale-2.html</loc>
@@ -256,11 +326,25 @@
     <image:image><image:loc>https://haking.tr/assets/images/projects/haking-vault.webp</image:loc></image:image>
   </url>
   <url>
+    <loc>https://haking.tr/haber-gercek-zamanli-web-websocket-sse.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/haking-chat.webp</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://haking.tr/yazi-notmatik-cok-bilesenli.html</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <image:image><image:loc>https://haking.tr/assets/images/projects/notmatik.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://haking.tr/haber-github-actions-otomasyon-rehberi.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <image:image><image:loc>https://haking.tr/assets/images/projects/haking-vault.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://haking.tr/rehber-cs2-autoexec-crosshair.html</loc>

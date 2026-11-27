@@ -1,6 +1,6 @@
 import { SITE } from '../data/site.mjs';
 import { PROJECTS, PROJECT_CATEGORIES } from '../data/projects.mjs';
-import { renderLayout, renderBreadcrumbs, renderAuthorBox, esc } from './layout.mjs';
+import { renderLayout, renderBreadcrumbs, renderAuthorBox, renderReadingControls, esc } from './layout.mjs';
 import { renderProjectCard } from './home.mjs';
 
 export function renderProjectsCatalog() {
@@ -132,12 +132,14 @@ export function renderProjectDetail(project, allArticles) {
           file: 'haking-ai-prompt-modu.html',
           title: 'HaKING AI Prompt Modu (v1.19.2) — Kapsamlı Tanıtım ve Canlı Örnekler',
           shortDesc: 'Sohbetten yapılandırılmış görev kartı ve denetlenmiş AI agent promptu üretme rehberi.',
-          kind: 'Özel Vitrin',
+          kind: 'Özel İnceleme',
         };
       }
       return allArticles.find((a) => a.file === f);
     })
     .filter(Boolean);
+
+  const otherProjects = PROJECTS.filter((p) => p.slug !== project.slug && p.category === project.category).slice(0, 3);
 
   const tocItems = [
     { id: 'genel-bakis', label: 'Genel Bakış' },
@@ -148,6 +150,20 @@ export function renderProjectDetail(project, allArticles) {
     ...(related.length ? [{ id: 'ilgili-yazilar', label: 'İlgili Teknik Yazılar' }] : []),
   ];
 
+  const primaryActionUrl = project.liveUrl || project.repoUrl;
+  const primaryActionLabel = project.liveUrl ? 'Canlı Siteye Git ↗' : `${project.downloadLabel || "GitHub'dan İndir"} ↗`;
+
+  const mobileStickyBar = `<div class="mobile-sticky-bar" id="mobile-sticky-bar" aria-label="Hızlı proje erişimi" hidden>
+    <div class="mobile-sticky-info">
+      <strong>${esc(project.name)}</strong>
+      <span class="mono">${esc(project.version)}${project.liveUrl ? ' · Yayında' : ''}</span>
+    </div>
+    <div class="mobile-sticky-actions">
+      <a class="btn btn-accent btn-sm" href="${esc(primaryActionUrl)}" target="_blank" rel="noopener noreferrer">${esc(primaryActionLabel)}</a>
+      <a class="btn btn-secondary btn-sm" href="#icerik" aria-label="Yukarı çık">↑</a>
+    </div>
+  </div>`;
+
   const bodyHtml = `
     <header class="page-intro">
       <div class="wrap">
@@ -156,7 +172,7 @@ export function renderProjectDetail(project, allArticles) {
         <h1>${esc(project.name)}</h1>
         <p class="lead">${esc(project.tagline)}</p>
         <div class="actions" style="margin-top:22px;">
-          ${project.liveUrl ? `<a class="btn btn-accent" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Canlı Siteyi Aç ↗</a>` : ''}
+          ${project.liveUrl ? `<a class="btn btn-accent" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Canlı Siteye Git ↗</a>` : ''}
           ${project.secondaryLiveUrl ? `<a class="btn btn-forest" href="${esc(project.secondaryLiveUrl)}" target="_blank" rel="noopener noreferrer">${esc(project.secondaryLiveLabel)} ↗</a>` : ''}
           <a class="btn btn-secondary" href="${esc(project.repoUrl)}" target="_blank" rel="noopener noreferrer">GitHub Kaynak Kodu ↗</a>
           <button type="button" class="btn btn-secondary btn-sm" data-bookmark-toggle data-url="${project.page}" data-title="${esc(project.name)}" data-type="Proje">☆ Okuma listesine ekle</button>
@@ -172,16 +188,38 @@ export function renderProjectDetail(project, allArticles) {
 
     <div class="wrap article-shell">
       <aside class="article-aside">
+        <!-- Sticky Quick Launch Card: always visible while scrolling! -->
+        <div class="toc-card sticky-launch-card">
+          <div class="sticky-launch-head">
+            <div>
+              <span class="live-pill" style="font-size:0.7rem;">${project.liveUrl ? 'Canlı Servis Aktif' : 'Açık Kaynak Masaüstü'}</span>
+              <strong class="sticky-launch-title">${esc(project.name)} <span class="mono" style="font-size:0.75rem;color:var(--ink-muted);">${esc(project.version)}</span></strong>
+            </div>
+          </div>
+          <div class="sticky-launch-btns">
+            <a class="btn btn-accent btn-sm" style="width:100%;" href="${esc(primaryActionUrl)}" target="_blank" rel="noopener noreferrer">${esc(primaryActionLabel)}</a>
+            ${project.secondaryLiveUrl ? `<a class="btn btn-forest btn-sm" style="width:100%;" href="${esc(project.secondaryLiveUrl)}" target="_blank" rel="noopener noreferrer">${esc(project.secondaryLiveLabel)} ↗</a>` : ''}
+            ${project.liveUrl ? `<a class="btn btn-secondary btn-sm" style="width:100%;" href="${esc(project.repoUrl)}" target="_blank" rel="noopener noreferrer">GitHub Kaynak Kodu ↗</a>` : ''}
+          </div>
+          <div class="sticky-launch-mini">
+            <button type="button" class="mini-util-btn" data-bookmark-toggle data-url="${project.page}" data-title="${esc(project.name)}" data-type="Proje">☆ Kaydet</button>
+            <button type="button" class="mini-util-btn" data-copy-text="${SITE.domain}/${project.page}">Linki Kopyala</button>
+          </div>
+        </div>
+
         <nav class="toc-card" aria-label="Sayfa içi gezinti">
           <div class="toc-title">Bu Proje Sayfasında</div>
           <ul class="toc-list">
             ${tocItems.map((t) => `<li><a href="#${t.id}">${esc(t.label)}</a></li>`).join('')}
           </ul>
         </nav>
+
         <div class="toc-card">
           <div class="toc-title">Teknoloji Yığını</div>
           <div class="chips">${project.stack.map((s) => `<span class="chip">${esc(s)}</span>`).join('')}</div>
         </div>
+
+        ${renderReadingControls()}
       </aside>
 
       <article class="prose prose-wide">
@@ -199,7 +237,7 @@ export function renderProjectDetail(project, allArticles) {
         <p>${esc(project.summary)}</p>
         ${
           project.slug === 'haking-ai'
-            ? `<div class="callout callout-forest"><span class="callout-title">Yeni v1.19.2 Güncellemesi — Prompt Modu</span><p>HaKING AI artık kod, sunum, görsel, video ve araştırma işleri için sohbet içinde görev kartı çıkaran ve bağımsız denetimle agent promptu üreten <strong>Prompt Modu</strong> özelliğine sahip. <a class="text-link" href="haking-ai-prompt-modu.html">Prompt Modu özel tanıtım sayfasını incele →</a></p></div>`
+            ? `<div class="callout callout-forest"><span class="callout-title">Yeni v1.19.2 Güncellemesi — Prompt Modu</span><p>HaKING AI artık kod, sunum, görsel, video ve araştırma işleri için sohbet içinde görev kartı çıkaran ve bağımsız denetimle agent promptu üreten <strong>Prompt Modu</strong> özelliğine sahip. <a class="text-link" href="haking-ai-prompt-modu.html">Prompt Modu incelemesini ve canlı karşılaştırıcıyı aç →</a></p></div>`
             : ''
         }
 
@@ -269,6 +307,26 @@ export function renderProjectDetail(project, allArticles) {
             : ''
         }
 
+        ${
+          otherProjects.length
+            ? `<section style="margin-top:38px;">
+                <h2 style="margin-top:0;">Aynı Kategorideki Diğer Projeler</h2>
+                <div class="grid-3" style="margin-top:16px;">
+                  ${otherProjects
+                    .map(
+                      (op) => `<article class="article-card" style="padding:16px;">
+                        <span class="tag">${esc(op.version)}</span>
+                        <h3 style="font-size:1.02rem;"><a href="${op.page}">${esc(op.name)}</a></h3>
+                        <p style="font-size:0.84rem;">${esc(op.tagline)}</p>
+                        <a class="text-link" href="${op.page}" style="margin-top:auto;">Projeyi incele →</a>
+                      </article>`
+                    )
+                    .join('')}
+                </div>
+              </section>`
+            : ''
+        }
+
         ${renderAuthorBox()}
       </article>
     </div>
@@ -310,6 +368,7 @@ export function renderProjectDetail(project, allArticles) {
     ogImage: project.image,
     breadcrumbs,
     showReadingBar: true,
+    mobileStickyBar,
     bodyHtml,
     schemas,
   });
